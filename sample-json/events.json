@@ -1,0 +1,821 @@
+{
+    "X-URL": "https://api.recollect.net/api/places/78FDDC58-CD53-11E6-90EA-441BE27DA4B8/services/257/events?nomerge=1&hide=reminder_only&after=2025-10-26&before=2025-12-08&locale=en&include_message=email&_=1762719405",
+    "events": [
+        {
+            "day": "2025-10-30",
+            "opts": {
+                "repeat_id": "D06C1E50-0EDC-11EF-BB9E-8EE9CEA6A007",
+                "repeat_data": {
+                    "start_day": "2024-07-11",
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks"
+                }
+            },
+            "flags": [
+                {
+                    "borderColor": "#044dc8",
+                    "area_name": "Durham",
+                    "event_type": "pickup",
+                    "subject": "Blue Box",
+                    "icon": "blue-box.durham",
+                    "sort_order": 5,
+                    "service_name": "waste",
+                    "color": "#044dc8",
+                    "icon_uri_fragment": "blue-box.durham",
+                    "plain_text_message": null,
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "backgroundColor": "#044dc8",
+                    "textColor": "#ffffff",
+                    "name": "recycling",
+                    "html_message": "",
+                    "is_week_long": 0,
+                    "id": 224,
+                    "opts": {}
+                }
+            ],
+            "id": 26841848,
+            "is_approved": 1,
+            "zone_id": 5882,
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "",
+            "custom_message": ""
+        },
+        {
+            "custom_subject": "",
+            "custom_message": "",
+            "is_approved": 1,
+            "zone_id": 5882,
+            "options": {
+                "ending_at": ""
+            },
+            "opts": {
+                "repeat_id": "D02248C0-0EDC-11EF-BB9E-8EE9CEA6A007",
+                "repeat_data": {
+                    "start_day": "2024-07-11",
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks"
+                }
+            },
+            "id": 26841809,
+            "flags": [
+                {
+                    "sort_order": 7,
+                    "icon": "green-bin.durham",
+                    "service_name": "waste",
+                    "color": "#2c8511",
+                    "borderColor": "#2c8511",
+                    "area_name": "Durham",
+                    "subject": "Green Bin",
+                    "event_type": "pickup",
+                    "textColor": "#ffffff",
+                    "name": "GreenBin",
+                    "opts": {},
+                    "id": 438,
+                    "is_week_long": 0,
+                    "html_message": "",
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "green-bin.durham",
+                    "backgroundColor": "#2c8511",
+                    "short_text_message": null,
+                    "voice_message": null
+                }
+            ],
+            "day": "2025-10-30"
+        },
+        {
+            "day": "2025-11-06",
+            "flags": [
+                {
+                    "backgroundColor": "#000000",
+                    "short_text_message": null,
+                    "voice_message": null,
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "garbage.durham",
+                    "opts": {},
+                    "id": 223,
+                    "html_message": "",
+                    "is_week_long": 0,
+                    "name": "garbage",
+                    "subject": "Garbage",
+                    "event_type": "pickup",
+                    "area_name": "Durham",
+                    "borderColor": "#000000",
+                    "color": "#000000",
+                    "sort_order": 4,
+                    "service_name": "waste",
+                    "icon": "garbage.durham"
+                }
+            ],
+            "opts": {
+                "repeat_id": "81F142F0-0EDC-11EF-8961-82E9CEA6A007",
+                "repeat_data": {
+                    "start_day": "2024-07-04",
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks"
+                }
+            },
+            "id": 26841720,
+            "is_approved": 1,
+            "zone_id": 5882,
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "",
+            "custom_message": ""
+        },
+        {
+            "opts": {
+                "repeat_data": {
+                    "start_day": "2024-07-04",
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks"
+                },
+                "repeat_id": "82366F10-0EDC-11EF-8BC9-82E9CEA6A007"
+            },
+            "id": 26841759,
+            "flags": [
+                {
+                    "color": "#044dc8",
+                    "sort_order": 5,
+                    "icon": "blue-box.durham",
+                    "service_name": "waste",
+                    "event_type": "pickup",
+                    "subject": "Blue Box",
+                    "borderColor": "#044dc8",
+                    "area_name": "Durham",
+                    "name": "recycling",
+                    "is_week_long": 0,
+                    "html_message": "",
+                    "id": 224,
+                    "opts": {},
+                    "textColor": "#ffffff",
+                    "icon_uri_fragment": "blue-box.durham",
+                    "plain_text_message": null,
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "backgroundColor": "#044dc8"
+                }
+            ],
+            "day": "2025-11-06",
+            "options": {
+                "ending_at": ""
+            },
+            "is_approved": 1,
+            "zone_id": 5882,
+            "custom_message": "",
+            "custom_subject": ""
+        },
+        {
+            "options": {
+                "ending_at": ""
+            },
+            "zone_id": 5882,
+            "is_approved": 1,
+            "custom_message": "",
+            "custom_subject": "",
+            "day": "2025-11-06",
+            "opts": {
+                "repeat_id": "81AA3694-0EDC-11EF-886C-82E9CEA6A007",
+                "repeat_data": {
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks",
+                    "start_day": "2024-07-04"
+                }
+            },
+            "flags": [
+                {
+                    "icon_uri_fragment": "green-bin.durham",
+                    "plain_text_message": null,
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "backgroundColor": "#2c8511",
+                    "textColor": "#ffffff",
+                    "name": "GreenBin",
+                    "html_message": "",
+                    "is_week_long": 0,
+                    "opts": {},
+                    "id": 438,
+                    "borderColor": "#2c8511",
+                    "area_name": "Durham",
+                    "subject": "Green Bin",
+                    "event_type": "pickup",
+                    "icon": "green-bin.durham",
+                    "service_name": "waste",
+                    "sort_order": 7,
+                    "color": "#2c8511"
+                }
+            ],
+            "id": 26841681
+        },
+        {
+            "day": "2025-11-06",
+            "opts": {
+                "repeat_data": {
+                    "start_day": "2025-05-08",
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks"
+                },
+                "repeat_id": "D4BAD684-0EDE-11EF-9D8C-CE1BEDA6EA97"
+            },
+            "id": 26842160,
+            "flags": [
+                {
+                    "subject": "Yard Waste",
+                    "event_type": "pickup",
+                    "area_name": "Durham",
+                    "borderColor": "#5d3f35",
+                    "color": "#5d3f35",
+                    "sort_order": 8,
+                    "service_name": "waste",
+                    "icon": "yard-waste.durham",
+                    "short_text_message": null,
+                    "backgroundColor": "#5d3f35",
+                    "voice_message": null,
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "yard-waste.durham",
+                    "id": 225,
+                    "opts": {},
+                    "is_week_long": 0,
+                    "html_message": "",
+                    "name": "yardwaste",
+                    "textColor": "#ffffff"
+                }
+            ],
+            "zone_id": 5882,
+            "is_approved": 1,
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "",
+            "custom_message": ""
+        },
+        {
+            "custom_subject": "",
+            "custom_message": "",
+            "zone_id": 5882,
+            "is_approved": 1,
+            "options": {
+                "ending_at": ""
+            },
+            "end_day": "2025-11-06",
+            "day": "2025-11-06",
+            "opts": {},
+            "flags": [
+                {
+                    "name": "pumpkins",
+                    "opts": {
+                        "event_type": "pickup"
+                    },
+                    "id": 10920,
+                    "is_week_long": 0,
+                    "html_message": "",
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "0,0,0/pumpkin",
+                    "backgroundColor": "#fc8c05",
+                    "short_text_message": null,
+                    "voice_message": null,
+                    "service_name": "waste",
+                    "icon": "pumpkin:rgb(0,0,0)",
+                    "sort_order": 11,
+                    "color": "#fc8c05",
+                    "borderColor": "#5FAE47",
+                    "area_name": "Durham",
+                    "event_type": "pickup",
+                    "subject": "Pumpkins"
+                }
+            ],
+            "id": 26842170
+        },
+        {
+            "day": "2025-11-13",
+            "id": 26841849,
+            "opts": {
+                "repeat_data": {
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks",
+                    "start_day": "2024-07-11"
+                },
+                "repeat_id": "D06C1E50-0EDC-11EF-BB9E-8EE9CEA6A007"
+            },
+            "flags": [
+                {
+                    "subject": "Blue Box",
+                    "event_type": "pickup",
+                    "borderColor": "#044dc8",
+                    "area_name": "Durham",
+                    "color": "#044dc8",
+                    "service_name": "waste",
+                    "sort_order": 5,
+                    "icon": "blue-box.durham",
+                    "icon_uri_fragment": "blue-box.durham",
+                    "plain_text_message": null,
+                    "voice_message": null,
+                    "backgroundColor": "#044dc8",
+                    "short_text_message": null,
+                    "name": "recycling",
+                    "is_week_long": 0,
+                    "html_message": "",
+                    "opts": {},
+                    "id": 224,
+                    "textColor": "#ffffff"
+                }
+            ],
+            "zone_id": 5882,
+            "is_approved": 1,
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "",
+            "custom_message": ""
+        },
+        {
+            "day": "2025-11-13",
+            "opts": {
+                "repeat_id": "D02248C0-0EDC-11EF-BB9E-8EE9CEA6A007",
+                "repeat_data": {
+                    "start_day": "2024-07-11",
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31"
+                }
+            },
+            "id": 26841810,
+            "flags": [
+                {
+                    "borderColor": "#2c8511",
+                    "area_name": "Durham",
+                    "subject": "Green Bin",
+                    "event_type": "pickup",
+                    "service_name": "waste",
+                    "icon": "green-bin.durham",
+                    "sort_order": 7,
+                    "color": "#2c8511",
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "green-bin.durham",
+                    "backgroundColor": "#2c8511",
+                    "short_text_message": null,
+                    "voice_message": null,
+                    "textColor": "#ffffff",
+                    "name": "GreenBin",
+                    "id": 438,
+                    "opts": {},
+                    "html_message": "",
+                    "is_week_long": 0
+                }
+            ],
+            "custom_subject": "",
+            "custom_message": "",
+            "zone_id": 5882,
+            "is_approved": 1,
+            "options": {
+                "ending_at": ""
+            }
+        },
+        {
+            "day": "2025-11-20",
+            "opts": {
+                "repeat_id": "81F142F0-0EDC-11EF-8961-82E9CEA6A007",
+                "repeat_data": {
+                    "start_day": "2024-07-04",
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31"
+                }
+            },
+            "flags": [
+                {
+                    "event_type": "pickup",
+                    "subject": "Garbage",
+                    "borderColor": "#000000",
+                    "area_name": "Durham",
+                    "color": "#000000",
+                    "sort_order": 4,
+                    "icon": "garbage.durham",
+                    "service_name": "waste",
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "garbage.durham",
+                    "backgroundColor": "#000000",
+                    "short_text_message": null,
+                    "voice_message": null,
+                    "name": "garbage",
+                    "id": 223,
+                    "opts": {},
+                    "is_week_long": 0,
+                    "html_message": ""
+                }
+            ],
+            "id": 26841721,
+            "zone_id": 5882,
+            "is_approved": 1,
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "",
+            "custom_message": ""
+        },
+        {
+            "zone_id": 5882,
+            "is_approved": 1,
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "",
+            "custom_message": "",
+            "opts": {
+                "repeat_id": "82366F10-0EDC-11EF-8BC9-82E9CEA6A007",
+                "repeat_data": {
+                    "start_day": "2024-07-04",
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31"
+                }
+            },
+            "id": 26841760,
+            "flags": [
+                {
+                    "borderColor": "#044dc8",
+                    "area_name": "Durham",
+                    "event_type": "pickup",
+                    "subject": "Blue Box",
+                    "icon": "blue-box.durham",
+                    "sort_order": 5,
+                    "service_name": "waste",
+                    "color": "#044dc8",
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "blue-box.durham",
+                    "short_text_message": null,
+                    "backgroundColor": "#044dc8",
+                    "voice_message": null,
+                    "textColor": "#ffffff",
+                    "name": "recycling",
+                    "opts": {},
+                    "id": 224,
+                    "is_week_long": 0,
+                    "html_message": ""
+                }
+            ],
+            "day": "2025-11-20"
+        },
+        {
+            "options": {
+                "ending_at": ""
+            },
+            "is_approved": 1,
+            "zone_id": 5882,
+            "custom_message": "",
+            "custom_subject": "",
+            "opts": {
+                "repeat_id": "81AA3694-0EDC-11EF-886C-82E9CEA6A007",
+                "repeat_data": {
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31",
+                    "start_day": "2024-07-04"
+                }
+            },
+            "flags": [
+                {
+                    "id": 438,
+                    "opts": {},
+                    "html_message": "",
+                    "is_week_long": 0,
+                    "name": "GreenBin",
+                    "textColor": "#ffffff",
+                    "backgroundColor": "#2c8511",
+                    "short_text_message": null,
+                    "voice_message": null,
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "green-bin.durham",
+                    "color": "#2c8511",
+                    "service_name": "waste",
+                    "sort_order": 7,
+                    "icon": "green-bin.durham",
+                    "subject": "Green Bin",
+                    "event_type": "pickup",
+                    "area_name": "Durham",
+                    "borderColor": "#2c8511"
+                }
+            ],
+            "id": 26841682,
+            "day": "2025-11-20"
+        },
+        {
+            "options": {
+                "ending_at": ""
+            },
+            "zone_id": 5882,
+            "is_approved": 1,
+            "custom_message": "",
+            "custom_subject": "",
+            "day": "2025-11-20",
+            "opts": {
+                "repeat_id": "D4BAD684-0EDE-11EF-9D8C-CE1BEDA6EA97",
+                "repeat_data": {
+                    "start_day": "2025-05-08",
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31"
+                }
+            },
+            "id": 26842161,
+            "flags": [
+                {
+                    "name": "yardwaste",
+                    "html_message": "",
+                    "is_week_long": 0,
+                    "id": 225,
+                    "opts": {},
+                    "textColor": "#ffffff",
+                    "icon_uri_fragment": "yard-waste.durham",
+                    "plain_text_message": null,
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "backgroundColor": "#5d3f35",
+                    "color": "#5d3f35",
+                    "sort_order": 8,
+                    "service_name": "waste",
+                    "icon": "yard-waste.durham",
+                    "event_type": "pickup",
+                    "subject": "Yard Waste",
+                    "borderColor": "#5d3f35",
+                    "area_name": "Durham"
+                }
+            ]
+        },
+        {
+            "flags": [
+                {
+                    "icon_uri_fragment": "blue-box.durham",
+                    "plain_text_message": null,
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "backgroundColor": "#044dc8",
+                    "textColor": "#ffffff",
+                    "name": "recycling",
+                    "html_message": "",
+                    "is_week_long": 0,
+                    "opts": {},
+                    "id": 224,
+                    "borderColor": "#044dc8",
+                    "area_name": "Durham",
+                    "event_type": "pickup",
+                    "subject": "Blue Box",
+                    "icon": "blue-box.durham",
+                    "sort_order": 5,
+                    "service_name": "waste",
+                    "color": "#044dc8"
+                }
+            ],
+            "opts": {
+                "repeat_data": {
+                    "start_day": "2024-07-11",
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31"
+                },
+                "repeat_id": "D06C1E50-0EDC-11EF-BB9E-8EE9CEA6A007"
+            },
+            "id": 26841850,
+            "day": "2025-11-27",
+            "options": {
+                "ending_at": ""
+            },
+            "zone_id": 5882,
+            "is_approved": 1,
+            "custom_message": "",
+            "custom_subject": ""
+        },
+        {
+            "custom_subject": "",
+            "custom_message": "",
+            "is_approved": 1,
+            "zone_id": 5882,
+            "options": {
+                "ending_at": ""
+            },
+            "day": "2025-11-27",
+            "opts": {
+                "repeat_id": "D02248C0-0EDC-11EF-BB9E-8EE9CEA6A007",
+                "repeat_data": {
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31",
+                    "start_day": "2024-07-11"
+                }
+            },
+            "flags": [
+                {
+                    "event_type": "pickup",
+                    "subject": "Green Bin",
+                    "area_name": "Durham",
+                    "borderColor": "#2c8511",
+                    "color": "#2c8511",
+                    "sort_order": 7,
+                    "icon": "green-bin.durham",
+                    "service_name": "waste",
+                    "short_text_message": null,
+                    "backgroundColor": "#2c8511",
+                    "voice_message": null,
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "green-bin.durham",
+                    "opts": {},
+                    "id": 438,
+                    "is_week_long": 0,
+                    "html_message": "",
+                    "name": "GreenBin",
+                    "textColor": "#ffffff"
+                }
+            ],
+            "id": 26841811
+        },
+        {
+            "id": 26841722,
+            "opts": {
+                "repeat_id": "81F142F0-0EDC-11EF-8961-82E9CEA6A007",
+                "repeat_data": {
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31",
+                    "start_day": "2024-07-04"
+                }
+            },
+            "flags": [
+                {
+                    "icon": "garbage.durham",
+                    "service_name": "waste",
+                    "sort_order": 4,
+                    "color": "#000000",
+                    "area_name": "Durham",
+                    "borderColor": "#000000",
+                    "event_type": "pickup",
+                    "subject": "Garbage",
+                    "opts": {},
+                    "id": 223,
+                    "is_week_long": 0,
+                    "html_message": "",
+                    "name": "garbage",
+                    "short_text_message": null,
+                    "backgroundColor": "#000000",
+                    "voice_message": null,
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "garbage.durham"
+                }
+            ],
+            "day": "2025-12-04",
+            "custom_message": "",
+            "custom_subject": "",
+            "options": {
+                "ending_at": ""
+            },
+            "zone_id": 5882,
+            "is_approved": 1
+        },
+        {
+            "day": "2025-12-04",
+            "opts": {
+                "repeat_data": {
+                    "start_day": "2024-07-04",
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31"
+                },
+                "repeat_id": "82366F10-0EDC-11EF-8BC9-82E9CEA6A007"
+            },
+            "flags": [
+                {
+                    "icon_uri_fragment": "blue-box.durham",
+                    "plain_text_message": null,
+                    "voice_message": null,
+                    "backgroundColor": "#044dc8",
+                    "short_text_message": null,
+                    "name": "recycling",
+                    "is_week_long": 0,
+                    "html_message": "",
+                    "opts": {},
+                    "id": 224,
+                    "textColor": "#ffffff",
+                    "event_type": "pickup",
+                    "subject": "Blue Box",
+                    "borderColor": "#044dc8",
+                    "area_name": "Durham",
+                    "color": "#044dc8",
+                    "icon": "blue-box.durham",
+                    "service_name": "waste",
+                    "sort_order": 5
+                }
+            ],
+            "id": 26841761,
+            "options": {
+                "ending_at": ""
+            },
+            "is_approved": 1,
+            "zone_id": 5882,
+            "custom_message": "",
+            "custom_subject": ""
+        },
+        {
+            "opts": {
+                "repeat_id": "81AA3694-0EDC-11EF-886C-82E9CEA6A007",
+                "repeat_data": {
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks",
+                    "start_day": "2024-07-04"
+                }
+            },
+            "id": 26841683,
+            "flags": [
+                {
+                    "event_type": "pickup",
+                    "subject": "Green Bin",
+                    "borderColor": "#2c8511",
+                    "area_name": "Durham",
+                    "color": "#2c8511",
+                    "sort_order": 7,
+                    "service_name": "waste",
+                    "icon": "green-bin.durham",
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "green-bin.durham",
+                    "short_text_message": null,
+                    "backgroundColor": "#2c8511",
+                    "voice_message": null,
+                    "name": "GreenBin",
+                    "id": 438,
+                    "opts": {},
+                    "html_message": "",
+                    "is_week_long": 0,
+                    "textColor": "#ffffff"
+                }
+            ],
+            "day": "2025-12-04",
+            "custom_subject": "",
+            "custom_message": "",
+            "is_approved": 1,
+            "zone_id": 5882,
+            "options": {
+                "ending_at": ""
+            }
+        },
+        {
+            "day": "2025-12-04",
+            "opts": {
+                "repeat_id": "D4BAD684-0EDE-11EF-9D8C-CE1BEDA6EA97",
+                "repeat_data": {
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks",
+                    "start_day": "2025-05-08"
+                }
+            },
+            "id": 26842162,
+            "flags": [
+                {
+                    "short_text_message": null,
+                    "backgroundColor": "#5d3f35",
+                    "voice_message": null,
+                    "plain_text_message": null,
+                    "icon_uri_fragment": "yard-waste.durham",
+                    "id": 225,
+                    "opts": {},
+                    "is_week_long": 0,
+                    "html_message": "",
+                    "name": "yardwaste",
+                    "textColor": "#ffffff",
+                    "subject": "Yard Waste",
+                    "event_type": "pickup",
+                    "area_name": "Durham",
+                    "borderColor": "#5d3f35",
+                    "color": "#5d3f35",
+                    "icon": "yard-waste.durham",
+                    "sort_order": 8,
+                    "service_name": "waste"
+                }
+            ],
+            "options": {
+                "ending_at": ""
+            },
+            "is_approved": 1,
+            "zone_id": 5882,
+            "custom_message": "",
+            "custom_subject": ""
+        }
+    ],
+    "parcel_opts": {},
+    "zones": {
+        "5882": {
+            "pdf_uri": {},
+            "service_id": 257,
+            "is_empty": 0,
+            "title": "Oshawa Thursday Area 2",
+            "line_colour": "rgba(204,204,204,255)",
+            "colour_name": "durham-zone-oshawa-thursday-area-2",
+            "has_geom": 0,
+            "id": 5882,
+            "opts": {},
+            "name": "durham-zone-oshawa-thursday-area-2",
+            "link_uri": {},
+            "poly_colour": "rgba(204,204,204,153)",
+            "loc_title": {
+                "en": "Oshawa Thursday Area 2"
+            },
+            "description": {},
+            "priority": 0,
+            "has_parcels": 1,
+            "link_text": {},
+            "show_when_empty": 0,
+            "has_unapproved_future_events": 0
+        }
+    }
+}
