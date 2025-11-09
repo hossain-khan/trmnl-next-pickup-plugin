@@ -1,0 +1,361 @@
+{
+    "tags": [],
+    "client_id": "9518569A-BDA2-11F0-8699-12388AE528D4",
+    "step": 1,
+    "js_errors": [],
+    "sections": [
+        {
+            "titleClass": "card-title",
+            "title": "Next Event",
+            "className": "card",
+            "rows": [
+                {
+                    "href": null,
+                    "type": "html",
+                    "icon": null,
+                    "images": [],
+                    "html": "<strong>Thursday, November 13, 2025</strong>"
+                },
+                {
+                    "content": {
+                        "open_icon": "fa-angle-down:rgb(0,0,0)",
+                        "sections": [
+                            {
+                                "rows": [
+                                    {
+                                        "index": 0,
+                                        "images": [],
+                                        "html": "<p>Durham&rsquo;s recycling program is managed by Circular Materials, the administrator of the common collection system and a national not-for-profit organization.</p>\n\n<p>&nbsp;</p>\n\n<p>Visit&nbsp;<a href=\"https://www.circularmaterials.ca/resident-communities/durham-region/\">Circular Materials</a>&nbsp;for more information.</p>\n",
+                                        "icon": "notification:rgb(7,0,0)",
+                                        "href": null,
+                                        "type": "html"
+                                    },
+                                    {
+                                        "html": "<p>Use two blue boxes:&nbsp;One for all of the &quot;<strong>containers</strong>&quot;&nbsp; and the other for &ldquo;<strong>paper</strong>&rdquo; products.</p>\n\n<p>&nbsp;</p>\n\n<p>Recycling must be loose inside your Blue Box, not in plastic bags. Recycling set out in plastic bags will not be collected.</p>\n",
+                                        "images": [],
+                                        "index": 1,
+                                        "editable": "1",
+                                        "type": "html",
+                                        "href": null,
+                                        "icon": "blue-box.durham:rgb(0,0,0)"
+                                    }
+                                ],
+                                "index": 0,
+                                "title": "",
+                                "included_from": "recycling"
+                            },
+                            {
+                                "included_from": "recycling",
+                                "title": "Pick up reminders",
+                                "index": 1,
+                                "rows": [
+                                    {
+                                        "editable": "1",
+                                        "html": "<p>All blue box recyclables must be set out at the curb before <strong>7 a.m. </strong>on your&nbsp;pick up&nbsp;day.</p>\n",
+                                        "index": 0,
+                                        "images": [],
+                                        "icon": "reminder:rgb(0,0,0)",
+                                        "type": "html",
+                                        "href": null
+                                    },
+                                    {
+                                        "href": null,
+                                        "type": "html",
+                                        "icon": "reminder:rgb(0,0,0)",
+                                        "index": 1,
+                                        "images": [],
+                                        "html": "<p>Blue boxes cannot weigh more than <strong>20 kilograms (44 pounds)</strong>.</p>\n"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "New and Replacement Blue Boxes",
+                                "included_from": "recycling",
+                                "rows": [
+                                    {
+                                        "images": [],
+                                        "index": 0,
+                                        "html": "<p>For any recycling collection inquiries, please reach out to your recycling contractor.</p>\n\n<p>&nbsp;</p>\n\n<p>They can be contacted about replacement bins, missed, collection and any other recycling questions.</p>\n\n<p>&nbsp;</p>\n\n<p><strong>Ajax, Clarington, Brock, Pickering, Scugog and Uxbridge:</strong></p>\n\n<p>&nbsp;</p>\n\n<p>Miller Waste Systems</p>\n\n<p><a href=\"mailto:area8@MillerWaste.ca\">area8@MillerWaste.ca</a></p>\n\n<p>&nbsp;</p>\n\n<p><a href=\"tel:1-888-852-4723\">1-888-852-4723</a></p>\n\n<p>&nbsp;</p>\n\n<p><strong>Oshawa and Whitby:</strong></p>\n\n<p>&nbsp;</p>\n\n<p>GFL Environmental Inc.</p>\n\n<p><a href=\"mailto:OshawaWhitbyRecycle@gflenv.com\" target=\"_blank\">OshawaWhitbyRecycle@gflenv.com</a></p>\n\n<p>&nbsp;</p>\n\n<p><a href=\"tel:1-855-577-4351\">1-855-577-4351</a></p>\n\n<p>&nbsp;</p>\n\n<p><a href=\"https://www.gflenv.com/canadarecycles\" target=\"_blank\">gflenv.com/canadarecycles</a></p>\n\n<p>&nbsp;</p>\n",
+                                        "href": null,
+                                        "type": "html",
+                                        "icon": "blue-box.durham:rgb(0,0,0)"
+                                    }
+                                ],
+                                "index": 2
+                            },
+                            {
+                                "index": 3,
+                                "rows": [
+                                    {
+                                        "index": 0,
+                                        "images": [],
+                                        "editable": "1",
+                                        "page": "wizard_search",
+                                        "label": "Not sure where it goes? Let us help you!",
+                                        "type": "page",
+                                        "href": null,
+                                        "icon": "waste_wizard:rgb(0,0,0)"
+                                    }
+                                ],
+                                "title": "Know Before You Throw",
+                                "included_from": "recycling"
+                            }
+                        ],
+                        "close_icon": "fa-angle-up:rgb(0,0,0)"
+                    },
+                    "html": "Blue Box",
+                    "page": "recycling",
+                    "href": null,
+                    "label": "Blue Box",
+                    "type": "rich-content",
+                    "icon": "blue-box.durham",
+                    "images": []
+                },
+                {
+                    "page": "GreenBin",
+                    "html": "Green Bin",
+                    "content": {
+                        "sections": [
+                            {
+                                "title": "",
+                                "included_from": "greenbin",
+                                "rows": [
+                                    {
+                                        "editable": "1",
+                                        "html": "<p>Place your green bin at the curb every week on your pickup day.</p>",
+                                        "index": 0,
+                                        "images": [],
+                                        "icon": "green-bin.durham:rgb(0,0,0)",
+                                        "type": "html",
+                                        "href": null
+                                    }
+                                ],
+                                "index": 0
+                            },
+                            {
+                                "index": 1,
+                                "rows": [
+                                    {
+                                        "editable": "1",
+                                        "index": 0,
+                                        "images": [],
+                                        "html": "<p>Green bin must be at the curb before<strong> 7 a.m. </strong>on your pickup day.</p>\n",
+                                        "icon": "reminder:rgb(0,0,0)",
+                                        "href": null,
+                                        "type": "html"
+                                    },
+                                    {
+                                        "images": [],
+                                        "index": 1,
+                                        "html": "<p>Green bins cannot weigh more than <strong>20 kilograms (44 pounds)</strong>.</p>\n",
+                                        "editable": "1",
+                                        "href": null,
+                                        "type": "html",
+                                        "icon": "reminder:rgb(0,0,0)"
+                                    }
+                                ],
+                                "included_from": "greenbin",
+                                "title": "Pick up reminders"
+                            },
+                            {
+                                "rows": [
+                                    {
+                                        "editable": "1",
+                                        "html": "<p>Ensure all green bin organic waste is bagged in 100 per cent compostable bags.&nbsp;</p>\n",
+                                        "index": 0,
+                                        "images": [],
+                                        "icon": "reminder:rgb(0,0,0)",
+                                        "type": "html",
+                                        "href": null
+                                    },
+                                    {
+                                        "html": "<p>Residents are strongly encouraged to use compostable bags for items such as diapers, menstrual and incontinence products, pet waste and pet litter. Loose material will not be collected.</p>\n",
+                                        "index": 1,
+                                        "images": [],
+                                        "icon": "reminder:rgb(0,0,0)",
+                                        "type": "html",
+                                        "href": null
+                                    },
+                                    {
+                                        "index": 2,
+                                        "images": [],
+                                        "html": "<p>Please&nbsp;remove all&nbsp;tie-downs (i.e.&nbsp;bungee cords)&nbsp;prior to collection.</p>\n",
+                                        "icon": "reminder:rgb(0,0,0)",
+                                        "href": null,
+                                        "type": "html"
+                                    }
+                                ],
+                                "index": 2,
+                                "included_from": "greenbin",
+                                "title": "Green Bin liners"
+                            },
+                            {
+                                "rows": [
+                                    {
+                                        "index": 0,
+                                        "images": [],
+                                        "html": "<p>Purchase or exchange your bins online and receive delivery to your home.&nbsp;</p>\n\n<p>&nbsp;</p>\n\n<p><a href=\"https://www.municipal311.ca/en-US/interaction-type-deflection/?id=ab3a2486-2d2b-ef11-840a-000d3a09d744\">Click here </a>to order online</p>\n",
+                                        "icon": "android_forward:rgb(0,0,0)",
+                                        "href": null,
+                                        "type": "html"
+                                    },
+                                    {
+                                        "images": [],
+                                        "index": 1,
+                                        "html": "<p><strong>Prices:</strong></p>\n\n<p>Kitchen bin&nbsp;- $4 each.</p>\n\n<p>Green bin - $19 each.</p>\n\n<p>Exchange broken kitchen bin&nbsp;- free</p>\n\n<p>Exchange broken green bin - free</p>\n",
+                                        "href": null,
+                                        "type": "html",
+                                        "icon": "android_forward:rgb(0,0,0)"
+                                    }
+                                ],
+                                "index": 3,
+                                "included_from": "greenbin",
+                                "title": "Online purchases and exchanges"
+                            },
+                            {
+                                "rows": [
+                                    {
+                                        "icon": "android_forward:rgb(0,0,0)",
+                                        "type": "html",
+                                        "href": null,
+                                        "html": "<p>Waste Management Centre</p>\n\n<p><a href=\"https://www.google.ca/maps/place/4600+Garrard+Rd,+Whitby,+ON+L1R+3K8/@43.9343689,-78.9248577,17z/data=!3m1!4b1!4m5!3m4!1s0x89d51c072e4efdc3:0xddc48d12da8d2997!8m2!3d43.9343689!4d-78.922669\">4600 Garrard Rd.&nbsp;Whitby</a></p>\n\n<p>Monday to Friday</p>\n\n<p>8:30 a.m. and 4:30 p.m.&nbsp;</p>\n",
+                                        "images": [],
+                                        "index": 0
+                                    },
+                                    {
+                                        "icon": "android_forward:rgb(0,0,0)",
+                                        "type": "html",
+                                        "href": null,
+                                        "html": "<p>Household Special Waste Depot</p>\n\n<p><a href=\"https://www.google.ca/maps/place/1998+Bowmanville+Ave,+Bowmanville,+ON/@43.9132013,-78.7049317,17z/data=!3m1!4b1!4m5!3m4!1s0x89d5012aa28750d9:0x38f80c3a2308e109!8m2!3d43.9132013!4d-78.702743\">1998 Bowmanville Ave.&nbsp;Bowmanville</a></p>\n\n<p>Tuesday to Saturday</p>\n\n<p>8 a.m. to 4 p.m.</p>\n\n<p>&nbsp;</p>\n",
+                                        "images": [],
+                                        "index": 1
+                                    },
+                                    {
+                                        "href": null,
+                                        "type": "html",
+                                        "icon": "android_forward:rgb(0,0,0)",
+                                        "index": 2,
+                                        "images": [],
+                                        "html": "<p><strong>Prices:</strong></p>\n\n<p>Kitchen bin - $4 each</p>\n\n<p>Green bin - $19 each</p>\n\n<p>Exchange broken kitchen bin - free</p>\n\n<p>Exchange broken green bin - free</p>\n\n<p>&nbsp;</p>\n\n<p>For exchanges, please bring your broken bin with you.</p>\n"
+                                    }
+                                ],
+                                "index": 4,
+                                "included_from": "greenbin",
+                                "title": "In-person purchases and exchanges "
+                            },
+                            {
+                                "included_from": "greenbin",
+                                "title": "Know Before You Throw",
+                                "rows": [
+                                    {
+                                        "href": null,
+                                        "type": "page",
+                                        "label": "Not sure where it goes? Let us help you!",
+                                        "icon": "waste_wizard:rgb(0,0,0)",
+                                        "page": "wizard_search",
+                                        "index": 0,
+                                        "images": [],
+                                        "editable": "1"
+                                    }
+                                ],
+                                "index": 5
+                            }
+                        ],
+                        "close_icon": "fa-angle-up:rgb(0,0,0)",
+                        "open_icon": "fa-angle-down:rgb(0,0,0)"
+                    },
+                    "icon": "green-bin.durham",
+                    "href": null,
+                    "label": "Green Bin",
+                    "type": "rich-content",
+                    "images": []
+                }
+            ]
+        },
+        {
+            "title": null,
+            "requires": 0,
+            "classes": "calendar-btns",
+            "rows": [
+                {
+                    "requires_orig": [
+                        "place.has_next_event"
+                    ],
+                    "images": [],
+                    "index": 0,
+                    "requires": 0,
+                    "icon": "clock",
+                    "style": "success",
+                    "label": "Get a reminder!",
+                    "type": "button",
+                    "href": "#",
+                    "page": "widget_subscribe",
+                    "row_id": "rCbtn-get-reminder"
+                },
+                {
+                    "label": "Get a calendar",
+                    "type": "button",
+                    "href": "#",
+                    "requires": 0,
+                    "icon": "calendar",
+                    "row_id": "rCbtn-get-calendar",
+                    "page": "widget_subscribe_calendar",
+                    "requires_orig": [
+                        "place.has_next_event",
+                        "!svc-opt.hide_get_calendar_button"
+                    ],
+                    "index": 1,
+                    "images": []
+                }
+            ]
+        },
+        {
+            "requires": 0,
+            "title": null,
+            "rows": [
+                {
+                    "images": [],
+                    "type": "calendar",
+                    "href": null,
+                    "place": "918DB048-D91A-11E8-B83E-68F5AF88FEB0"
+                }
+            ]
+        }
+    ],
+    "data": {},
+    "opts": {
+        "share": [
+            {
+                "name": "waste",
+                "title": "This Tool"
+            }
+        ],
+        "authorization": 1,
+        "title": "Calendar",
+        "no_breadcrumbs": true,
+        "feedback_page": "feedback"
+    },
+    "is_default": 1,
+    "page_name": "place_calendar",
+    "caption": "Calendar",
+    "editing": 0,
+    "id": -1,
+    "page_type": "widget",
+    "content": "[{\"$subtitle\":\"$place.subtitle\",\"$title\":\"$place.name\",\"layout\":\"title-bar\",\"requires\":\"(app OR (widget AND !client.uses_logan)) AND (view.calendar OR view.schedule)\",\"rows\":[{\"include\":\"calendar_buttons\"}]},{\"@title\":\"server.attention:\",\"alert\":\"service\",\"class\":\"WidgetServiceAlert\",\"requires\":\"(app OR (widget AND !client.uses_logan)) AND (view.calendar OR view.schedule) AND place.has_active_alert\"},{\"alert\":\"campaign\",\"class\":\"WidgetCampaign\",\"requires\":\"(app OR (widget AND !client.uses_logan)) AND (view.calendar OR view.schedule) AND !place.has_active_alert\"},{\"@title\":\"server.attention:\",\"alert\":\"service\",\"class\":\"WidgetServiceAlert\",\"requires\":\"widget AND (view.calendar OR view.schedule) AND place.has_active_alert AND client.uses_logan\"},{\"alert\":\"campaign\",\"class\":\"WidgetCampaign\",\"requires\":\"widget AND (view.calendar OR view.schedule) AND !place.has_active_alert AND client.uses_logan\"},{\"alert\":\"zone\",\"class\":\"ZoneDescription\",\"requires\":\"widget AND view.calendar AND client.uses_logan AND place.has_next_event AND place.subtitle\"},{\"className\":\"card\",\"requires\":\"(view.calendar OR view.schedule) AND !place.has_next_event AND client.uses_logan\",\"rows\":[{\"$html\":\"$place.subtitle\",\"type\":\"html\"}]},{\"class\":\"Schedule\",\"prefers_logan\":true,\"requires\":\"widget AND view.calendar AND client.uses_logan AND place.has_next_event\",\"section_filter\":[\"next\"]},{\"classes\":\"calendar-btns\",\"requires\":\"widget AND (view.calendar OR view.schedule) AND client.uses_logan\",\"rows\":[{\"include\":\"calendar_buttons\"}]},{\"requires\":\"view.calendar AND place.has_next_event\",\"rows\":[{\"$place\":\"$place_id\",\"type\":\"calendar\"}]},{\"alert\":\"info\",\"requires\":\"view.calendar AND !place.has_next_event AND !zone.description AND !svc-opt.hide_empty_calendar_message\",\"rows\":[{\"@html\":\"widget.no-schedule-info\",\"type\":\"html\"}]},{\"class\":\"Schedule\",\"prefers_logan\":true,\"requires\":\"view.schedule AND place.has_next_event\"},{\"include\":\"commercial_schedule\",\"requires\":\"view.commercial\"},{\"include\":\"widget_footer\"}]",
+    "default_image": null,
+    "base_locale": "en",
+    "locale": "en",
+    "sets": [
+        {
+            "active": 1,
+            "user_visible": 1,
+            "sort_order": 0,
+            "service_id": 257,
+            "id": 89,
+            "name": "default",
+            "title": {
+                "en": "Default"
+            }
+        }
+    ]
+}
