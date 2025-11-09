@@ -68,7 +68,7 @@ Durham Waste Collection
 
 **3. Polling URL:**
 ```
-https://api.recollect.net/api/places/{{ place_id }}/services/257/events?nomerge=1&hide=reminder_only&after={{ "now" | date: "%Y-%m-%d" }}&before={{ "now" | date: "%Y-%m-%d", offset: 2592000 }}&locale=en
+https://api.recollect.net/api/places/{{ place_id }}/services/{{ service_id }}/events?nomerge=1&hide=reminder_only&after={{ "now" | date: "%Y-%m-%d" }}&before={{ "now" | date: "%s" | plus: 2592000 | date: "%Y-%m-%d" }}&locale=en
 ```
 
 **4. Polling Verb:**
@@ -92,6 +92,12 @@ Click on **"Form Fields"** section and paste this YAML:
   name: Place ID
   description: Your unique location ID from Recollect. Find it using the instructions in the setup guide.
   placeholder: "918DB048-D91A-11E8-B83E-68F5AF88FEB0"
+
+- keyname: service_id
+  field_type: string
+  name: Service ID
+  description: The waste collection service ID (usually 257 for Durham Region)
+  placeholder: "257"
 
 - keyname: address
   field_type: string
@@ -249,6 +255,7 @@ Click on **"Form Fields"** section and paste this YAML:
 
 1. **Fill in Form Fields** (bottom right of markup editor):
    - Place ID: `918DB048-D91A-11E8-B83E-68F5AF88FEB0`
+   - Service ID: `257`
    - Display Address: `1 King Street, Oshawa` (optional)
 
 2. **Click "Force Refresh"** button (top right area)
@@ -350,6 +357,7 @@ Click on the **"Half"** tab and add this simplified version:
 2. Click to add it
 3. Configure the instance:
    - **Place ID**: Enter your Place ID
+   - **Service ID**: Enter `257` (or your service ID)
    - **Display Address**: Enter your address (optional)
 4. Click **"Save"**
 
@@ -468,7 +476,7 @@ To test how the plugin looks with different timing:
 ### Important API Parameters
 
 - `place_id`: Your location UUID
-- `services/257`: Durham Region service ID
+- `service_id`: Service ID (257 for Durham Region waste)
 - `nomerge=1`: Return separate events (important!)
 - `after={{ "now" | date: "%Y-%m-%d" }}`: Only future events
 
@@ -497,7 +505,7 @@ Before marking complete, verify:
 - [ ] Developer perks enabled on TRMNL account
 - [ ] Place ID obtained and verified
 - [ ] Plugin created with Polling strategy
-- [ ] Form fields configured (place_id, address)
+- [ ] Form fields configured (place_id, service_id, address)
 - [ ] Polling URL with proper parameters
 - [ ] Full view markup added and saved
 - [ ] Force Refresh successful with preview
