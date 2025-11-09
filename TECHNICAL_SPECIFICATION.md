@@ -203,13 +203,20 @@ Create a custom form for users to input their location:
         {% for event in next_pickup_events %}
           {% for flag in event.flags %}
             <div class="item flex items-center gap-2 py-2">
-              <!-- Icon representation (using text since no image support) -->
-              <div class="value size-lg">
-                {% if flag.name == "recycling" %}♻️
-                {% elsif flag.name == "GreenBin" %}🗑️
-                {% elsif flag.name == "garbage" %}🚮
-                {% elsif flag.name == "yardwaste" %}🍂
-                {% elsif flag.name == "pumpkins" %}🎃
+              <!-- Icon representation using PNG images -->
+              <div style="min-width: 48px; max-width: 48px;">
+                {% if flag.name == "recycling" %}
+                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="48" height="48">
+                {% elsif flag.name == "GreenBin" %}
+                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="48" height="48">
+                {% elsif flag.name == "garbage" %}
+                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="48" height="48">
+                {% elsif flag.name == "yardwaste" %}
+                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="48" height="48">
+                {% elsif flag.name == "pumpkins" %}
+                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="48" height="48">
+                {% else %}
+                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="48" height="48">
                 {% endif %}
               </div>
               <div class="description">{{ flag.subject }}</div>
