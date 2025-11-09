@@ -88,18 +88,17 @@ Click on **"Form Fields"** section and paste this YAML:
 
 ```yaml
 - keyname: place_id
-  label: Place ID
-  type: text
-  required: true
+  field_type: string
+  name: Place ID
+  description: Your unique location ID from Recollect. Find it using the instructions in the setup guide.
   placeholder: "918DB048-D91A-11E8-B83E-68F5AF88FEB0"
-  help: "Your unique location ID from Recollect. Find it using the instructions in the setup guide."
 
 - keyname: address
-  label: Display Address (optional)
-  type: text
-  required: false
+  field_type: string
+  name: Display Address
+  description: A friendly name for your location to show on the display
   placeholder: "1 King Street, Oshawa"
-  help: "A friendly name for your location to show on the display"
+  optional: true
 ```
 
 ### Step 4: Save Initial Configuration
