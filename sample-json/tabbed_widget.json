@@ -1,0 +1,84 @@
+{
+    "caption": "",
+    "locale": "en",
+    "opts": {
+        "show_material_list": true,
+        "tabs": true,
+        "container": true,
+        "sharing_msg": "My garbage days have just become stress free thanks to ReCollect pickup reminders! Get yours here.",
+        "signup_url": "https://www.durham.ca/en/living-here/collection-calendar.aspx?nr=/departments/works/waste/collectioncal.html&setFooter=/includes/worksFooter.inc/",
+        "feedback_page": "feedback",
+        "widget_template": "widget-pills",
+        "!@title": true
+    },
+    "id": -1,
+    "data": {},
+    "step": 1,
+    "base_locale": "en",
+    "sets": [
+        {
+            "service_id": 257,
+            "id": 89,
+            "name": "default",
+            "title": {
+                "en": "Default"
+            },
+            "sort_order": 0,
+            "user_visible": 1,
+            "active": 1
+        }
+    ],
+    "js_errors": [],
+    "sections": [
+        {
+            "title": null,
+            "rows": [
+                {
+                    "href": null,
+                    "tab": "Calendar",
+                    "page": "place_calendar",
+                    "type": "tab",
+                    "requires": 0,
+                    "icon": "calendar",
+                    "images": []
+                },
+                {
+                    "images": [],
+                    "header_title": "Know Before You Throw",
+                    "icon": "waste_wizard",
+                    "requires": 0,
+                    "type": "tab",
+                    "page": "wizard_search",
+                    "href": null,
+                    "tab": "Know Before You Throw"
+                },
+                {
+                    "tab": "Game",
+                    "href": null,
+                    "page": "waste_sorting_game",
+                    "type": "tab",
+                    "requires": 0,
+                    "icon": "game:rgb(0,0,0)",
+                    "images": []
+                },
+                {
+                    "page": "feedback",
+                    "images": [],
+                    "icon": "info",
+                    "tab": "Need help?",
+                    "requires": 0,
+                    "href": null,
+                    "type": "tab"
+                }
+            ]
+        }
+    ],
+    "tags": [],
+    "page_type": "widget",
+    "client_id": "9518569A-BDA2-11F0-8699-12388AE528D4",
+    "default_image": null,
+    "content": "[{\"rows\":[{\"$header_title\":\"$svc-opt.calendar_name\",\"$icon\":\"$svc-opt.calendar_icon\",\"$tab\":\"$nav-tab.widget.calendar\",\"@tab\":\"widget.calendar\",\"icon\":\"calendar\",\"page\":\"place_calendar\",\"requires\":\"!svc-opt.wizard_only AND !svc-opt.tabbed_widget_no_place_tab AND !widget.zones AND !svc-opt.wizard_event_zone\",\"type\":\"tab\"},{\"$header_title\":\"$svc-opt.calendar_name\",\"$icon\":\"$svc-opt.calendar_icon\",\"$tab\":\"$nav-tab.widget.calendar\",\"@tab\":\"widget.calendar\",\"icon\":\"calendar\",\"page\":\"zone_calendar\",\"requires\":\"svc-opt.tabbed_widget_zone_tab_first AND (widget.zones OR svc-opt.wizard_event_zone) AND !svc-opt.enable_hauler_security AND !svc-opt.enable_calendar_coming_soon\",\"type\":\"tab\"},{\"$header_title\":\"$svc-opt.ww_name\",\"$tab\":\"$nav-tab.widget.wizard\",\"@tab\":\"app.wizard\",\"icon\":\"waste_wizard\",\"page\":\"app_coming_soon_wizard\",\"requires\":\"svc-opt.enable_wizard AND !svc-opt.enable_wizard_testing AND !svc-opt.tabbed_widget_no_wizard_tab AND svc-opt.enable_wizard_coming_soon\",\"type\":\"tab\"},{\"$header_title\":\"$svc-opt.ww_name\",\"$tab\":\"$nav-tab.widget.wizard\",\"@tab\":\"app.wizard\",\"icon\":\"waste_wizard\",\"page\":\"wizard_search\",\"requires\":\"svc-opt.enable_wizard AND !svc-opt.enable_wizard_testing AND !svc-opt.tabbed_widget_no_wizard_tab AND !svc-opt.enable_wizard_coming_soon\",\"type\":\"tab\"},{\"include\":\"process_tabs\",\"requires\":\"!svc-opt.tabbed_widget_no_pickups_tab AND !svc-opt.tabbed_widget_single_bic_tab\",\"type\":\"include\"},{\"@header_title\":\"widget.schedule-collection\",\"@tab\":\"widget.list-collection\",\"icon\":\"chair:rgb(0,0,0)\",\"page\":\"bic_list_start\",\"requires\":\"!svc-opt.tabbed_widget_no_pickups_tab AND svc-opt.tabbed_widget_single_bic_tab\",\"type\":\"tab\"},{\"$header_title\":\"$svc-opt.game_tab_name\",\"$tab\":\"$nav-tab.widget.game\",\"@tab\":\"app.game\",\"icon\":\"game:rgb(0,0,0)\",\"page\":\"waste_sorting_game\",\"requires\":\"svc-opt.has_game AND !svc-opt.game_testing\",\"type\":\"tab\"},{\"$header_title\":\"$svc-opt.calendar_name\",\"$icon\":\"$svc-opt.calendar_icon\",\"$tab\":\"$nav-tab.widget.calendar\",\"@tab\":\"widget.calendar\",\"icon\":\"calendar\",\"page\":\"zone_calendar\",\"requires\":\"!svc-opt.tabbed_widget_zone_tab_first AND (widget.zones OR svc-opt.wizard_event_zone)\",\"type\":\"tab\"},{\"$tab\":\"$nav-tab.widget.contest\",\"@header_title\":\"app.contest-call-to-action\",\"@tab\":\"app.contest\",\"icon\":\"app.award\",\"page\":\"contest\",\"requires\":\"svc-opt.enable_contest_tab_web\",\"type\":\"tab\"},{\"include\":\"widget_additional_tabs\",\"type\":\"include\"},{\"@tab\":\"widget.need-help?\",\"icon\":\"info\",\"page\":\"feedback\",\"requires\":\"!svc-opt.tabbed_widget_no_feedback_tab\",\"type\":\"tab\"}]},{\"include\":\"widget_additional_tab_rows\",\"type\":\"include\"}]",
+    "page_name": "tabbed_widget",
+    "editing": 0,
+    "is_default": 1
+}

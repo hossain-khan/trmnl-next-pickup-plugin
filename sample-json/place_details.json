@@ -1,0 +1,342 @@
+{
+    "place": {
+        "locale": "en",
+        "lat": "43.93625",
+        "id": "918DB048-D91A-11E8-B83E-68F5AF88FEB0",
+        "province": "alberta",
+        "unit": "",
+        "name": "1292 TALL PINE AVE, OSHAWA",
+        "country": "canada",
+        "house": "1292",
+        "city": "oshawa",
+        "street": "tall pine ave",
+        "source": "recollect",
+        "lng": "-78.83085"
+    },
+    "service": {
+        "opts_checksum": "e142b338d0069fcad5964861b4fa45e1c24879151cdddb3c8892bda35adda637",
+        "signup_url": {
+            "en": "https://www.durham.ca/en/living-here/collection-calendar.aspx?nr=/departments/works/waste/collectioncal.html&setFooter=/includes/worksFooter.inc/"
+        },
+        "pdf_style": {
+            "Default": {
+                "navbar-default-bg": "#59A343",
+                "btn-danger-color": "#FFFFFF",
+                "calendar-border": "#dddddd",
+                "text-color": "#333333",
+                "link-hover-color": "#86c655",
+                "navbar-default-border": "#67BB4D",
+                "alert-info-border": "#bce8f1",
+                "btn-danger-border": "#bd362f",
+                "widget-bg": "#ffffff",
+                "btn-default-bg": "#FFFFFF",
+                "alert-info-bg": "#d9eef7",
+                "btn-default-color": "#333333",
+                "btn-default-border": "#cccccc",
+                "btn-success-color": "#FFFFFF",
+                "btn-success-bg": "#59A343",
+                "custom_styles": ".visit-text {\n    display: none;\n}",
+                "campaign-service-alert-color": "#1F75DD",
+                "btn-danger-bg": "#ee5f5b",
+                "btn-success-border": "#67BB4D",
+                "widget-border": "#ececec",
+                "alert-info-text": "#31708f",
+                "link-color": "#457023"
+            }
+        },
+        "cognito_config": {},
+        "collection_time_msg": {},
+        "can_auto_translate": 0,
+        "process_types": {
+            "MPWEEE": "special_collections",
+            "Christmas_Tree_Pick_Up": "special_collections",
+            "BIC": "special_collections",
+            "Test_Bulk": "special_collections"
+        },
+        "design": "logan",
+        "wizard_page_address_redirect": "",
+        "sharing_msg": {},
+        "wizard_url": {
+            "en": "https://www.durham.ca/en/living-here/know-before-you-throw.aspx"
+        },
+        "full_name": "Durham/waste",
+        "default_locale": "en",
+        "area": {
+            "bounds": "43.758577759577086,-78.50162147797062|44.528214909426524,-79.57768088422063",
+            "enable_sms": 0,
+            "logo_alt_text": {},
+            "default_locale": "en",
+            "timezone": "America/Toronto",
+            "enable_twitter": 0,
+            "geocoder_suffix": "Durham Region ON",
+            "locales": [
+                "en",
+                "es",
+                "fr",
+                "ko",
+                "pa",
+                "zh-Hans"
+            ],
+            "email_banner": {},
+            "has_app": true,
+            "has_logo": 1,
+            "twitter_userid": "222834003",
+            "logo_img": {
+                "en": "1C66C1BA-9DA5-11E4-B8D6-D45A8E6A6F5F"
+            },
+            "twitter_screen_name": {
+                "en": "recollectnet"
+            },
+            "id": 257,
+            "title": "Region of Durham",
+            "enable_voice": 1,
+            "account": {
+                "id": 85,
+                "opts": {
+                    "rw_salesforce_id": "0012L00001F39dhQAB"
+                }
+            },
+            "logo_url": "http://www.durham.ca/works.asp?nr=/departments/works/waste/wasteinside.htm&setFooter=/includes/worksFooter.inc",
+            "name": "Durham",
+            "region": "ca"
+        },
+        "support_cc": "",
+        "icon": "recycle",
+        "success_web_snippet": "                                                                                \r\n                \r\n                \r\n                \r\n                ",
+        "name": "waste",
+        "opts": {
+            "commercial_account_login": null,
+            "feedback_require_name_firstlast": true,
+            "hide_need_help": null,
+            "pdf_header_center_html": null,
+            "print_calendar_alternative_html": "<h1>Summary of collection services</h1>\n\n<h2>Blue Box</h2>\n\n<ul>\n\t<li>Weekly collection</li>\n\t<li>Separate papers from containers</li>\n\t<li>Maximum weight is 20 kilograms (44 pounds) per box.</li>\n\t<li>Not acceptable: Styrofoam, pots and pans, window glass, mirrors, toys or plastic bags.</li>\n</ul>\n\n<h2>Green Bin</h2>\n\n<ul>\n\t<li>Weekly collection</li>\n\t<li>Line your bin with compostable bags, paper&shy; based products, or newspaper.</li>\n\t<li>Green bins containing plastic bags will not be collected.</li>\n\t<li>Maximum weight is 20 kilograms (44 pounds).</li>\n</ul>\n\n<h2>Yard Waste</h2>\n\n<ul>\n\t<li>Seasonal collection</li>\n\t<li>Yard waste is collected in kraft paper bags or reusable open-top containers.</li>\n\t<li>Tie brush in bundles. Three-bundle limit per collection.</li>\n\t<li>Maximum weight is 20 kilograms (44 pounds).</li>\n</ul>\n\n<h2>Garbage</h2>\n\n<ul>\n\t<li>Every second week collection</li>\n\t<li>A four-bag limit applies to garbage collection.</li>\n\t<li>A garbage bag tag must be attached to any additional garbage bags.</li>\n\t<li>Maximum weight is 20 kilograms (44 pounds).</li>\n</ul>\n\n<h2>Batteries</h2>\n\n<ul>\n\t<li>Twice annual collection</li>\n\t<li>Spring and fall curbside collection.</li>\n\t<li>Place used dry cell batteries inside your own zipper-style bag. Place orange sticker on bag.</li>\n\t<li>Place sealed battery bag on top of your recycling box for collection on designated weeks noted in calendar.</li>\n</ul>\n\n<h2>Special collections</h2>\n\n<p>Special collections such as bulky and metal goods, porcelain and electronics vary by municipality. For more information please visit our website <a href=\"http://www.durham.ca/waste\">www.durham.ca/waste</a>.</p>\n\n<h2>Contact Durham</h2>\n\n<p>Contact Durham for more information at <a href=\"http://www.durham.ca/waste\" target=\"_blank\">1-800-661-5611</a>, or by visiting <a href=\"http://www.durham.ca/waste\">www.durham.ca/waste</a></p>\n",
+            "disable_widget_app_buttons": true,
+            "consent_privacy_hide_question": null,
+            "enable_qualifiers_in_address_table": null,
+            "no_locale_picker": null,
+            "disable_google_geocoder": false,
+            "hide_address_bar": null,
+            "attachment_max_size": null,
+            "disable_civiclive_workaround": null,
+            "notification_days": null,
+            "feature_service_alerts": "1",
+            "use_account_parcel_search": null,
+            "pdf_show_zones": null,
+            "has_payments": null,
+            "hide_powered_by": null,
+            "geocoder_parcel_lookup_service": "mapbox",
+            "enable_recollect_parcel_lookup": 1,
+            "zone_description_link_text": null,
+            "google_geocoder": null,
+            "wizard_page": "wizard_search",
+            "enable_wizard": true,
+            "processes_with_payment_enabled": [],
+            "map_service": "mapbox",
+            "custom_privacy_url": null,
+            "print_calendar_append": {
+                "fr": "",
+                "ko": "",
+                "pa": "",
+                "es": "",
+                "zh-Hans": "",
+                "en": "41fa014c-8e5f-11f0-bc78-da8e6a7e5f7b"
+            },
+            "feedback_require_phone": true,
+            "restrict_address_search": null,
+            "ignore_late_delivery": null,
+            "do_not_use_logan": null,
+            "pdf_header_center_html_zone_desc": null,
+            "hide_cookie_disclaimer": null,
+            "place_cookie": null,
+            "fix_nb_routes": null,
+            "eu_cookie_policy": null,
+            "feedback_other_phone_number": null,
+            "disable_social": null,
+            "started_dev_accounts_update_process": null,
+            "disable_print_download": null,
+            "feedback_service_phone_number": null,
+            "wizard_only": null,
+            "forced_widget_page": null,
+            "has_feedback_autoforward_email": 1,
+            "feedback_file_whitelist": null,
+            "has_available_app": true,
+            "ww_name": {
+                "en": "Know Before You Throw"
+            },
+            "arcgis_geocoder": null,
+            "require_explicit_consent": null,
+            "app_navigation_page2": "app_navigation_tabs",
+            "uses_postal_codes": null,
+            "app_search_title": null,
+            "hide_privacy_policy": null,
+            "pdf_header_right_html": null,
+            "consent_privacy": null,
+            "feedback_prompt_account_number": null,
+            "feedback_require_name": false,
+            "mobile_reminder_zone_name": null,
+            "use_wizard_seo": true,
+            "page_sets": [
+                {
+                    "title": "Default",
+                    "name": "default",
+                    "id": 89,
+                    "user_visible": 1
+                }
+            ],
+            "allows_iframe": true,
+            "enable_widget_reminder_popup": false,
+            "show_game_in_reminders": null,
+            "authorization_enabled": null,
+            "enable_hauler_security": null,
+            "feedback_require_account_number": null,
+            "disable_client_pendo": null,
+            "app_search_desc": null,
+            "has_zone_reminders": null,
+            "address_bar_on_click": null,
+            "service_signup_url": null,
+            "banner": {},
+            "processes_with_payment_enabled_testing": [],
+            "pdf_footer_center_html": null,
+            "pick_random_notification_day": null,
+            "has_app": 1,
+            "print_zones_in_calendar_pdf": null,
+            "cookie_expires": null,
+            "enable_wizard_testing": null,
+            "notify_delivery_offset": null,
+            "tabbed_widget": true,
+            "reminder_popup_image": "https://recollect-images.global.ssl.fastly.net/api/image/icon.garbage-truck.png",
+            "enable_participation_studies": null,
+            "has_game": true,
+            "email_reply_to": null
+        },
+        "background_img": "",
+        "widget_style": {
+            "Default": {
+                "btn-success-bg": "#004C7C",
+                "custom_styles": ".rCw {\n    img.logo {\n        background-image: none;\n    }\n}\n#rCw {\n    .popover.top {\n        height: auto;\n    }\n    .popover-content {\n        background-color: #ffffff;\n        font-size: 12pt;\n    }\n    #rCbtn-submit button, \n    #rCpage-wednesday_4pm_cutoff\\.3 .select .btn-default {\n        background: #CFE402;\n        color: #000000;\n        font-weight: bold;\n        border: 1px solid #004c7c;\n        font-size: 18px;\n    }\n    @media only screen and (max-device-width: 480px) {\n        .modal.in {\n            margin-top: 35% !important;\n        }\n    }\n}",
+                "campaign-service-alert-color": "#1F75DD",
+                "btn-danger-bg": "#ee5f5b",
+                "btn-success-border": "#004C7C",
+                "widget-border": "#ececec",
+                "alert-info-text": "#31708f",
+                "link-color": "#046EB0",
+                "navbar-default-bg": "#004C7C",
+                "btn-danger-color": "#FFFFFF",
+                "calendar-border": "#dddddd",
+                "text-color": "#333333",
+                "navbar-default-border": "#004C7C",
+                "link-hover-color": "#046EB0",
+                "alert-info-border": "#bce8f1",
+                "btn-danger-border": "#bd362f",
+                "btn-default-bg": "#FFFFFF",
+                "widget-bg": "#ffffff",
+                "btn-default-color": "#333333",
+                "alert-info-bg": "#d9eef7",
+                "btn-default-border": "#cccccc",
+                "btn-success-color": "#ffffff"
+            }
+        },
+        "id": 257,
+        "place_redirect_url": null,
+        "title": "Solid Waste",
+        "app_service_info": {
+            "service_name": "waste",
+            "area_name": "Durham"
+        },
+        "default_page": "place_calendar",
+        "default_address": {
+            "en": "605 Rossland Rd E, Whitby"
+        },
+        "mobile_app_name": "Durham Region Waste",
+        "email_style": {
+            "Default": {
+                "btn-danger-border": "#bd362f",
+                "btn-default-border": "#cccccc",
+                "alert-info-bg": "#d9eef7",
+                "btn-default-color": "#333333",
+                "btn-success-color": "#FFFFFF",
+                "widget-bg": "#ffffff",
+                "btn-default-bg": "#FFFFFF",
+                "navbar-default-bg": "#59A343",
+                "btn-danger-color": "#FFFFFF",
+                "link-hover-color": "#86c655",
+                "navbar-default-border": "#67BB4D",
+                "alert-info-border": "#bce8f1",
+                "calendar-border": "#dddddd",
+                "text-color": "#333333",
+                "btn-success-border": "#67BB4D",
+                "campaign-service-alert-color": "#1F75DD",
+                "btn-danger-bg": "#ee5f5b",
+                "link-color": "#457023",
+                "alert-info-text": "#31708f",
+                "widget-border": "#ececec",
+                "btn-success-bg": "#59A343"
+            }
+        }
+    },
+    "next_event": {
+        "options": {
+            "ending_at": ""
+        },
+        "zone_id": 5882,
+        "custom_message": "",
+        "opts": {
+            "repeat_data": {
+                "start_day": "2024-07-11",
+                "frequency": "every two weeks",
+                "end_day": "2025-12-31"
+            },
+            "repeat_id": "D06C1E50-0EDC-11EF-BB9E-8EE9CEA6A007"
+        },
+        "day": "2025-11-13",
+        "id": 26841849,
+        "is_approved": 1,
+        "flags": [
+            {
+                "sort_order": 5,
+                "subject": "Blue Box",
+                "textColor": "#ffffff",
+                "html_message": "",
+                "backgroundColor": "#044dc8",
+                "service_name": "waste",
+                "color": "#044dc8",
+                "short_text_message": null,
+                "is_week_long": 0,
+                "area_name": "Durham",
+                "icon_uri_fragment": "blue-box.durham",
+                "id": 224,
+                "voice_message": null,
+                "event_type": "pickup",
+                "opts": {},
+                "borderColor": "#044dc8",
+                "icon": "blue-box.durham",
+                "plain_text_message": null,
+                "name": "recycling"
+            }
+        ],
+        "custom_subject": "",
+        "zone": {
+            "show_when_empty": 0,
+            "poly_colour": "rgba(204,204,204,153)",
+            "id": 5882,
+            "link_text": {},
+            "has_parcels": 1,
+            "title": "Oshawa Thursday Area 2",
+            "pdf_uri": {},
+            "opts": {},
+            "colour_name": "durham-zone-oshawa-thursday-area-2",
+            "has_geom": 0,
+            "service_id": 257,
+            "link_uri": {},
+            "loc_title": {
+                "en": "Oshawa Thursday Area 2"
+            },
+            "priority": 0,
+            "name": "durham-zone-oshawa-thursday-area-2",
+            "description": {},
+            "is_empty": 0,
+            "has_unapproved_future_events": 0,
+            "line_colour": "rgba(204,204,204,255)"
+        }
+    }
+}
