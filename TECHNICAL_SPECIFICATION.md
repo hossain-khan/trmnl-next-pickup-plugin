@@ -114,7 +114,7 @@ Create a custom form for users to input their location:
   label: Your Address
   type: text
   required: false
-  placeholder: "e.g., 1292 Tall Pine Ave, Oshawa"
+  placeholder: "e.g., 1 King Street, Oshawa"
   help: "Display name for your location"
 ```
 
