@@ -266,14 +266,14 @@ Click on **"Form Fields"** section and paste this YAML:
    - Blue Box and Green Bin should be listed
    - Upcoming schedule in the sidebar
 
-### Step 4: Add Half View Markup (Optional)
+### Step 4: Add Half View Markup
 
-Click on the **"Half"** tab and add this simplified version:
+Click on the **"Half"** tab and add this optimized version for mashup layouts (both horizontal and vertical halves):
 
 ```liquid
 {% comment %}
   Durham Waste Collection Plugin - Half View
-  Compact version for mashups
+  Works for both half_vertical (left/right) and half_horizontal (top/bottom)
 {% endcomment %}
 
 {% assign today = "now" | date: "%Y-%m-%d" %}
@@ -300,8 +300,75 @@ Click on the **"Half"** tab and add this simplified version:
     </div>
 
     <div class="item">
-      <div class="title size-lg">{{ next_date | date: "%A, %b %-d" }}</div>
-      <div class="description mt-1">
+      <div class="title size-lg">{{ next_date | date: "%a, %b %-d" }}</div>
+      <div class="description">
+        {% if days_until == 0 %}Today
+        {% elsif days_until == 1 %}Tomorrow
+        {% else %}In {{ days_until }} days
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="mt-3">
+      {% for event in next_pickup_events %}
+        {% for flag in event.flags %}
+          <div class="flex items-center gap-2 py-1">
+            <div style="min-width: 32px; max-width: 32px;">
+              {% if flag.name == "recycling" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="32" height="32">
+              {% elsif flag.name == "GreenBin" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="32" height="32">
+              {% elsif flag.name == "garbage" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="32" height="32">
+              {% elsif flag.name == "yardwaste" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="32" height="32">
+              {% elsif flag.name == "pumpkins" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="32" height="32">
+              {% else %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="32" height="32">
+              {% endif %}
+            </div>
+            <span class="description text-sm">{{ flag.subject }}</span>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+```
+
+### Step 5: Add Quarter View Markup
+
+Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size):
+
+```liquid
+{% comment %}
+  Durham Waste Collection Plugin - Quarter View
+  Ultra-compact for 2x2 grid mashups
+{% endcomment %}
+
+{% assign today = "now" | date: "%Y-%m-%d" %}
+{% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
+
+{% if next_events.size == 0 %}
+  <div class="layout flex items-center justify-center">
+    <div class="text-center">
+      <div class="description">No Pickups</div>
+    </div>
+  </div>
+{% else %}
+  {% assign next_date = next_events.first.day %}
+  {% assign next_pickup_events = next_events | where: "day", next_date %}
+  
+  {% assign next_timestamp = next_date | date: "%s" %}
+  {% assign today_timestamp = today | date: "%s" %}
+  {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
+  
+  <div class="layout">
+    <div class="item">
+      <div class="label">Next Pickup</div>
+      <div class="title">{{ next_date | date: "%b %-d" }}</div>
+      <div class="description text-xs">
         {% if days_until == 0 %}Today
         {% elsif days_until == 1 %}Tomorrow
         {% else %}{{ days_until }} days
@@ -309,40 +376,106 @@ Click on the **"Half"** tab and add this simplified version:
       </div>
     </div>
 
-    <div class="mt-3">
-      {% assign all_flags = "" | split: "" %}
+    <div class="mt-2">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          {% assign all_flags = all_flags | push: flag %}
-        {% endfor %}
-      {% endfor %}
-      
-      {% for flag in all_flags %}
-        <div class="flex items-center gap-2 py-1">
-          <div style="min-width: 40px; max-width: 40px;">
-            {% if flag.name == "recycling" %}
-              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="40" height="40">
-            {% elsif flag.name == "GreenBin" %}
-              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="40" height="40">
-            {% elsif flag.name == "garbage" %}
-              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="40" height="40">
-            {% elsif flag.name == "yardwaste" %}
-              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="40" height="40">
-            {% elsif flag.name == "pumpkins" %}
-              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="40" height="40">
-            {% else %}
-              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="40" height="40">
-            {% endif %}
+          <div class="flex items-center gap-1 py-1">
+            <div style="min-width: 24px; max-width: 24px;">
+              {% if flag.name == "recycling" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="24" height="24">
+              {% elsif flag.name == "GreenBin" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="24" height="24">
+              {% elsif flag.name == "garbage" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="24" height="24">
+              {% elsif flag.name == "yardwaste" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="24" height="24">
+              {% elsif flag.name == "pumpkins" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="24" height="24">
+              {% else %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="24" height="24">
+              {% endif %}
+            </div>
+            <span class="description text-xs">{{ flag.subject }}</span>
           </div>
-          <span class="description text-sm">{{ flag.subject }}</span>
-        </div>
+        {% endfor %}
       {% endfor %}
     </div>
   </div>
 {% endif %}
 ```
 
-### Step 5: Save Your Markup
+### Step 6: Add Third View Markup
+
+Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
+
+```liquid
+{% comment %}
+  Durham Waste Collection Plugin - Third View
+  Compact for 3-plugin mashups
+{% endcomment %}
+
+{% assign today = "now" | date: "%Y-%m-%d" %}
+{% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
+
+{% if next_events.size == 0 %}
+  <div class="layout flex items-center justify-center">
+    <div class="text-center">
+      <div class="description text-sm">No Pickups</div>
+    </div>
+  </div>
+{% else %}
+  {% assign next_date = next_events.first.day %}
+  {% assign next_pickup_events = next_events | where: "day", next_date %}
+  
+  {% assign next_timestamp = next_date | date: "%s" %}
+  {% assign today_timestamp = today | date: "%s" %}
+  {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
+  
+  <div class="layout">
+    <div class="item">
+      <div class="label">Next Pickup</div>
+      <div class="title">{{ next_date | date: "%b %-d" }}</div>
+      <div class="description text-xs">
+        {% if days_until == 0 %}Today
+        {% elsif days_until == 1 %}Tomorrow
+        {% else %}{{ days_until }} days
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="mt-2">
+      {% for event in next_pickup_events %}
+        {% for flag in event.flags %}
+          <div class="flex items-center gap-2 py-1">
+            <div style="min-width: 28px; max-width: 28px;">
+              {% if flag.name == "recycling" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="28" height="28">
+              {% elsif flag.name == "GreenBin" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="28" height="28">
+              {% elsif flag.name == "garbage" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="28" height="28">
+              {% elsif flag.name == "yardwaste" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="28" height="28">
+              {% elsif flag.name == "pumpkins" %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="28" height="28">
+              {% else %}
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="28" height="28">
+              {% endif %}
+            </div>
+            <span class="description text-xs">{{ flag.subject }}</span>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+```
+
+### Step 7: Save All Markup Variations
+
+1. Make sure you've added markup to **all tabs**: Full, Half, Quarter, Third
+2. Click **"Save"** button in the markup editor for each tab
+3. Wait for confirmation message
 
 1. Click **"Save"** button in the markup editor
 2. Wait for confirmation message
