@@ -184,36 +184,29 @@ Click on **"Form Fields"** section and paste this YAML:
         <div class="mt-4">
           <div class="label mb-2">What's Being Collected</div>
           
-          {% assign all_flags = "" | split: "" %}
           {% for event in next_pickup_events %}
             {% for flag in event.flags %}
-              {% assign all_flags = all_flags | push: flag %}
+              <div class="item flex items-center gap-3 py-2 border-b">
+                <div style="min-width: 48px; max-width: 48px;">
+                  {% if flag.name == "recycling" %}
+                    <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="48" height="48">
+                  {% elsif flag.name == "GreenBin" %}
+                    <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="48" height="48">
+                  {% elsif flag.name == "garbage" %}
+                    <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="48" height="48">
+                  {% elsif flag.name == "yardwaste" %}
+                    <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="48" height="48">
+                  {% elsif flag.name == "pumpkins" %}
+                    <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="48" height="48">
+                  {% else %}
+                    <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="48" height="48">
+                  {% endif %}
+                </div>
+                <div>
+                  <div class="description font-weight-bold">{{ flag.subject }}</div>
+                </div>
+              </div>
             {% endfor %}
-          {% endfor %}
-          
-          {% assign sorted_flags = all_flags | sort: "sort_order" %}
-          
-          {% for flag in sorted_flags %}
-            <div class="item flex items-center gap-3 py-2 {% if forloop.last == false %}border-b{% endif %}">
-              <div style="min-width: 48px; max-width: 48px;">
-                {% if flag.name == "recycling" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="48" height="48">
-                {% elsif flag.name == "GreenBin" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="48" height="48">
-                {% elsif flag.name == "garbage" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="48" height="48">
-                {% elsif flag.name == "yardwaste" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="48" height="48">
-                {% elsif flag.name == "pumpkins" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="48" height="48">
-                {% else %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="48" height="48">
-                {% endif %}
-              </div>
-              <div>
-                <div class="description font-weight-bold">{{ flag.subject }}</div>
-              </div>
-            </div>
           {% endfor %}
         </div>
       </div>
@@ -328,17 +321,17 @@ Click on the **"Half"** tab and add this simplified version:
         <div class="flex items-center gap-2 py-1">
           <div style="min-width: 40px; max-width: 40px;">
             {% if flag.name == "recycling" %}
-              <img src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="40" height="40">
+              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="40" height="40">
             {% elsif flag.name == "GreenBin" %}
-              <img src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="40" height="40">
+              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="40" height="40">
             {% elsif flag.name == "garbage" %}
-              <img src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="40" height="40">
+              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="40" height="40">
             {% elsif flag.name == "yardwaste" %}
-              <img src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="40" height="40">
+              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="40" height="40">
             {% elsif flag.name == "pumpkins" %}
-              <img src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="40" height="40">
+              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="40" height="40">
             {% else %}
-              <img src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="40" height="40">
+              <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="40" height="40">
             {% endif %}
           </div>
           <span class="description text-sm">{{ flag.subject }}</span>
