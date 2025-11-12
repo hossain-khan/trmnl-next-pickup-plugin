@@ -232,6 +232,50 @@ Click on **"Form Fields"** section and paste this YAML:
    - Blue Box and Green Bin should be listed
    - Upcoming schedule in the sidebar
 
+#### 🧪 Testing All Icon Variations
+
+To visually test all collection type icons, **temporarily replace** the icon display section with this hardcoded version:
+
+```liquid
+{%- comment -%} 🧪 TESTING: All Icons Display - Remove after testing {%- endcomment -%}
+<div class="flex flex--row flex--center-x flex--center-y gap mt-8">
+  <div class="text-center" style="width: 120px;">
+    <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
+      <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="120" height="120">
+    </div>
+    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Blue Box</div>
+  </div>
+  <div class="text-center" style="width: 120px;">
+    <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
+      <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="120" height="120">
+    </div>
+    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Green Bin</div>
+  </div>
+  <div class="text-center" style="width: 120px;">
+    <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
+      <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="120" height="120">
+    </div>
+    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Garbage</div>
+  </div>
+  <div class="text-center" style="width: 120px;">
+    <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
+      <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="120" height="120">
+    </div>
+    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Yard Waste</div>
+  </div>
+  <div class="text-center" style="width: 120px;">
+    <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
+      <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="120" height="120">
+    </div>
+    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Pumpkins</div>
+  </div>
+</div>
+```
+
+**Note:** Adjust icon size (120px for Full, 80px for Half, 72px for Quarter, 56px for Third) based on which view you're testing. Remember to restore the original looping code after visual testing!
+
+
+
 ### Step 4: Add Half View Markup
 
 Click on the **"Half"** tab and add this optimized version for mashup layouts (both horizontal and vertical halves):
