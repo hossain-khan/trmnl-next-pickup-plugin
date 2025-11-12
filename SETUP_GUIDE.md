@@ -307,7 +307,7 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size):
 ```liquid
 {% comment %}
   Durham Waste Collection Plugin - Quarter View
-  Ultra-compact for 2x2 grid mashups
+  Ultra-compact for 2x2 grid mashups - optimized for icon-first display
 {% endcomment %}
 
 {% assign today = "now" | date: "%Y-%m-%d" %}
@@ -328,38 +328,38 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size):
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
   <div class="layout">
-    <div class="item">
-      <div class="label">Next Pickup</div>
-      <div class="title">
+    {%- comment -%} Compact Title at Top {%- endcomment -%}
+    <div class="text-center mb-2">
+      <div class="label text-xs">Next Pickup</div>
+      <div class="title text-sm">
         {% if days_until == 0 %}Today
         {% elsif days_until == 1 %}Tomorrow
-        {% else %}{{ days_until }} days
+        {% else %}{{ next_date | date: "%b %-d" }}
         {% endif %}
       </div>
-      <div class="description text-xs">{{ next_date | date: "%b %-d" }}</div>
     </div>
 
-    {%- comment -%} Compact Icon Display {%- endcomment -%}
-    <div class="flex flex--row flex--center-x flex--center-y gap mt-6">
+    {%- comment -%} Large Icon Display - Optimized for Quarter View {%- endcomment -%}
+    <div class="flex flex--row flex--center-x flex--center-y gap mt-2">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <div class="text-center" style="width: 48px;">
-            <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+          <div class="text-center" style="width: 72px;">
+            <div style="width: 72px; height: 72px; display: flex; align-items: center; justify-content: center;">
               {% if flag.name == "recycling" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="48" height="48">
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="72" height="72">
               {% elsif flag.name == "GreenBin" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="48" height="48">
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="72" height="72">
               {% elsif flag.name == "garbage" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="48" height="48">
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="72" height="72">
               {% elsif flag.name == "yardwaste" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="48" height="48">
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="72" height="72">
               {% elsif flag.name == "pumpkins" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="48" height="48">
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="72" height="72">
               {% else %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="48" height="48">
+                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="72" height="72">
               {% endif %}
             </div>
-            <div class="description text-xs mt-1" style="width: 48px; text-align: center;">{{ flag.subject }}</div>
+            <div class="description text-xs mt-1" style="width: 72px; text-align: center;">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
