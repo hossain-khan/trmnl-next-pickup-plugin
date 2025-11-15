@@ -276,22 +276,90 @@ To visually test all collection type icons, **temporarily replace** the icon dis
 
 
 
-### Step 4: Add Half View Markup
+### Step 4: Add Half Vertical View Markup
 
-Click on the **"Half"** tab and add this optimized version for mashup layouts (both horizontal and vertical halves):
+Click on the **"Half Vertical"** tab and add this for left/right split layouts (400×480):
 
 ```liquid
 {% comment %}
-  Durham Waste Collection Plugin - Half View
-  Works for both half_vertical (left/right) and half_horizontal (top/bottom)
+  Durham Waste Collection Plugin - Half Vertical View
+  Optimized for left/right split mashups (400×480)
 {% endcomment %}
 
 {% assign today = "now" | date: "%Y-%m-%d" %}
 {% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
 
 {% if next_events.size == 0 %}
-  <div class="layout flex items-center justify-center">
-    <div class="text-center">
+  <div class="layout layout--col layout--center">
+    <div class="text--center">
+      <div class="title">No Pickups</div>
+      <div class="description mt-2">Check schedule</div>
+    </div>
+  </div>
+{% else %}
+  {% assign next_date = next_events.first.day %}
+  {% assign next_pickup_events = next_events | where: "day", next_date %}
+  
+  {% assign next_timestamp = next_date | date: "%s" %}
+  {% assign today_timestamp = today | date: "%s" %}
+  {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
+  
+  <div class="layout layout--col layout--center-x">
+    <div class="title-bar">
+      <div class="title-bar__title">Next Pickup</div>
+      <div class="title-bar__subtitle">
+        {% if days_until == 0 %}Today
+        {% elsif days_until == 1 %}Tomorrow
+        {% else %}{{ days_until }} days
+        {% endif %} - {{ next_date | date: "%b %-d" }}
+      </div>
+    </div>
+
+    {%- comment -%} Vertical Stack of Icons {%- endcomment -%}
+    <div class="layout layout--col layout--center-x gap mt-6">
+      {% for event in next_pickup_events %}
+        {% for flag in event.flags %}
+          <div class="layout layout--col layout--center-x" style="width: 80px;">
+            <img class="image image-dither" 
+              {% if flag.name == "recycling" %}
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
+              {% elsif flag.name == "GreenBin" %}
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin"
+              {% elsif flag.name == "garbage" %}
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage"
+              {% elsif flag.name == "yardwaste" %}
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste"
+              {% elsif flag.name == "pumpkins" %}
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins"
+              {% else %}
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
+              {% endif %}
+              width="80" height="80">
+            <div class="description text--sm mt-1">{{ flag.subject }}</div>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+```
+
+### Step 5: Add Half Horizontal View Markup
+
+Click on the **"Half Horizontal"** tab and add this for top/bottom split layouts (800×240):
+
+```liquid
+{% comment %}
+  Durham Waste Collection Plugin - Half Horizontal View
+  Optimized for top/bottom split mashups (800×240)
+{% endcomment %}
+
+{% assign today = "now" | date: "%Y-%m-%d" %}
+{% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
+
+{% if next_events.size == 0 %}
+  <div class="layout layout--col layout--center">
+    <div class="text--center">
       <div class="title">No Pickups</div>
       <div class="description mt-2">Check schedule</div>
     </div>
@@ -315,27 +383,27 @@ Click on the **"Half"** tab and add this optimized version for mashup layouts (b
       </div>
     </div>
 
-    {%- comment -%} Large Icons Centered {%- endcomment -%}
-    <div class="flex flex--row flex--center-x flex--center-y gap mt-6">
+    {%- comment -%} Horizontal Row of Icons {%- endcomment -%}
+    <div class="layout layout--row layout--center-x gap mt-6">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <div class="text-center" style="width: 80px;">
-            <div style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+          <div class="layout layout--col layout--center-x" style="width: 80px;">
+            <img class="image image-dither" 
               {% if flag.name == "recycling" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="80" height="80">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
               {% elsif flag.name == "GreenBin" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="80" height="80">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin"
               {% elsif flag.name == "garbage" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="80" height="80">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage"
               {% elsif flag.name == "yardwaste" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="80" height="80">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste"
               {% elsif flag.name == "pumpkins" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="80" height="80">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins"
               {% else %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="80" height="80">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
               {% endif %}
-            </div>
-            <div class="description font-weight-bold mt-1 text-sm" style="width: 80px; text-align: center;">{{ flag.subject }}</div>
+              width="80" height="80">
+            <div class="description text--sm mt-1">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
@@ -344,9 +412,9 @@ Click on the **"Half"** tab and add this optimized version for mashup layouts (b
 {% endif %}
 ```
 
-### Step 5: Add Quarter View Markup
+### Step 6: Add Quarter View Markup
 
-Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size):
+Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 400×240):
 
 ```liquid
 {% comment %}
@@ -412,7 +480,7 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size):
 {% endif %}
 ```
 
-### Step 6: Add Third View Markup
+### Step 7: Add Third View Markup
 
 Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
 
@@ -480,9 +548,9 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
 {% endif %}
 ```
 
-### Step 7: Save All Markup Variations
+### Step 8: Save All Markup Variations
 
-1. Make sure you've added markup to **all tabs**: Full, Half, Quarter, Third
+1. Make sure you've added markup to **all tabs**: Full, Half Vertical, Half Horizontal, Quarter, Third
 2. Click **"Save"** button in the markup editor for each tab
 3. Wait for confirmation message
 
