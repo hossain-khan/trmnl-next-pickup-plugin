@@ -305,9 +305,10 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
   <div class="layout layout--col layout--center-x">
-    <div class="title-bar">
-      <div class="title-bar__title">Next Pickup</div>
-      <div class="title-bar__subtitle">
+    {%- comment -%} Header Section {%- endcomment -%}
+    <div class="layout layout--col layout--center-x text--center mb-2">
+      <div class="title">Next Pickup</div>
+      <div class="description">
         {% if days_until == 0 %}Today
         {% elsif days_until == 1 %}Tomorrow
         {% else %}{{ days_until }} days
@@ -315,11 +316,25 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
       </div>
     </div>
 
-    {%- comment -%} Vertical Stack of Icons {%- endcomment -%}
-    <div class="layout layout--col layout--center-x gap mt-6">
+    {%- comment -%} Icons Grid - 2 columns with explicit rows {%- endcomment -%}
+    <div class="layout layout--col layout--center-x gap">
+      {% assign position = 0 %}
+      {% assign total_items = 0 %}
+      {% for event in next_pickup_events %}
+        {% assign total_items = total_items | plus: event.flags.size %}
+      {% endfor %}
+      
+      {% assign position = 0 %}
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <div class="layout layout--col layout--center-x" style="width: 80px;">
+          {% assign col = position | modulo: 2 %}
+          {% assign position = position | plus: 1 %}
+          
+          {% if col == 0 %}
+            <div class="layout layout--row layout--center-x gap">
+          {% endif %}
+          
+          <div class="layout layout--col layout--center-x text--center" style="min-height: 110px;">
             <img class="image image-dither" 
               {% if flag.name == "recycling" %}
                 src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
@@ -337,12 +352,57 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
               width="80" height="80">
             <div class="description text--sm mt-1">{{ flag.subject }}</div>
           </div>
+          
+          {% if col == 1 or position == total_items %}
+            </div>
+          {% endif %}
         {% endfor %}
       {% endfor %}
     </div>
   </div>
 {% endif %}
 ```
+
+#### 🧪 Testing the 2-Column Grid Layout
+
+To verify the 2-column grid works correctly with 4 icons, **temporarily replace** the entire Half Vertical markup with this hardcoded version:
+
+```liquid
+<div class="layout layout--col layout--center-x">
+  <div class="layout layout--col layout--center-x text--center mt-3">
+    <div class="title">Next Pickup</div>
+    <div class="description">5 days - Nov 20</div>
+  </div>
+
+  {%- comment -%} Testing: 4 hardcoded icons in 2×2 grid {%- endcomment -%}
+  <div class="layout layout--col layout--center-x gap mt-6">
+    <div class="layout layout--row layout--center-x gap">
+      <div class="layout layout--col layout--center-x" style="width: 80px;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="80" height="80">
+        <div class="description text--sm mt-1">Garbage</div>
+      </div>
+      <div class="layout layout--col layout--center-x" style="width: 80px;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="80" height="80">
+        <div class="description text--sm mt-1">Blue Box</div>
+      </div>
+    </div>
+    <div class="layout layout--row layout--center-x gap">
+      <div class="layout layout--col layout--center-x" style="width: 80px;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="80" height="80">
+        <div class="description text--sm mt-1">Green Bin</div>
+      </div>
+      <div class="layout layout--col layout--center-x" style="width: 80px;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="80" height="80">
+        <div class="description text--sm mt-1">Yard Waste</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+You should see a proper 2×2 grid with all 4 icons displayed in 2 rows of 2. Once verified, restore the original dynamic code.
+
+**Note**: Your current preview shows only 3 collection types for Nov 20 based on your actual address data. The dynamic code is working correctly - it just displays what the API returns!
 
 ### Step 5: Add Half Horizontal View Markup
 
