@@ -371,11 +371,11 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size):
   {% assign today_timestamp = today | date: "%s" %}
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
-  <div class="layout">
-    {%- comment -%} Compact Title at Top {%- endcomment -%}
-    <div class="text-center mb-2">
-      <div class="label text-xs">Next Pickup</div>
-      <div class="title text-sm">
+  <div class="layout layout--col layout--center-x">
+    {%- comment -%} Centered Title at Top {%- endcomment -%}
+    <div class="text--center mb-3">
+      <div class="title">Next Pickup</div>
+      <div class="description">
         {% if days_until == 0 %}Today
         {% elsif days_until == 1 %}Tomorrow
         {% else %}{{ next_date | date: "%b %-d" }}
@@ -383,27 +383,27 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size):
       </div>
     </div>
 
-    {%- comment -%} Large Icon Display - Optimized for Quarter View {%- endcomment -%}
-    <div class="flex flex--row flex--center-x flex--center-y gap mt-2">
+    {%- comment -%} Compact Icon Display - Optimized for Quarter View {%- endcomment -%}
+    <div class="layout layout--row layout--center-x gap">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <div class="text-center" style="width: 72px;">
-            <div style="width: 72px; height: 72px; display: flex; align-items: center; justify-content: center;">
+          <div class="layout layout--col layout--center-x" style="width: 56px;">
+            <img class="image image-dither" 
               {% if flag.name == "recycling" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="72" height="72">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
               {% elsif flag.name == "GreenBin" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="72" height="72">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin"
               {% elsif flag.name == "garbage" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="72" height="72">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage"
               {% elsif flag.name == "yardwaste" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="72" height="72">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste"
               {% elsif flag.name == "pumpkins" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="72" height="72">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins"
               {% else %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="72" height="72">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
               {% endif %}
-            </div>
-            <div class="description text-xs mt-1" style="width: 72px; text-align: center;">{{ flag.subject }}</div>
+              width="56" height="56">
+            <div class="description text--xs mt-1">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
