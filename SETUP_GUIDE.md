@@ -155,7 +155,7 @@ Click on **"Form Fields"** section and paste this YAML:
   {% assign days_until = seconds_diff | divided_by: 86400 %}
   
   <div class="layout layout--col layout--center-x layout--center-y">
-    {%- comment -%} Centered Title at Top {%- endcomment -%}
+    {%- comment -%} Centered Title and Date {%- endcomment -%}
     <div class="text--center mb-4">
       <div class="title">Next Pickup</div>
       <div class="description">
@@ -194,6 +194,12 @@ Click on **"Form Fields"** section and paste this YAML:
         {% endfor %}
       {% endfor %}
     </div>
+  </div>
+
+  <div class="title_bar">
+    <img class="image" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Waste Collection">
+    <span class="title">Durham Waste Collection</span>
+    <span class="instance">Service ID: {{ service_id }}</span>
   </div>
 {% endif %}
 ```
