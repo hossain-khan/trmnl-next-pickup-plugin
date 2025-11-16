@@ -154,63 +154,45 @@ Click on **"Form Fields"** section and paste this YAML:
   {% assign seconds_diff = next_timestamp | minus: today_timestamp %}
   {% assign days_until = seconds_diff | divided_by: 86400 %}
   
-  <div class="layout">
-    {%- comment -%} Title Bar {%- endcomment -%}
-    <div class="title-bar">
-      <div class="title-bar__title">Next Pickup</div>
-      <div class="title-bar__subtitle">
+  <div class="layout layout--col layout--center-x layout--center-y">
+    {%- comment -%} Centered Title at Top {%- endcomment -%}
+    <div class="text--center mb-4">
+      <div class="title">Next Pickup</div>
+      <div class="description">
         {% if days_until == 0 %}
-          Today - Set out before 7 AM
+          Today - {{ next_date | date: "%b %-d" }}
         {% elsif days_until == 1 %}
-          Tomorrow ({{ next_date | date: "%a, %b %-d" }})
+          Tomorrow - {{ next_date | date: "%b %-d" }}
         {% else %}
-          {{ days_until }} days ({{ next_date | date: "%a, %b %-d" }})
+          {{ days_until }} days - {{ next_date | date: "%b %-d" }}
         {% endif %}
       </div>
     </div>
 
-    {%- comment -%} Large Icon Display {%- endcomment -%}
-    <div class="flex flex--row flex--center-x flex--center-y gap mt-8">
+    {%- comment -%} Large Icon Display - Horizontal Row {%- endcomment -%}
+    <div class="layout layout--row layout--center-x gap">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <div class="text-center" style="width: 120px;">
-            <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
+          <div class="layout layout--col layout--center-x text--center">
+            <img class="image image-dither" 
               {% if flag.name == "recycling" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="120" height="120">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
               {% elsif flag.name == "GreenBin" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="120" height="120">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin"
               {% elsif flag.name == "garbage" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="120" height="120">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage"
               {% elsif flag.name == "yardwaste" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="120" height="120">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste"
               {% elsif flag.name == "pumpkins" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="120" height="120">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins"
               {% else %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="120" height="120">
+                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
               {% endif %}
-            </div>
-            <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">{{ flag.subject }}</div>
+              width="120" height="120">
+            <div class="description mt-2">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
-    </div>
-
-    {%- comment -%} Footer: Zone & Upcoming {%- endcomment -%}
-    <div class="mt-auto pt-6">
-      <div class="divider"></div>
-      <div class="flex items-center justify-between pt-3">
-        {% assign zone_id = next_pickup_events.first.zone_id | to_s %}
-        {% assign zone = zones[zone_id] %}
-        {% if zone %}
-          <div class="description text-xs">{{ zone.title }}</div>
-        {% endif %}
-        
-        {% assign unique_dates = next_events | map: "day" | uniq %}
-        {% if unique_dates.size > 1 %}
-          {% assign next_next_date = unique_dates[1] %}
-          <div class="description text-xs">Next: {{ next_next_date | date: "%b %-d" }}</div>
-        {% endif %}
-      </div>
     </div>
   </div>
 {% endif %}
