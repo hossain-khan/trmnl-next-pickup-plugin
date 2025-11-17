@@ -292,9 +292,9 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
   {% assign today_timestamp = today | date: "%s" %}
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
-  <div class="layout layout--col layout--center-x">
-    {%- comment -%} Header Section {%- endcomment -%}
-    <div class="layout layout--col layout--center-x text--center mb-2">
+  <div class="flex flex--col flex--top gap">
+    {%- comment -%} Header Section (basic layout + spacing utilities) {%- endcomment -%}
+    <div class="flex flex--col flex--center-x text--center gap-xxs mt-xs">
       <div class="title">Next Pickup</div>
       <div class="description">
         {% if days_until == 0 %}Today
@@ -304,46 +304,30 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
       </div>
     </div>
 
-    {%- comment -%} Icons Grid - 2 columns with explicit rows {%- endcomment -%}
-    <div class="layout layout--col layout--center-x gap">
-      {% assign position = 0 %}
-      {% assign total_items = 0 %}
-      {% for event in next_pickup_events %}
-        {% assign total_items = total_items | plus: event.flags.size %}
-      {% endfor %}
-      
-      {% assign position = 0 %}
+    {%- comment -%} Icons Grid - use flex row + wrap to stay within Half Vertical bounds {%- endcomment -%}
+    <div class="flex flex--row flex--wrap flex--center-x gap">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          {% assign col = position | modulo: 2 %}
-          {% assign position = position | plus: 1 %}
-          
-          {% if col == 0 %}
-            <div class="layout layout--row layout--center-x gap">
-          {% endif %}
-          
-          <div class="layout layout--col layout--center-x text--center" style="min-height: 110px;">
-            <img class="image image-dither" 
-              {% if flag.name == "recycling" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
-              {% elsif flag.name == "GreenBin" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin"
-              {% elsif flag.name == "garbage" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage"
-              {% elsif flag.name == "yardwaste" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste"
-              {% elsif flag.name == "pumpkins" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins"
-              {% else %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
-              {% endif %}
-              width="80" height="80">
-            <div class="description text--sm mt-1">{{ flag.subject }}</div>
-          </div>
-          
-          {% if col == 1 or position == total_items %}
+          <div class="flex flex--col flex--center-x text--center gap-xxs" style="width: 136px;">
+            <div class="flex flex--center-x flex--center-y" style="width: 96px; height: 96px;">
+              <img class="image image-dither" 
+                {% if flag.name == "recycling" %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
+                {% elsif flag.name == "GreenBin" %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin"
+                {% elsif flag.name == "garbage" %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage"
+                {% elsif flag.name == "yardwaste" %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste"
+                {% elsif flag.name == "pumpkins" %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins"
+                {% else %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
+                {% endif %}
+                width="96" height="96">
             </div>
-          {% endif %}
+            <div class="description text--sm" style="white-space: normal; line-height: 1.2;">{{ flag.subject }}</div>
+          </div>
         {% endfor %}
       {% endfor %}
     </div>
