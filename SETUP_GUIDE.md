@@ -340,33 +340,37 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
 To verify the 2-column grid works correctly with 4 icons, **temporarily replace** the entire Half Vertical markup with this hardcoded version:
 
 ```liquid
-<div class="layout layout--col layout--center-x">
-  <div class="layout layout--col layout--center-x text--center mt-3">
+<div class="flex flex--col flex--top gap">
+  <div class="flex flex--col flex--center-x text--center gap-xxs mt-xs">
     <div class="title">Next Pickup</div>
     <div class="description">5 days - Nov 20</div>
   </div>
 
-  {%- comment -%} Testing: 4 hardcoded icons in 2×2 grid {%- endcomment -%}
-  <div class="layout layout--col layout--center-x gap mt-6">
-    <div class="layout layout--row layout--center-x gap">
-      <div class="layout layout--col layout--center-x" style="width: 80px;">
-        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="80" height="80">
-        <div class="description text--sm mt-1">Garbage</div>
+  {%- comment -%} Testing: 4 hardcoded icons in 2×2 grid using the new flex layout {%- endcomment -%}
+  <div class="flex flex--row flex--wrap flex--center-x gap">
+    <div class="flex flex--col flex--center-x text--center gap-xxs" style="width: 136px;">
+      <div class="flex flex--center-x flex--center-y" style="width: 96px; height: 96px;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="96" height="96">
       </div>
-      <div class="layout layout--col layout--center-x" style="width: 80px;">
-        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="80" height="80">
-        <div class="description text--sm mt-1">Blue Box</div>
-      </div>
+      <div class="description text--sm" style="white-space: normal; line-height: 1.2;">Garbage</div>
     </div>
-    <div class="layout layout--row layout--center-x gap">
-      <div class="layout layout--col layout--center-x" style="width: 80px;">
-        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="80" height="80">
-        <div class="description text--sm mt-1">Green Bin</div>
+    <div class="flex flex--col flex--center-x text--center gap-xxs" style="width: 136px;">
+      <div class="flex flex--center-x flex--center-y" style="width: 96px; height: 96px;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="96" height="96">
       </div>
-      <div class="layout layout--col layout--center-x" style="width: 80px;">
-        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="80" height="80">
-        <div class="description text--sm mt-1">Yard Waste</div>
+      <div class="description text--sm" style="white-space: normal; line-height: 1.2;">Blue Box</div>
+    </div>
+    <div class="flex flex--col flex--center-x text--center gap-xxs" style="width: 136px;">
+      <div class="flex flex--center-x flex--center-y" style="width: 96px; height: 96px;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="96" height="96">
       </div>
+      <div class="description text--sm" style="white-space: normal; line-height: 1.2;">Green Bin</div>
+    </div>
+    <div class="flex flex--col flex--center-x text--center gap-xxs" style="width: 136px;">
+      <div class="flex flex--center-x flex--center-y" style="width: 96px; height: 96px;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="96" height="96">
+      </div>
+      <div class="description text--sm" style="white-space: normal; line-height: 1.2;">Yard Waste</div>
     </div>
   </div>
 </div>
