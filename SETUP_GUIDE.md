@@ -137,11 +137,11 @@ Click on **"Form Fields"** section and paste this YAML:
 
 {% if next_events.size == 0 %}
   {%- comment -%} No upcoming events {%- endcomment -%}
-  <div class="layout flex items-center justify-center">
-    <div class="text-center">
+  <div class="layout layout--col layout--center-x layout--center-y">
+    <div class="text--center">
       <div class="title size-xl">📅</div>
-      <div class="title mt-4">No Upcoming Pickups</div>
-      <div class="description mt-2">Check back later for your schedule</div>
+      <div class="title mt--4">No Upcoming Pickups</div>
+      <div class="description mt--2">Check back later for your schedule</div>
     </div>
   </div>
 {% else %}
@@ -156,7 +156,7 @@ Click on **"Form Fields"** section and paste this YAML:
   
   <div class="layout layout--col layout--center-x layout--center-y">
     {%- comment -%} Centered Title and Date {%- endcomment -%}
-    <div class="text--center mb-4">
+    <div class="text--center mb--4">
       <div class="title">Next Pickup</div>
       <div class="description">
         {% if days_until == 0 %}
@@ -170,7 +170,7 @@ Click on **"Form Fields"** section and paste this YAML:
     </div>
 
     {%- comment -%} Large Icon Display - Horizontal Row {%- endcomment -%}
-    <div class="layout layout--row layout--center-x gap">
+    <div class="layout layout--row layout--center-x gap--medium">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
           <div class="layout layout--col layout--center-x text--center">
@@ -189,7 +189,7 @@ Click on **"Form Fields"** section and paste this YAML:
                 src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
               {% endif %}
               width="120" height="120">
-            <div class="description mt-2">{{ flag.subject }}</div>
+            <div class="description mt--2">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
@@ -216,9 +216,9 @@ Click on **"Form Fields"** section and paste this YAML:
    - Wait a few seconds for the preview to update
 
 3. **Check the Preview**
-   - You should see the next pickup date (Nov 13, 2025)
-   - Blue Box and Green Bin should be listed
-   - Upcoming schedule in the sidebar
+   - You should see the next pickup date with the number of days until pickup
+   - Collection types (e.g., Blue Box, Green Bin) should be displayed with icons
+   - The preview should update with current data from the API
 
 #### 🧪 Testing All Icon Variations
 
@@ -226,36 +226,36 @@ To visually test all collection type icons, **temporarily replace** the icon dis
 
 ```liquid
 {%- comment -%} 🧪 TESTING: All Icons Display - Remove after testing {%- endcomment -%}
-<div class="flex flex--row flex--center-x flex--center-y gap mt-8">
-  <div class="text-center" style="width: 120px;">
+<div class="layout layout--row layout--center-x layout--center-y gap--medium mt--8">
+  <div class="text--center" style="width: 120px;">
     <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
       <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="120" height="120">
     </div>
-    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Blue Box</div>
+    <div class="description mt--2" style="width: 120px; text-align: center;">Blue Box</div>
   </div>
-  <div class="text-center" style="width: 120px;">
+  <div class="text--center" style="width: 120px;">
     <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
       <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="120" height="120">
     </div>
-    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Green Bin</div>
+    <div class="description mt--2" style="width: 120px; text-align: center;">Green Bin</div>
   </div>
-  <div class="text-center" style="width: 120px;">
+  <div class="text--center" style="width: 120px;">
     <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
       <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="120" height="120">
     </div>
-    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Garbage</div>
+    <div class="description mt--2" style="width: 120px; text-align: center;">Garbage</div>
   </div>
-  <div class="text-center" style="width: 120px;">
+  <div class="text--center" style="width: 120px;">
     <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
       <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="120" height="120">
     </div>
-    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Yard Waste</div>
+    <div class="description mt--2" style="width: 120px; text-align: center;">Yard Waste</div>
   </div>
-  <div class="text-center" style="width: 120px;">
+  <div class="text--center" style="width: 120px;">
     <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
       <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="120" height="120">
     </div>
-    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Pumpkins</div>
+    <div class="description mt--2" style="width: 120px; text-align: center;">Pumpkins</div>
   </div>
 </div>
 ```
@@ -294,7 +294,7 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
   
   <div class="layout layout--col layout--center-x">
     {%- comment -%} Header Section {%- endcomment -%}
-    <div class="layout layout--col layout--center-x text--center mb-2">
+    <div class="layout layout--col layout--center-x text--center mb--2">
       <div class="title">Next Pickup</div>
       <div class="description">
         {% if days_until == 0 %}Today
@@ -305,7 +305,7 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
     </div>
 
     {%- comment -%} Icons Grid - 2 columns with explicit rows {%- endcomment -%}
-    <div class="layout layout--col layout--center-x gap">
+    <div class="layout layout--col layout--center-x gap--small">
       {% assign position = 0 %}
       {% assign total_items = 0 %}
       {% for event in next_pickup_events %}
@@ -319,10 +319,10 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
           {% assign position = position | plus: 1 %}
           
           {% if col == 0 %}
-            <div class="layout layout--row layout--center-x gap">
+            <div class="layout layout--row layout--center-x gap--small">
           {% endif %}
           
-          <div class="layout layout--col layout--center-x text--center" style="min-height: 110px;">
+          <div class="layout layout--col layout--center-x text--center">
             <img class="image image-dither" 
               {% if flag.name == "recycling" %}
                 src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
@@ -338,7 +338,7 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
                 src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
               {% endif %}
               width="80" height="80">
-            <div class="description text--sm mt-1">{{ flag.subject }}</div>
+            <div class="description text--sm mt--1">{{ flag.subject }}</div>
           </div>
           
           {% if col == 1 or position == total_items %}
@@ -357,31 +357,31 @@ To verify the 2-column grid works correctly with 4 icons, **temporarily replace*
 
 ```liquid
 <div class="layout layout--col layout--center-x">
-  <div class="layout layout--col layout--center-x text--center mt-3">
+  <div class="layout layout--col layout--center-x text--center mt--3">
     <div class="title">Next Pickup</div>
     <div class="description">5 days - Nov 20</div>
   </div>
 
   {%- comment -%} Testing: 4 hardcoded icons in 2×2 grid {%- endcomment -%}
-  <div class="layout layout--col layout--center-x gap mt-6">
-    <div class="layout layout--row layout--center-x gap">
+  <div class="layout layout--col layout--center-x gap--small mt--6">
+    <div class="layout layout--row layout--center-x gap--small">
       <div class="layout layout--col layout--center-x" style="width: 80px;">
         <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="80" height="80">
-        <div class="description text--sm mt-1">Garbage</div>
+        <div class="description text--sm mt--1">Garbage</div>
       </div>
       <div class="layout layout--col layout--center-x" style="width: 80px;">
         <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="80" height="80">
-        <div class="description text--sm mt-1">Blue Box</div>
+        <div class="description text--sm mt--1">Blue Box</div>
       </div>
     </div>
-    <div class="layout layout--row layout--center-x gap">
+    <div class="layout layout--row layout--center-x gap--small">
       <div class="layout layout--col layout--center-x" style="width: 80px;">
         <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="80" height="80">
-        <div class="description text--sm mt-1">Green Bin</div>
+        <div class="description text--sm mt--1">Green Bin</div>
       </div>
       <div class="layout layout--col layout--center-x" style="width: 80px;">
         <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="80" height="80">
-        <div class="description text--sm mt-1">Yard Waste</div>
+        <div class="description text--sm mt--1">Yard Waste</div>
       </div>
     </div>
   </div>
@@ -409,7 +409,7 @@ Click on the **"Half Horizontal"** tab and add this for top/bottom split layouts
   <div class="layout layout--col layout--center">
     <div class="text--center">
       <div class="title">No Pickups</div>
-      <div class="description mt-2">Check schedule</div>
+      <div class="description mt--2">Check schedule</div>
     </div>
   </div>
 {% else %}
@@ -420,10 +420,10 @@ Click on the **"Half Horizontal"** tab and add this for top/bottom split layouts
   {% assign today_timestamp = today | date: "%s" %}
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
-  <div class="layout">
-    <div class="title-bar">
-      <div class="title-bar__title">Next Pickup</div>
-      <div class="title-bar__subtitle">
+  <div class="layout layout--col layout--center-x">
+    <div class="layout layout--col layout--center-x text--center mb--2">
+      <div class="title">Next Pickup</div>
+      <div class="description">
         {% if days_until == 0 %}Today
         {% elsif days_until == 1 %}Tomorrow
         {% else %}{{ days_until }} days
@@ -432,7 +432,7 @@ Click on the **"Half Horizontal"** tab and add this for top/bottom split layouts
     </div>
 
     {%- comment -%} Horizontal Row of Icons {%- endcomment -%}
-    <div class="layout layout--row layout--center-x gap mt-6">
+    <div class="layout layout--row layout--center-x gap--small mt--6">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
           <div class="layout layout--col layout--center-x" style="width: 80px;">
@@ -451,7 +451,7 @@ Click on the **"Half Horizontal"** tab and add this for top/bottom split layouts
                 src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
               {% endif %}
               width="80" height="80">
-            <div class="description text--sm mt-1">{{ flag.subject }}</div>
+            <div class="description text--sm mt--1">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
@@ -474,8 +474,8 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 40
 {% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
 
 {% if next_events.size == 0 %}
-  <div class="layout flex items-center justify-center">
-    <div class="text-center">
+  <div class="layout layout--col layout--center-x layout--center-y">
+    <div class="text--center">
       <div class="description">No Pickups</div>
     </div>
   </div>
@@ -489,7 +489,7 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 40
   
   <div class="layout layout--col layout--center-x">
     {%- comment -%} Centered Title at Top {%- endcomment -%}
-    <div class="text--center mb-3">
+    <div class="text--center mb--3">
       <div class="title">Next Pickup</div>
       <div class="description">
         {% if days_until == 0 %}Today
@@ -500,7 +500,7 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 40
     </div>
 
     {%- comment -%} Compact Icon Display - Optimized for Quarter View {%- endcomment -%}
-    <div class="layout layout--row layout--center-x gap">
+    <div class="layout layout--row layout--center-x gap--small">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
           <div class="layout layout--col layout--center-x" style="width: 56px;">
@@ -519,7 +519,7 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 40
                 src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
               {% endif %}
               width="56" height="56">
-            <div class="description text--xs mt-1">{{ flag.subject }}</div>
+            <div class="description text--xs mt--1">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
@@ -542,9 +542,9 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
 {% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
 
 {% if next_events.size == 0 %}
-  <div class="layout flex items-center justify-center">
-    <div class="text-center">
-      <div class="description text-sm">No Pickups</div>
+  <div class="layout layout--col layout--center-x layout--center-y">
+    <div class="text--center">
+      <div class="description text--sm">No Pickups</div>
     </div>
   </div>
 {% else %}
@@ -555,8 +555,8 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
   {% assign today_timestamp = today | date: "%s" %}
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
-  <div class="layout">
-    <div class="item">
+  <div class="layout layout--col layout--center-x">
+    <div class="layout layout--col layout--center-x text--center mb--2">
       <div class="label">Next Pickup</div>
       <div class="title">
         {% if days_until == 0 %}Today
@@ -564,14 +564,14 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
         {% else %}{{ days_until }} days
         {% endif %}
       </div>
-      <div class="description text-xs">{{ next_date | date: "%b %-d" }}</div>
+      <div class="description text--xs">{{ next_date | date: "%b %-d" }}</div>
     </div>
 
     {%- comment -%} Medium Icons Centered {%- endcomment -%}
-    <div class="flex flex--row flex--center-x flex--center-y gap mt-3">
+    <div class="layout layout--row layout--center-x layout--center-y gap--small mt--3">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <div class="text-center" style="width: 56px;">
+          <div class="text--center" style="width: 56px;">
             <div style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;">
               {% if flag.name == "recycling" %}
                 <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="56" height="56">
@@ -587,7 +587,7 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
                 <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="56" height="56">
               {% endif %}
             </div>
-            <div class="description text-xs mt-1" style="width: 56px; text-align: center;">{{ flag.subject }}</div>
+            <div class="description text--xs mt--1" style="width: 56px; text-align: center;">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
@@ -648,12 +648,11 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
 
 ### What You Should See
 
-✅ Plugin title: "Waste Collection"  
-✅ Next pickup date: "Thursday, November 13"  
-✅ Days until: "In 4 days"  
-✅ Collection types: Blue Box ♻️, Green Bin 🗑️  
-✅ Upcoming dates in sidebar  
-✅ Zone name at bottom  
+✅ Plugin title: "Durham Waste Collection"  
+✅ Next pickup date displayed with number of days until pickup  
+✅ Collection types with corresponding icons (e.g., Blue Box ♻️, Green Bin 🗑️, Garbage, Yard Waste)  
+✅ Service ID shown at bottom of Full view  
+✅ Clear, dithered images optimized for e-ink display  
 
 ---
 
