@@ -154,10 +154,10 @@ Click on **"Form Fields"** section and paste this YAML:
   {% assign seconds_diff = next_timestamp | minus: today_timestamp %}
   {% assign days_until = seconds_diff | divided_by: 86400 %}
   
-  <div class="layout layout--col layout--center-x layout--center-y">
+  <div class="layout layout--col layout--center-x layout--center-y" style="gap: 24px; min-height: 100%; justify-content: center;">
     {%- comment -%} Centered Title and Date {%- endcomment -%}
-    <div class="text--center mb-4">
-      <div class="title">Next Pickup</div>
+    <div class="text--center">
+      <div class="title size-lg">Next Pickup</div>
       <div class="description">
         {% if days_until == 0 %}
           Today - {{ next_date | date: "%b %-d" }}
@@ -170,36 +170,52 @@ Click on **"Form Fields"** section and paste this YAML:
     </div>
 
     {%- comment -%} Large Icon Display - Horizontal Row {%- endcomment -%}
-    <div class="layout layout--row layout--center-x gap">
+    <div class="layout layout--row layout--center-x gap" style="flex-wrap: wrap; padding: 24px 32px; border-radius: 20px; background: rgba(255, 255, 255, 0.04);">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <div class="layout layout--col layout--center-x text--center">
-            <img class="image image-dither" 
-              {% if flag.name == "recycling" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
-              {% elsif flag.name == "GreenBin" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin"
-              {% elsif flag.name == "garbage" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage"
-              {% elsif flag.name == "yardwaste" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste"
-              {% elsif flag.name == "pumpkins" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins"
-              {% else %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
-              {% endif %}
-              width="120" height="120">
+          <div class="layout layout--col layout--center-x text--center" style="width: 152px;">
+            <div class="layout layout--center-x" style="width: 136px; height: 136px; align-items: center; justify-content: center;">
+              <img class="image image-dither" 
+                {% if flag.name == "recycling" %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
+                {% elsif flag.name == "GreenBin" %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin"
+                {% elsif flag.name == "garbage" %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage"
+                {% elsif flag.name == "yardwaste" %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste"
+                {% elsif flag.name == "pumpkins" %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins"
+                {% else %}
+                  src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
+                {% endif %}
+                width="136" height="136">
+            </div>
             <div class="description mt-2">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
+    </div>
+
+    {%- comment -%} Supporting context sentence for readability {%- endcomment -%}
+    <div class="description text--center">
+      Collection types scheduled: 
+      {% assign flag_count = 0 %}
+      {% for event in next_pickup_events %}
+        {% for flag in event.flags %}
+          {% assign flag_count = flag_count | plus: 1 %}
+          <span class="font-weight-bold">{{ flag.subject }}</span>{% if forloop.last and forloop.parentloop.last %}.{% elsif flag_count == 1 %}, {% else %}, {% endif %}
+        {% endfor %}
+      {% endfor %}
+      Set everything curbside by 7 AM.
     </div>
   </div>
 
   <div class="title_bar">
     <img class="image" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Waste Collection">
     <span class="title">Durham Waste Collection</span>
-    <span class="instance">Service ID: {{ service_id }}</span>
+    <span class="subtitle">{{ address | default: "Durham Region" }}</span>
+    <span class="instance">Service {{ service_id }} · {{ next_date | date: "%a, %b %-d" }}</span>
   </div>
 {% endif %}
 ```
@@ -226,41 +242,50 @@ To visually test all collection type icons, **temporarily replace** the icon dis
 
 ```liquid
 {%- comment -%} 🧪 TESTING: All Icons Display - Remove after testing {%- endcomment -%}
-<div class="flex flex--row flex--center-x flex--center-y gap mt-8">
-  <div class="text-center" style="width: 120px;">
-    <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
-      <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="120" height="120">
-    </div>
-    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Blue Box</div>
+<div class="layout layout--col layout--center-x layout--center-y" style="gap: 24px; min-height: 100%; justify-content: center;">
+  <div class="text--center">
+    <div class="title size-lg">Next Pickup</div>
+    <div class="description">3 days - Nov 20</div>
   </div>
-  <div class="text-center" style="width: 120px;">
-    <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
-      <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="120" height="120">
+
+  <div class="layout layout--row layout--center-x gap" style="flex-wrap: wrap; padding: 24px 32px; border-radius: 20px; background: rgba(255, 255, 255, 0.04);">
+    <div class="text-center" style="width: 152px;">
+      <div style="width: 136px; height: 136px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="136" height="136">
+      </div>
+      <div class="description font-weight-bold mt-2" style="width: 136px; text-align: center; margin: 0 auto;">Blue Box</div>
     </div>
-    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Green Bin</div>
-  </div>
-  <div class="text-center" style="width: 120px;">
-    <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
-      <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="120" height="120">
+    <div class="text-center" style="width: 152px;">
+      <div style="width: 136px; height: 136px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="136" height="136">
+      </div>
+      <div class="description font-weight-bold mt-2" style="width: 136px; text-align: center; margin: 0 auto;">Green Bin</div>
     </div>
-    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Garbage</div>
-  </div>
-  <div class="text-center" style="width: 120px;">
-    <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
-      <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="120" height="120">
+    <div class="text-center" style="width: 152px;">
+      <div style="width: 136px; height: 136px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="136" height="136">
+      </div>
+      <div class="description font-weight-bold mt-2" style="width: 136px; text-align: center; margin: 0 auto;">Garbage</div>
     </div>
-    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Yard Waste</div>
-  </div>
-  <div class="text-center" style="width: 120px;">
-    <div style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
-      <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="120" height="120">
+    <div class="text-center" style="width: 152px;">
+      <div style="width: 136px; height: 136px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="136" height="136">
+      </div>
+      <div class="description font-weight-bold mt-2" style="width: 136px; text-align: center; margin: 0 auto;">Yard Waste</div>
     </div>
-    <div class="description font-weight-bold mt-2" style="width: 120px; text-align: center;">Pumpkins</div>
+    <div class="text-center" style="width: 152px;">
+      <div style="width: 136px; height: 136px; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+        <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="136" height="136">
+      </div>
+      <div class="description font-weight-bold mt-2" style="width: 136px; text-align: center; margin: 0 auto;">Pumpkins</div>
+    </div>
   </div>
+
+  <div class="description text--center">Collection types scheduled: Garbage, Blue Box, Green Bin, Yard Waste. Set everything curbside by 7 AM.</div>
 </div>
 ```
 
-**Note:** Adjust icon size (120px for Full, 80px for Half, 72px for Quarter, 56px for Third) based on which view you're testing. Remember to restore the original looping code after visual testing!
+**Note:** Adjust icon size (136px for Full, 80px for Half, 72px for Quarter, 56px for Third) based on which view you're testing. Remember to restore the original looping code after visual testing!
 
 
 
