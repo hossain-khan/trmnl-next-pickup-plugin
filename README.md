@@ -1,5 +1,5 @@
 # trmnl-next-pickup-plugin
-Plugin for next pickup day for Durham Region
+Plugin for next pickup day for Durham Region, Ontario, Canada 🇨🇦
 
 
 | 🖼️ | 🖼️ |
@@ -8,7 +8,7 @@ Plugin for next pickup day for Durham Region
 | <img width="800" height="480" alt="Image" src="https://github.com/user-attachments/assets/a62141d8-1811-4976-af73-5082661f4ad1" /> | <img width="800" height="480" alt="Image" src="https://github.com/user-attachments/assets/a0ba19d7-9c6f-430b-91e8-6659055059eb" /> |
 
 
-
+![](resources/durham-pickup-app-icon.png)
 
 ## Documentations
 - https://help.usetrmnl.com/en/articles/9510536-private-plugins
