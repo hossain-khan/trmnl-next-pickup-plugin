@@ -118,77 +118,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Fetch configuration from Durham Region API
+     * Uses the Recollect API's address-suggest endpoint to find matching addresses
      * 
-     * TODO: Implement actual API calls when user provides endpoint details
-     * Expected flow:
-     * 1. Call Durham Region address lookup API
-     * 2. Extract Place ID from response
-     * 3. Return configuration object
+     * API Flow:
+     * 1. Call address-suggest API with user's address query
+     * 2. Extract place_id, service_id, and formatted name from first result
+     * 3. Return configuration object for TRMNL plugin
      * 
      * @param {string} address - User's Durham Region address
      * @returns {Promise<Object|null>} Configuration object or null if not found
      */
     async function fetchConfiguration(address) {
-        // PLACEHOLDER IMPLEMENTATION
-        // This will be replaced with actual API calls
-        
-        console.log('Fetching configuration for address:', address);
-        
-        // Simulate API delay
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        // Example response structure (for development/testing)
-        // User will provide actual API endpoint and parsing logic
-        
-        // For demonstration purposes, return mock data if address contains "Oshawa"
-        if (address.toLowerCase().includes('oshawa')) {
-            return {
-                placeId: '918DB048-D91A-11E8-B83E-68F5AF88FEB0',
-                serviceId: '257',
-                displayAddress: address
-            };
+        if (!address || address.trim().length < 3) {
+            throw new Error('Please enter a valid address (at least 3 characters)');
         }
-        
-        // Return null if no configuration found
-        return null;
-        
-        /* 
-        ACTUAL IMPLEMENTATION STRUCTURE (to be filled in):
-        
+
+        const encodedAddress = encodeURIComponent(address.trim());
+        const apiUrl = `https://api.recollect.net/api/areas/Durham/services/257/address-suggest?q=${encodedAddress}&locale=en`;
+
+        console.log('Fetching configuration for:', address);
+
         try {
-            // Step 1: Call Durham Region address search API
-            const searchResponse = await fetch('API_ENDPOINT_HERE', {
-                method: 'POST',
+            const response = await fetch(apiUrl, {
+                method: 'GET',
                 headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ address })
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
             });
-            
-            if (!searchResponse.ok) {
-                throw new Error('Address lookup failed');
+
+            if (!response.ok) {
+                throw new Error(`API request failed: ${response.status} ${response.statusText}`);
             }
-            
-            const searchData = await searchResponse.json();
-            
-            // Step 2: Extract Place ID from response
-            const placeId = searchData.place_id; // Adjust based on actual response structure
-            
-            if (!placeId) {
-                return null;
+
+            const results = await response.json();
+
+            // Check if we got any results
+            if (!results || !Array.isArray(results) || results.length === 0) {
+                return null; // No addresses found
             }
-            
-            // Step 3: Return configuration
+
+            // Take the first result (most relevant match)
+            const firstResult = results[0];
+
+            // Validate required fields
+            if (!firstResult.place_id || !firstResult.service_id) {
+                throw new Error('Invalid response from API. Missing required fields.');
+            }
+
+            // Return configuration in the format expected by the form handler
             return {
-                placeId: placeId,
-                serviceId: '257', // Durham Region default
-                displayAddress: searchData.formatted_address || address
+                placeId: firstResult.place_id,
+                serviceId: String(firstResult.service_id),
+                displayAddress: firstResult.name || address
             };
-            
+
         } catch (error) {
-            console.error('API Error:', error);
+            // Network or parsing errors
+            if (error.message.includes('Failed to fetch')) {
+                throw new Error('Network error. Please check your connection and try again.');
+            }
             throw error;
         }
-        */
     }
 });
