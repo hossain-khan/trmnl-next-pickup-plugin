@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Durham Region Waste Collection Plugin for TRMNL - Display your next garbage and recycling pickup dates on your TRMNL e-ink display">
+    <title>Durham Waste Collection - TRMNL Plugin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <img src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Durham Waste Collection" class="logo">
+                <h1>Durham Waste Collection</h1>
+                <p class="subtitle">TRMNL Plugin for Durham Region, Ontario 🇨🇦</p>
+            </div>
+        </header>
+
+        <main>
+            <!-- About Section -->
+            <section class="card">
+                <h2>📅 Never Miss Pickup Day</h2>
+                <p>Display your next garbage, recycling, green bin, and yard waste pickup dates on your TRMNL e-ink display. Automatically syncs with Durham Region's collection schedule.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <span class="icon">🗓️</span>
+                        <h3>Real-time Updates</h3>
+                        <p>Automatic polling from Durham Region Recollect API</p>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">♻️</span>
+                        <h3>All Collection Types</h3>
+                        <p>Blue Box, Green Bin, Garbage, Yard Waste, and seasonal items</p>
+                    </div>
+                    <div class="feature">
+                        <span class="icon">📱</span>
+                        <h3>Multiple Layouts</h3>
+                        <p>Full, Half, Quarter, and Third view sizes for mashups</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Screenshots -->
+            <section class="card">
+                <h2>📸 Preview</h2>
+                <div class="screenshots">
+                    <img src="https://github.com/user-attachments/assets/a4ad0af2-5e70-4519-8763-ba6e40c2ba61" alt="Full view" loading="lazy">
+                    <img src="https://github.com/user-attachments/assets/ebf728fb-3cde-41bc-9766-7a30d9cc139a" alt="Half view" loading="lazy">
+                </div>
+            </section>
+
+            <!-- Setup Tool -->
+            <section class="card setup-section">
+                <h2>🔧 Get Your Plugin Configuration</h2>
+                <p>Enter your Durham Region address below to automatically retrieve your Place ID and Service ID.</p>
+                
+                <form id="address-form" class="address-form">
+                    <div class="form-group">
+                        <label for="address-input">Your Durham Region Address</label>
+                        <input 
+                            type="text" 
+                            id="address-input" 
+                            placeholder="e.g., 1 King Street, Oshawa" 
+                            required
+                            autocomplete="street-address"
+                        >
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-text">Find My Configuration</span>
+                        <span class="spinner" style="display: none;"></span>
+                    </button>
+                </form>
+
+                <!-- Results -->
+                <div id="results" class="results" style="display: none;">
+                    <div class="success-message">
+                        <h3>✅ Configuration Found!</h3>
+                        <p>Copy these values to your TRMNL plugin settings:</p>
+                    </div>
+                    
+                    <div class="config-values">
+                        <div class="config-item">
+                            <label>Place ID</label>
+                            <div class="value-container">
+                                <code id="place-id" class="config-value">-</code>
+                                <button class="copy-btn" data-copy="place-id">Copy</button>
+                            </div>
+                        </div>
+                        
+                        <div class="config-item">
+                            <label>Service ID</label>
+                            <div class="value-container">
+                                <code id="service-id" class="config-value">257</code>
+                                <button class="copy-btn" data-copy="service-id">Copy</button>
+                            </div>
+                        </div>
+                        
+                        <div class="config-item">
+                            <label>Display Address (Optional)</label>
+                            <div class="value-container">
+                                <code id="display-address" class="config-value">-</code>
+                                <button class="copy-btn" data-copy="display-address">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-steps">
+                        <h4>Next Steps:</h4>
+                        <ol>
+                            <li>Go to <a href="https://usetrmnl.com/plugins" target="_blank" rel="noopener">TRMNL Plugins</a></li>
+                            <li>Search for "Private Plugin" and add it</li>
+                            <li>Paste the configuration values above</li>
+                            <li>Follow the <a href="https://github.com/hossain-khan/trmnl-next-pickup-plugin/blob/main/SETUP_GUIDE.md" target="_blank" rel="noopener">setup guide</a> for detailed instructions</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Error Message -->
+                <div id="error" class="error-message" style="display: none;">
+                    <h3>⚠️ Unable to Find Configuration</h3>
+                    <p id="error-text">Please check your address and try again. Make sure you enter a valid Durham Region address.</p>
+                </div>
+            </section>
+
+            <!-- Documentation -->
+            <section class="card">
+                <h2>📚 Documentation</h2>
+                <div class="docs-links">
+                    <a href="https://github.com/hossain-khan/trmnl-next-pickup-plugin/blob/main/SETUP_GUIDE.md" class="doc-link" target="_blank" rel="noopener">
+                        <span>📖 Setup Guide</span>
+                        <p>Step-by-step instructions for configuring the plugin</p>
+                    </a>
+                    <a href="https://github.com/hossain-khan/trmnl-next-pickup-plugin/blob/main/TECHNICAL_SPECIFICATION.md" class="doc-link" target="_blank" rel="noopener">
+                        <span>⚙️ Technical Specification</span>
+                        <p>API details, data structure, and advanced customization</p>
+                    </a>
+                    <a href="https://github.com/hossain-khan/trmnl-next-pickup-plugin" class="doc-link" target="_blank" rel="noopener">
+                        <span>💻 GitHub Repository</span>
+                        <p>Source code, sample data, and issue tracking</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Requirements -->
+            <section class="card">
+                <h2>✅ Requirements</h2>
+                <ul class="requirements-list">
+                    <li>TRMNL device with Developer perks enabled</li>
+                    <li>Address in Durham Region, Ontario, Canada</li>
+                    <li>Valid Place ID from Recollect (use tool above)</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>Made for <a href="https://usetrmnl.com" target="_blank" rel="noopener">TRMNL</a> | 
+            <a href="https://github.com/hossain-khan/trmnl-next-pickup-plugin" target="_blank" rel="noopener">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
