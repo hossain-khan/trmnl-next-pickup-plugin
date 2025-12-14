@@ -100,23 +100,61 @@ user-agent=TRMNL-Durham-Waste-Plugin/1.0
 
 ### 2. Form Fields (YAML)
 
-Create a custom form for users to input their location:
+Create a custom form for users to input their configuration and provide plugin information:
 
 ```yaml
+- keyname: author_bio
+  name: About This Plugin
+  field_type: author_bio
+  category: life,environment
+  description: |
+    Durham Waste Collection displays your next garbage, recycling, green bin, and yard waste pickup dates directly on your TRMNL device.
+    
+    **Features:**
+    - 🗓️ Real-time updates from Durham Region API
+    - ♻️ All collection types (Blue Box, Green Bin, Garbage, Yard Waste)
+    - 📱 Optimized layouts for all TRMNL view sizes
+    - 🎨 Beautiful icons for each collection type
+    - ⏰ Countdown display showing days until next pickup
+    
+    **Setup:**
+    1. Visit our Configuration Helper to find your Place ID: https://hossain-khan.github.io/trmnl-next-pickup-plugin/
+    2. Enter your Durham Region address
+    3. Copy the configuration values
+    4. Paste them into the plugin form fields below
+    
+    That's it! Your plugin will automatically refresh with the latest pickup schedule.
+    
+    **Note:** This plugin is designed for Durham Region, Ontario residents only.
+  github_url: https://github.com/hossain-khan/trmnl-next-pickup-plugin
+  learn_more_url: https://hossain-khan.github.io/trmnl-next-pickup-plugin/
+  email_address: hossain.khan@gmail.com
+
 - keyname: place_id
-  label: Place ID
-  type: text
-  required: true
-  placeholder: "e.g., 918DB048-D91A-11E8-B83E-68F5AF88FEB0"
-  help: "Find your Place ID at https://recollect.net by entering your address"
+  field_type: string
+  name: Place ID
+  description: Your unique location ID from Recollect
+  placeholder: "918DB048-D91A-11E8-B83E-68F5AF88FEB0"
+
+- keyname: service_id
+  field_type: string
+  name: Service ID
+  description: Durham waste collection service ID
+  placeholder: "257"
   
 - keyname: address
-  label: Your Address
-  type: text
-  required: false
-  placeholder: "e.g., 1 King Street, Oshawa"
-  help: "Display name for your location"
+  field_type: string
+  name: Display Address
+  description: A friendly name for your location to show on the display
+  placeholder: "1 King Street, Oshawa"
+  optional: true
 ```
+
+**Important Notes:**
+- The `author_bio` field is required when publishing as a Recipe
+- It appears below the plugin's preview image on the recipe page
+- Categories (`life,environment`) help users discover your plugin
+- Special properties (`github_url`, `learn_more_url`, `email_address`) render as clickable icons
 
 ### 3. Plugin Settings
 
