@@ -13,11 +13,27 @@ addEventListener('fetch', event => {
 })
 
 async function handleRequest(request) {
+  // Handle CORS preflight OPTIONS request
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Accept',
+        'Access-Control-Max-Age': '86400'
+      }
+    })
+  }
+
   // Only allow GET requests
   if (request.method !== 'GET') {
     return new Response('Method not allowed', { 
       status: 405,
-      headers: { 'Content-Type': 'text/plain' }
+      headers: { 
+        'Content-Type': 'text/plain',
+        'Access-Control-Allow-Origin': '*'
+      }
     })
   }
 
