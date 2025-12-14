@@ -4,23 +4,23 @@
   category: life,environment
   description: |
     Durham Waste Collection displays your next garbage, recycling, green bin, and yard waste pickup dates directly on your TRMNL device.
-    
-    **Features:**
-    - 🗓️ Real-time updates from Durham Region API
-    - ♻️ All collection types (Blue Box, Green Bin, Garbage, Yard Waste)
-    - 📱 Optimized layouts for all TRMNL view sizes
-    - 🎨 Beautiful icons for each collection type
-    - ⏰ Countdown display showing days until next pickup
-    
-    **Setup:**
-    1. Visit our Configuration Helper to find your Place ID: https://hossain-khan.github.io/trmnl-next-pickup-plugin/
-    2. Enter your Durham Region address
-    3. Copy the configuration values
+    <br><br>
+    <strong>Features:</strong><br>
+    🗓️ Real-time updates from Durham Region API<br>
+    ♻️ All collection types (Blue Box, Green Bin, Garbage, Yard Waste)<br>
+    📱 Optimized layouts for all TRMNL view sizes<br>
+    🎨 Beautiful icons for each collection type<br>
+    ⏰ Countdown display showing days until next pickup
+    <br><br>
+    <strong>Setup:</strong><br>
+    1. Visit our Configuration Helper to find your Place ID: https://hossain-khan.github.io/trmnl-next-pickup-plugin/<br>
+    2. Enter your Durham Region address<br>
+    3. Copy the configuration values<br>
     4. Paste them into the plugin form fields below
-    
+    <br><br>
     That's it! Your plugin will automatically refresh with the latest pickup schedule.
-    
-    **Note:** This plugin is designed for Durham Region, Ontario residents only.
+    <br><br>
+    <strong>Note:</strong> This plugin is designed for Durham Region, Ontario residents only.
   github_url: https://github.com/hossain-khan/trmnl-next-pickup-plugin
   learn_more_url: https://hossain-khan.github.io/trmnl-next-pickup-plugin/
   email_address: trmnl@hossain.dev
