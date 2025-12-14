@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const encodedAddress = encodeURIComponent(address.trim());
-        const apiUrl = `https://api.recollect.net/api/areas/Durham/services/257/address-suggest?q=${encodedAddress}&locale=en`;
+        const apiUrl = `https://durham-waste-api-proxy.hk-c91.workers.dev/api/address-suggest?q=${encodedAddress}`;
 
         console.log('Fetching configuration for:', address);
 
