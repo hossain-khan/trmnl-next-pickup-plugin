@@ -14,15 +14,39 @@ This guide will walk you through creating the Durham Waste Collection plugin on 
 
 ## Part 1: Find Your Place ID
 
-### Option A: Using the Sample Data (Quick Test)
+### Option A: Using the Configuration Helper Tool (Recommended) ⭐
 
-For initial testing, use the Place ID from our sample data:
+The easiest way to get your configuration:
+
+1. **Visit the Configuration Helper**
+   - Go to: https://hossain-khan.github.io/trmnl-next-pickup-plugin/
+   - This is our automated tool that finds your Place ID instantly
+
+2. **Enter Your Address**
+   - Type your Durham Region address (e.g., "563 Ritson Rd S, Oshawa")
+   - Click "Find My Configuration"
+   - Wait a few seconds for the results
+
+3. **Copy Your Configuration**
+   - The tool will display:
+     - **Place ID**: Your unique location identifier
+     - **Service ID**: Durham's service ID (usually 257)
+     - **Display Address**: Formatted address for your display
+   - Click the "Copy" button next to each value
+   - You're ready to configure the plugin! ✅
+
+### Option B: Using Sample Data (Quick Test)
+
+For initial testing without your address, use the sample Place ID:
 ```
 918DB048-D91A-11E8-B83E-68F5AF88FEB0
 ```
-Address: 1 King Street, Oshawa
+Address: 1 King Street, Oshawa  
+Service ID: 257
 
-### Option B: Find Your Own Place ID
+### Option C: Manual Method (Advanced)
+
+If the configuration tool doesn't work or you prefer manual lookup:
 
 1. **Visit Durham Region Waste Calendar**
    - Go to: https://www.durham.ca/en/living-here/collection-calendar.aspx
