@@ -136,7 +136,7 @@ Click on **"Form Fields"** section and paste this YAML:
     **Note:** This plugin is designed for Durham Region, Ontario residents only.
   github_url: https://github.com/hossain-khan/trmnl-next-pickup-plugin
   learn_more_url: https://hossain-khan.github.io/trmnl-next-pickup-plugin/
-  email_address: hossain.khan@gmail.com
+  email_address: trmnl@hossain.dev
 
 - keyname: place_id
   field_type: string
