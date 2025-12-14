@@ -133,7 +133,7 @@ Create a custom form for users to input their configuration and provide plugin i
 - keyname: place_id
   field_type: string
   name: Place ID
-  description: Your unique location ID from Recollect
+  description: Your unique location ID from Recollect. Find it easily at <a href="https://hossain-khan.github.io/trmnl-next-pickup-plugin/">our Configuration Helper</a>.
   placeholder: "918DB048-D91A-11E8-B83E-68F5AF88FEB0"
 
 - keyname: service_id
