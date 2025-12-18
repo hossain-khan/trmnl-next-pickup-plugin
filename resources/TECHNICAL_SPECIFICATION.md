@@ -216,44 +216,22 @@ Create a custom form for users to input their configuration and provide plugin i
 
 **Shared View - SVG Icon Library:**
 
-> **Note:** The actual SVG icon files are located in `resources/icons/` directory. Each SVG file contains the complete icon design converted from the original PNG assets. The files include: `recycle-bin.svg` (Blue Box), `green-recycle-bin.svg` (Green Bin), `garbage-bag.svg` (Garbage), `yard-waste.svg` (Yard Waste), and `pumpkin.svg` (Seasonal Pumpkins).
+> **Note:** The complete icon library implementation with base64 data (~40KB) is maintained in a separate file to keep this specification readable.
 
-```liquid
-{%- capture svg_recycle_bin -%}
-<!-- Copy complete content from resources/icons/recycle-bin.svg -->
-<svg height="1024" viewBox="0 0 1024 1024" width="1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <image height="1024" preserveAspectRatio="none" width="1024" xlink:href="data:image/png;base64,[...base64 data...]"/>
-</svg>
-{%- endcapture -%}
+**📄 See [SHARED_VIEW_ICONS.md](SHARED_VIEW_ICONS.md) for:**
+- Complete Liquid capture blocks for all 5 icons
+- Base64 data insertion instructions
+- Icon file reference table
+- Usage examples and technical notes
 
-{%- capture svg_green_recycle_bin -%}
-<!-- Copy complete content from resources/icons/green-recycle-bin.svg -->
-<svg height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <image height="512" preserveAspectRatio="none" width="512" xlink:href="data:image/png;base64,[...base64 data...]"/>
-</svg>
-{%- endcapture -%}
+**Icon Files Available** (in `resources/icons/`):
+- `recycle-bin.png` → Blue Box Recycling (1024×1024)
+- `green-recycle-bin.png` → Green Bin Organics (512×512)
+- `garbage-bag.png` → Garbage Collection (512×512)
+- `yard-waste.png` → Yard Waste (380×340)
+- `pumpkin.png` → Seasonal Pumpkins
 
-{%- capture svg_garbage_bag -%}
-<!-- Copy complete content from resources/icons/garbage-bag.svg -->
-<svg height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <image height="512" preserveAspectRatio="none" width="512" xlink:href="data:image/png;base64,[...base64 data...]"/>
-</svg>
-{%- endcapture -%}
-
-{%- capture svg_yard_waste -%}
-<!-- Copy complete content from resources/icons/yard-waste.svg -->
-<svg height="340" viewBox="0 0 380 340" width="380" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <image height="340" preserveAspectRatio="none" width="380" xlink:href="data:image/png;base64,[...base64 data...]"/>
-</svg>
-{%- endcapture -%}
-
-{%- capture svg_pumpkin -%}
-<!-- Copy complete content from resources/icons/pumpkin.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <image preserveAspectRatio="none" xlink:href="data:image/png;base64,[...base64 data...]"/>
-</svg>
-{%- endcapture -%}
-```
+Each icon has a corresponding `-base64.txt` file with the complete data URI ready to paste.
 
 **Full View Example (Corrected):**
 ```liquid
