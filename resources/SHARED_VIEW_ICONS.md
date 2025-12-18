@@ -68,9 +68,9 @@ All base64-encoded icon data files are located in `resources/icons/`:
 {%- endcapture -%}
 
 {%- capture svg_pumpkin -%}
-<!-- This is the Seasonal pumpkins pickup icon -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <image preserveAspectRatio="none" xlink:href="PASTE_CONTENT_FROM_pumpkin-base64.txt_HERE"/>
+<!-- This is the Seasonal pumpkins pickup icon (1024x1024 viewBox) -->
+<svg height="1024" viewBox="0 0 1024 1024" width="1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <image height="1024" preserveAspectRatio="none" width="1024" xlink:href="PASTE_CONTENT_FROM_pumpkin-base64.txt_HERE"/>
 </svg>
 {%- endcapture -%}
 ```
