@@ -205,104 +205,68 @@ Create a custom form for users to input their configuration and provide plugin i
 {% assign days_until = next_date_timestamp | minus: today_timestamp | divided_by: 86400 %}
 ```
 
-### HTML Structure
+### View Implementations
 
-```html
-<div class="layout">
-  <!-- Title Bar -->
-  <div class="title-bar">
-    <div class="title-bar__title">Waste Collection</div>
-    <div class="title-bar__subtitle">{{ address | default: "Durham Region" }}</div>
-  </div>
+All view implementations (Full, Half Vertical, Half Horizontal, Quarter, Third) are documented with complete markup in:
 
-  <!-- Next Pickup Section -->
-  <div class="columns gap-4">
-    <div class="column">
-      <!-- Date Display -->
-      <div class="item">
-        <div class="label">Next Pickup</div>
-        <div class="title size-xl">
-          {{ next_date | date: "%A, %B %d" }}
-        </div>
-        <div class="description">
-          {% if days_until == 0 %}
-            Today
-          {% elsif days_until == 1 %}
-            Tomorrow
-          {% else %}
-            In {{ days_until }} days
-          {% endif %}
-        </div>
-      </div>
+**📄 [PLUGIN_SETUP_GUIDE.md](PLUGIN_SETUP_GUIDE.md)**
 
-      <!-- Collection Types -->
-      <div class="mt-4">
-        <div class="label">What's Being Collected</div>
-        {% for event in next_pickup_events %}
-          {% for flag in event.flags %}
-            <div class="item flex items-center gap-2 py-2">
-              <!-- Icon representation using PNG images -->
-              <div style="min-width: 48px; max-width: 48px;">
-                {% if flag.name == "recycling" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="48" height="48">
-                {% elsif flag.name == "GreenBin" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="48" height="48">
-                {% elsif flag.name == "garbage" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="48" height="48">
-                {% elsif flag.name == "yardwaste" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="48" height="48">
-                {% elsif flag.name == "pumpkins" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="48" height="48">
-                {% else %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="48" height="48">
-                {% endif %}
-              </div>
-              <div class="description">{{ flag.subject }}</div>
-            </div>
-          {% endfor %}
-        {% endfor %}
-      </div>
-    </div>
+Each view includes:
+- Complete Liquid markup
+- Container structure using `layout layout--col` for title_bar support
+- Typography hierarchy (`title--small` + `value` for emphasis)
+- SVG icons via base64_encode pattern
+- Compact title_bar with service information
+- Framework v2 compliant classes
 
-    <!-- Upcoming Schedule (Optional) -->
-    <div class="column">
-      <div class="label">Upcoming Schedule</div>
-      {% assign future_dates = next_events | map: "day" | uniq | slice: 1, 3 %}
-      {% for date in future_dates %}
-        <div class="item py-1">
-          <div class="description text-sm">{{ date | date: "%b %d" }}</div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
+**View Summary:**
 
-  <!-- Zone Information (Footer) -->
-  {% assign zone_id = next_pickup_events.first.zone_id %}
-  {% assign zone = zones[zone_id] %}
-  <div class="mt-auto pt-4">
-    <div class="divider"></div>
-    <div class="description text-center text-xs">
-      {{ zone.title }}
-    </div>
-  </div>
-</div>
-```
+| View | Size | Container | Time Display | Icons | Optimization |
+|------|------|-----------|--------------|-------|--------------|
+| Full | 800×480 | `layout layout--col` | `title--small` + `value` | 136×136 | Centered layout with full details |
+| Half Vertical | 400×480 | `layout layout--col` | `title--small` + `value` | 96×96 | 2-column icon grid |
+| Half Horizontal | 800×240 | `layout layout--col` | Single-line `title` | 80×80 | Compact single-line header for limited height |
+| Quarter | 400×240 | `layout layout--col` | `title--small` + `value value--small` | 72×72 | Ultra-compact with abbreviated labels |
+| Third | ~267×480 | `flex flex--col` | `title--small` + `value` | 56×56 | Vertical column layout |
+
+**Shared View - SVG Icon Library:**
+
+> **Note:** The complete icon library implementation with base64 data (~40KB) is in [SHARED_VIEW_ICONS.md](SHARED_VIEW_ICONS.md)
+
+**Icon Files Available** (in `resources/icons/`):
+- `recycle-bin.png` → Blue Box Recycling (1024×1024)
+- `green-recycle-bin.png` → Green Bin Organics (512×512)
+- `garbage-bag.png` → Garbage Collection (512×512)
+- `yard-waste.png` → Yard Waste (380×340)
+- `pumpkin.png` → Seasonal Pumpkins
+
+Each icon has a corresponding `-base64.txt` file with the complete data URI.
 
 ### Styling Considerations
 
 **E-ink Optimization:**
 - Use high contrast (black/white only)
 - Avoid gradients or complex patterns
-- Use TRMNL's built-in dithered backgrounds if needed
+- SVG icons render cleanly with e-ink dithering
 - Ensure text is minimum 12px for readability
 
-**Framework Classes:**
-- `layout`: Main container
-- `title-bar`: Standardized header
-- `columns`: Multi-column layout
-- `item`: Content blocks
-- `label`, `title`, `value`, `description`: Typography
-- `gap-*`, `mt-*`, `py-*`: Spacing utilities
+**Framework Classes (v2):**
+- `flex`, `flex--col`, `flex--row`: Flex layouts (preferred over nested `layout`)
+- `flex--center-x`, `flex--center-y`: Alignment
+- `flex--wrap`: Wrapping behavior
+- `title--small`, `value`, `description`: Typography hierarchy
+- `gap`, `gap-xs`, `gap-lg`, `gap-xxs`: Spacing between flex items
+- `mt-*`, `mb-*`, `px-*`, `py-*`: Margin and padding utilities
+- `bg-1`, `bg-2`, `bg-3`: Background shading
+
+**Framework v2 Implementation Guidelines:**
+- ✅ Use `layout layout--col` as main container to enable title_bar positioning
+- ✅ Use `flex` classes for content layout within the container
+- ✅ Embed SVGs using capture + base64_encode pattern (no external URLs)
+- ✅ Use `title--small` + `value` for typography hierarchy
+- ✅ Use Framework spacing classes (`gap`, `px-*`, `py-*`, `mt-*`, etc.)
+- ❌ Do NOT nest `layout` classes
+- ❌ Avoid inline styles that can break responsive behavior
 
 ---
 
@@ -312,12 +276,10 @@ Create a custom form for users to input their configuration and provide plugin i
 
 ```liquid
 {% if next_events.size == 0 %}
-  <div class="layout flex items-center justify-center">
-    <div class="text-center">
-      <div class="title">No Upcoming Pickups</div>
-      <div class="description mt-2">
-        Check your Place ID or try again later
-      </div>
+  <div class="flex flex--col flex--center gap">
+    <div class="title">No Upcoming Pickups</div>
+    <div class="description">
+      Check your Place ID or try again later
     </div>
   </div>
 {% endif %}
@@ -327,12 +289,10 @@ Create a custom form for users to input their configuration and provide plugin i
 
 ```liquid
 {% if events == nil or events.size == 0 %}
-  <div class="layout">
-    <div class="item bg-1">
-      <div class="title">⚠️ Configuration Error</div>
-      <div class="description mt-2">
-        Unable to fetch events. Please verify your Place ID.
-      </div>
+  <div class="flex flex--col flex--center gap bg-1 px py">
+    <div class="title">⚠️ Configuration Error</div>
+    <div class="description">
+      Unable to fetch events. Please verify your Place ID.
     </div>
   </div>
 {% endif %}
@@ -349,7 +309,7 @@ When multiple collections occur on the same day, use visual hierarchy:
 ```liquid
 {% assign collection_count = next_pickup_events.size %}
 {% if collection_count > 1 %}
-  <div class="description text-sm mb-2">
+  <div class="description mb">
     {{ collection_count }} collections today
   </div>
 {% endif %}
@@ -371,7 +331,7 @@ Add visual urgency for imminent pickups:
 
 ```liquid
 {% if days_until <= 1 %}
-  <div class="border border-2 p-2">
+  <div class="flex flex--col gap px py bg-2">
     <div class="title">⚠️ Pickup {{ days_until == 0 ? "Today" : "Tomorrow" }}!</div>
   </div>
 {% endif %}
@@ -382,7 +342,7 @@ Add visual urgency for imminent pickups:
 ## Testing Strategy
 
 ### 1. Preview Mode
-Use TRMNL's "Edit Markup" live preview with sample data from `events.json`
+Use TRMNL's "Edit Markup" live preview with sample data
 
 ### 2. Force Refresh
 Click "Force Refresh" to test with live API data
@@ -391,45 +351,43 @@ Click "Force Refresh" to test with live API data
 
 | Scenario | Expected Result |
 |----------|----------------|
-| Valid Place ID | Display next pickup date and types |
-| Multiple collections same day | Show all collection types |
-| No upcoming events | Show "No Upcoming Pickups" |
-| Invalid Place ID | Show configuration error |
+| Valid Place ID | Display next pickup date and types with SVG icons |
+| Multiple collections same day | Show all collection types in proper layout |
+| No upcoming events | Show "No Upcoming Pickups" message |
+| Invalid Place ID | Show configuration error message |
 | API timeout | Show error state |
+| Title bar rendering | Verify no min-height blocking display |
 
 ---
 
 ## Deployment Checklist
 
 - [ ] Configure Polling URL with form field interpolation
-- [ ] Add form fields for Place ID and address
-- [ ] Create markup for all view layouts (Full, Half, Quarter)
+- [ ] Add form fields (place_id, service_id, address, author_bio)
+- [ ] Create Shared view with SVG icon captures
+- [ ] Create markup for all view layouts (Full, Half Vertical, Half Horizontal, Quarter, Third)
 - [ ] Test with multiple Place IDs
 - [ ] Add error handling for edge cases
+- [ ] Verify Framework v2 compliance (no nested layout, proper flex usage)
 - [ ] Optimize for e-ink rendering
+- [ ] Test title_bar displays correctly (no min-height: 100%)
 - [ ] Test on actual TRMNL device
 - [ ] Document user setup instructions
 - [ ] (Optional) Publish as Recipe for community
 
 ---
 
-## User Setup Instructions
+Complete step-by-step setup instructions are available in:
 
-### Finding Your Place ID
+**📄 [PLUGIN_SETUP_GUIDE.md](PLUGIN_SETUP_GUIDE.md)**
 
-1. Visit https://recollect.net
-2. Enter your Durham Region address
-3. Inspect the browser's network requests (F12 > Network)
-4. Look for API call to `/api/places/` endpoint
-5. Copy the UUID from the URL (format: `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`)
-
-### Installing the Plugin
-
-1. Navigate to TRMNL Plugins tab
-2. Search for "Durham Waste Collection" (or your private plugin name)
-3. Click "Add Plugin"
-4. Enter your Place ID
-5. (Optional) Enter your address for display
+The guide covers:
+- Finding your Place ID (Configuration Helper Tool, Manual Method, Sample Data)
+- Creating the plugin on TRMNL (Settings, Form Fields, Polling Configuration)
+- Adding markup for all view sizes
+- Testing with Force Refresh
+- Troubleshooting common issues
+- Adding plugin to device and p Enter your address for display
 6. Save configuration
 7. Add to a Playlist
 
