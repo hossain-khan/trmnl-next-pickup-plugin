@@ -502,17 +502,17 @@ Click on the **"Half Horizontal"** tab and add this for top/bottom split layouts
   {% assign today_timestamp = today | date: "%s" %}
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
-  <div class="flex flex--col flex--top gap">
-    {%- comment -%} Header with typography hierarchy {%- endcomment -%}
-    <div class="flex flex--col flex--center-x gap-xxs mt-xs">
-      <div class="title--small">Next Pickup</div>
-      <div class="value">
+  <div class="layout layout--col layout--top gap">
+    {%- comment -%} Compact single-line header {%- endcomment -%}
+    <div class="flex flex--col flex--center-x mt-xs">
+      <div class="title">
+        Next Pickup: 
         {% if days_until == 0 %}Today
         {% elsif days_until == 1 %}Tomorrow
-        {% else %}{{ days_until }} days
+        {% else %}In {{ days_until }} days
         {% endif %}
+        ({{ next_date | date: "%b %-d" }})
       </div>
-      <div class="description">{{ next_date | date: "%b %-d" }}</div>
     </div>
 
     {%- comment -%} Horizontal row of icons {%- endcomment -%}
@@ -540,6 +540,12 @@ Click on the **"Half Horizontal"** tab and add this for top/bottom split layouts
         {% endfor %}
       {% endfor %}
     </div>
+  </div>
+
+  <div class="title_bar">
+    <img src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" width="24" height="24" alt="" />
+    <span class="title">Durham Waste</span>
+    <span class="instance">{{ next_date | date: "%b %-d" }}</span>
   </div>
 {% endif %}
 ```
