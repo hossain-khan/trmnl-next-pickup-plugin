@@ -183,51 +183,62 @@ Click on **"Form Fields"** section and paste this YAML:
 
 **Click on the "Shared" tab first** and paste this code to create reusable SVG icon captures:
 
+> **Note:** The actual SVG icon files are located in `resources/icons/` directory. Each SVG file contains the complete icon design converted from the original PNG assets. The files include: `recycle-bin.svg` (Blue Box), `green-recycle-bin.svg` (Green Bin), `garbage-bag.svg` (Garbage), `yard-waste.svg` (Yard Waste), and `pumpkin.svg` (Seasonal Pumpkins).
+
 ```liquid
 {% comment %}
   Shared View - Inline SVG Icons
   Captures for all collection type icons (embedded, no external dependencies)
+  
+  Each capture block contains the complete SVG markup with embedded image data.
+  The SVG files are located in resources/icons/ and can be copied directly.
 {% endcomment %}
 
 {%- capture svg_recycle_bin -%}
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
-  <path d="M68 0C30.4 0 0 30.4 0 68s30.4 68 68 68 68-30.4 68-68S105.6 0 68 0zm0 8c33.1 0 60 26.9 60 60s-26.9 60-60 60S8 101.1 8 68 34.9 8 68 8z" fill="currentColor"/>
-  <path d="M45 32l-8 12h62l-8-12H45zm-12 16v8h70v-8H33zm4 12v44c0 2.2 1.8 4 4 4h54c2.2 0 4-1.8 4-4V60H37zm16 8h6v28h-6V68zm14 0h6v28h-6V68zm14 0h6v28h-6V68z" fill="currentColor"/>
+<!-- Copy complete content from resources/icons/recycle-bin.svg -->
+<!-- This is the Blue Box recycling icon (1024x1024 viewBox) -->
+<svg height="1024" viewBox="0 0 1024 1024" width="1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <image height="1024" preserveAspectRatio="none" width="1024" xlink:href="data:image/png;base64,[...base64 data...]"/>
 </svg>
 {%- endcapture -%}
 
 {%- capture svg_green_recycle_bin -%}
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
-  <circle cx="68" cy="68" r="60" fill="#4CAF50" stroke="currentColor" stroke-width="2"/>
-  <path d="M45 32l-8 12h62l-8-12H45zm-12 16v8h70v-8H33zm4 12v44c0 2.2 1.8 4 4 4h54c2.2 0 4-1.8 4-4V60H37zm16 8h6v28h-6V68zm14 0h6v28h-6V68zm14 0h6v28h-6V68z" fill="#fff"/>
+<!-- Copy complete content from resources/icons/green-recycle-bin.svg -->
+<!-- This is the Green Bin organics icon (512x512 viewBox) -->
+<svg height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <image height="512" preserveAspectRatio="none" width="512" xlink:href="data:image/png;base64,[...base64 data...]"/>
 </svg>
 {%- endcapture -%}
 
 {%- capture svg_garbage_bag -%}
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
-  <path d="M68 8c-6.6 0-12 5.4-12 12v8H44c-4.4 0-8 3.6-8 8v80c0 8.8 7.2 16 16 16h56c8.8 0 16-7.2 16-16V36c0-4.4-3.6-8-8-8H104v-8c0-6.6-5.4-12-12-12H68zm0 8h24c2.2 0 4 1.8 4 4v8H64v-8c0-2.2 1.8-4 4-4zM44 36h88v80c0 4.4-3.6 8-8 8H52c-4.4 0-8-3.6-8-8V36z" fill="currentColor"/>
+<!-- Copy complete content from resources/icons/garbage-bag.svg -->
+<!-- This is the Garbage collection icon (512x512 viewBox) -->
+<svg height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <image height="512" preserveAspectRatio="none" width="512" xlink:href="data:image/png;base64,[...base64 data...]"/>
 </svg>
 {%- endcapture -%}
 
 {%- capture svg_yard_waste -%}
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
-  <path d="M68 12c-4.4 0-8 3.6-8 8v8c-12.1 2.2-22.4 9.9-28 20.5C26.4 60.1 24 72.8 24 88v28c0 4.4 3.6 8 8 8h72c4.4 0 8-3.6 8-8V88c0-15.2-2.4-27.9-8-39.5-5.6-10.6-15.9-18.3-28-20.5v-8c0-4.4-3.6-8-8-8zm0 24c10.5 0 19.5 6.7 24.5 16S100 72.3 100 88v20H36V88c0-15.7 2.5-26.3 7.5-36S57.5 36 68 36zm-20 80h40v8H48v-8z" fill="#8BC34A"/>
-  <path d="M68 48c-2.2 0-4 1.8-4 4v24l-8-8c-1.6-1.6-4.1-1.6-5.7 0s-1.6 4.1 0 5.7l16 16c1.6 1.6 4.1 1.6 5.7 0l16-16c1.6-1.6 1.6-4.1 0-5.7s-4.1-1.6-5.7 0l-8 8V52c0-2.2-1.8-4-4-4z" fill="#fff"/>
+<!-- Copy complete content from resources/icons/yard-waste.svg -->
+<!-- This is the Yard waste icon (380x340 viewBox) -->
+<svg height="340" viewBox="0 0 380 340" width="380" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <image height="340" preserveAspectRatio="none" width="380" xlink:href="data:image/png;base64,[...base64 data...]"/>
 </svg>
 {%- endcapture -%}
 
 {%- capture svg_pumpkin -%}
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
-  <ellipse cx="68" cy="76" rx="44" ry="48" fill="#FF9800"/>
-  <path d="M68 28c-2.2 0-4 1.8-4 4v16c0 2.2 1.8 4 4 4s4-1.8 4-4V32c0-2.2-1.8-4-4-4z" fill="#4CAF50"/>
-  <path d="M40 64c-2.2 0-4 1.8-4 4v16c0 13.3 14.3 24 32 24s32-10.7 32-24V68c0-2.2-1.8-4-4-4s-4 1.8-4 4v16c0 8.8-10.7 16-24 16s-24-7.2-24-16V68c0-2.2-1.8-4-4-4z" fill="#F57C00"/>
-  <ellipse cx="56" cy="72" rx="6" ry="8" fill="#333"/>
-  <ellipse cx="80" cy="72" rx="6" ry="8" fill="#333"/>
+<!-- Copy complete content from resources/icons/pumpkin.svg -->
+<!-- This is the Seasonal pumpkins pickup icon -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <image preserveAspectRatio="none" xlink:href="data:image/png;base64,[...base64 data...]"/>
 </svg>
 {%- endcapture -%}
 ```
 
-**Note:** These SVG captures will be referenced in all view sizes using the base64_encode filter pattern:
+**Implementation Note:** When implementing this plugin:
+1. Copy the complete SVG content from each file in `resources/icons/` 
+2. The SVG files contain base64-encoded PNG data from the original icon designs
+3. Use the base64_encode filter pattern to embed icons in the markup:
 ```liquid
 <img src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" width="24" height="24" />
 ```
