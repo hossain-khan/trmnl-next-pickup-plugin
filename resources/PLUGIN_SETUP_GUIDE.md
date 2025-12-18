@@ -381,7 +381,7 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
   {% assign today_timestamp = today | date: "%s" %}
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
-  <div class="flex flex--col flex--top gap">
+  <div class="layout layout--col layout--top gap">
     {%- comment -%} Typography hierarchy: title--small + value {%- endcomment -%}
     <div class="flex flex--col flex--center-x gap-xxs mt-xs">
       <div class="title--small">Next Pickup</div>
@@ -421,6 +421,12 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
         {% endfor %}
       {% endfor %}
     </div>
+  </div>
+
+  <div class="title_bar">
+    <img src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" width="24" height="24" alt="" />
+    <span class="title">Durham Waste</span>
+    <span class="instance">{{ next_date | date: "%b %-d" }}</span>
   </div>
 {% endif %}
 ```
