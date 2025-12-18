@@ -4,8 +4,10 @@ Plugin for next pickup day for Durham Region, Ontario, Canada 🇨🇦
 
 | 🖼️ | 🖼️ |
 | ----- | ---- | 
-| <img width="800" height="480" alt="Image" src="https://github.com/user-attachments/assets/a4ad0af2-5e70-4519-8763-ba6e40c2ba61" /> |  <img width="800" height="480" alt="Image" src="https://github.com/user-attachments/assets/ebf728fb-3cde-41bc-9766-7a30d9cc139a" /> | 
-| <img width="800" height="480" alt="Image" src="https://github.com/user-attachments/assets/a62141d8-1811-4976-af73-5082661f4ad1" /> | <img width="800" height="480" alt="Image" src="https://github.com/user-attachments/assets/a0ba19d7-9c6f-430b-91e8-6659055059eb" /> |
+| <img width="800" height="480" alt="vertical" src="https://github.com/user-attachments/assets/55352ed4-9fd0-4924-8b91-1c43410db210" /> | <img width="800" height="480" alt="horizontal" src="https://github.com/user-attachments/assets/fd14b6f3-5e0f-4e3b-920e-1717ff5b1fa0" /> | 
+| <img width="800" height="480" alt="quad" src="https://github.com/user-attachments/assets/078661aa-29e6-49ec-a349-658baca74b76" /> |  <img width="800" height="480" alt="full-view" src="https://github.com/user-attachments/assets/66373ab7-be2b-4133-8813-dc69613201f2" /> | 
+
+
 
 ### Setup
 
