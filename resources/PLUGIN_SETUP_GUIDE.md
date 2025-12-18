@@ -579,7 +579,7 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 40
     {%- comment -%} Compact header {%- endcomment -%}
     <div class="flex flex--col flex--center-x gap-xxs mt-xs">
       <div class="title--small">Pickup</div>
-      <div class="title">
+      <div class="value value--small">
         {% if days_until == 0 %}Today
         {% elsif days_until == 1 %}Tmrw
         {% else %}{{ days_until }}d
