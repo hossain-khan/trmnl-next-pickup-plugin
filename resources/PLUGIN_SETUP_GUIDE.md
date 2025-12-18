@@ -227,7 +227,7 @@ Click on **"Form Fields"** section and paste this YAML:
   {% assign seconds_diff = next_timestamp | minus: today_timestamp %}
   {% assign days_until = seconds_diff | divided_by: 86400 %}
   
-  <div class="flex flex--col flex--center-x flex--center-y gap-lg">
+  <div class="layout layout--col layout--center-x layout--center-y gap-lg">
     {%- comment -%} Typography hierarchy: title--small + value {%- endcomment -%}
     <div class="flex flex--col flex--center-x gap-xxs">
       <div class="title--small">Next Pickup</div>
