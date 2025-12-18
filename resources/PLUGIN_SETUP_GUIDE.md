@@ -575,11 +575,11 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 40
   {% assign today_timestamp = today | date: "%s" %}
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
-  <div class="flex flex--col flex--center-x flex--center-y gap">
+  <div class="layout layout--col layout--top gap">
     {%- comment -%} Compact header {%- endcomment -%}
-    <div class="flex flex--col flex--center-x gap-xxs">
+    <div class="flex flex--col flex--center-x gap-xxs mt-xs">
       <div class="title--small">Pickup</div>
-      <div class="value">
+      <div class="title">
         {% if days_until == 0 %}Today
         {% elsif days_until == 1 %}Tmrw
         {% else %}{{ days_until }}d
@@ -587,28 +587,37 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 40
       </div>
     </div>
 
-    {%- comment -%} Icon row with compact spacing {%- endcomment -%}
+    {%- comment -%} Icon row with compact spacing and labels {%- endcomment -%}
     <div class="flex flex--row flex--wrap flex--center-x gap-xs">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <img 
-            {% if flag.name == "recycling" %}
-              src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="Blue Box"
-            {% elsif flag.name == "GreenBin" %}
-              src="data:image/svg+xml;base64,{{ svg_green_recycle_bin | base64_encode }}" alt="Green Bin"
-            {% elsif flag.name == "garbage" %}
-              src="data:image/svg+xml;base64,{{ svg_garbage_bag | base64_encode }}" alt="Garbage"
-            {% elsif flag.name == "yardwaste" %}
-              src="data:image/svg+xml;base64,{{ svg_yard_waste | base64_encode }}" alt="Yard Waste"
-            {% elsif flag.name == "pumpkins" %}
-              src="data:image/svg+xml;base64,{{ svg_pumpkin | base64_encode }}" alt="Pumpkins"
-            {% else %}
-              src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="{{ flag.subject }}"
-            {% endif %}
-            width="72" height="72" />
+          <div class="flex flex--col flex--center-x gap-xxs">
+            <img 
+              {% if flag.name == "recycling" %}
+                src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="Blue Box"
+              {% elsif flag.name == "GreenBin" %}
+                src="data:image/svg+xml;base64,{{ svg_green_recycle_bin | base64_encode }}" alt="Green Bin"
+              {% elsif flag.name == "garbage" %}
+                src="data:image/svg+xml;base64,{{ svg_garbage_bag | base64_encode }}" alt="Garbage"
+              {% elsif flag.name == "yardwaste" %}
+                src="data:image/svg+xml;base64,{{ svg_yard_waste | base64_encode }}" alt="Yard Waste"
+              {% elsif flag.name == "pumpkins" %}
+                src="data:image/svg+xml;base64,{{ svg_pumpkin | base64_encode }}" alt="Pumpkins"
+              {% else %}
+                src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="{{ flag.subject }}"
+              {% endif %}
+              width="72" height="72" />
+            <div class="description text--sm">{{ flag.subject }}</div>
+          </div>
         {% endfor %}
       {% endfor %}
     </div>
+  </div>
+
+  <div class="title_bar">
+    <img src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" width="24" height="24" alt="" />
+    <span class="title">Durham Waste</span>
+    <span class="instance">{{ next_date | date: "%b %-d" }}</span>
   </div>
 {% endif %}
 ```
