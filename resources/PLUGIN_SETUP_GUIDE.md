@@ -179,9 +179,62 @@ Click on **"Form Fields"** section and paste this YAML:
 2. You'll see multiple tabs: Full, Half, Quarter, Shared
 3. Start with the **"Full"** tab
 
-### Step 2: Add the Full View Markup
+### Step 2: Add the Shared View (Icon Library)
 
-**Delete any existing code** in the Full tab and paste this:
+**Click on the "Shared" tab first** and paste this code to create reusable SVG icon captures:
+
+```liquid
+{% comment %}
+  Shared View - Inline SVG Icons
+  Captures for all collection type icons (embedded, no external dependencies)
+{% endcomment %}
+
+{%- capture svg_recycle_bin -%}
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
+  <path d="M68 0C30.4 0 0 30.4 0 68s30.4 68 68 68 68-30.4 68-68S105.6 0 68 0zm0 8c33.1 0 60 26.9 60 60s-26.9 60-60 60S8 101.1 8 68 34.9 8 68 8z" fill="currentColor"/>
+  <path d="M45 32l-8 12h62l-8-12H45zm-12 16v8h70v-8H33zm4 12v44c0 2.2 1.8 4 4 4h54c2.2 0 4-1.8 4-4V60H37zm16 8h6v28h-6V68zm14 0h6v28h-6V68zm14 0h6v28h-6V68z" fill="currentColor"/>
+</svg>
+{%- endcapture -%}
+
+{%- capture svg_green_recycle_bin -%}
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
+  <circle cx="68" cy="68" r="60" fill="#4CAF50" stroke="currentColor" stroke-width="2"/>
+  <path d="M45 32l-8 12h62l-8-12H45zm-12 16v8h70v-8H33zm4 12v44c0 2.2 1.8 4 4 4h54c2.2 0 4-1.8 4-4V60H37zm16 8h6v28h-6V68zm14 0h6v28h-6V68zm14 0h6v28h-6V68z" fill="#fff"/>
+</svg>
+{%- endcapture -%}
+
+{%- capture svg_garbage_bag -%}
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
+  <path d="M68 8c-6.6 0-12 5.4-12 12v8H44c-4.4 0-8 3.6-8 8v80c0 8.8 7.2 16 16 16h56c8.8 0 16-7.2 16-16V36c0-4.4-3.6-8-8-8H104v-8c0-6.6-5.4-12-12-12H68zm0 8h24c2.2 0 4 1.8 4 4v8H64v-8c0-2.2 1.8-4 4-4zM44 36h88v80c0 4.4-3.6 8-8 8H52c-4.4 0-8-3.6-8-8V36z" fill="currentColor"/>
+</svg>
+{%- endcapture -%}
+
+{%- capture svg_yard_waste -%}
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
+  <path d="M68 12c-4.4 0-8 3.6-8 8v8c-12.1 2.2-22.4 9.9-28 20.5C26.4 60.1 24 72.8 24 88v28c0 4.4 3.6 8 8 8h72c4.4 0 8-3.6 8-8V88c0-15.2-2.4-27.9-8-39.5-5.6-10.6-15.9-18.3-28-20.5v-8c0-4.4-3.6-8-8-8zm0 24c10.5 0 19.5 6.7 24.5 16S100 72.3 100 88v20H36V88c0-15.7 2.5-26.3 7.5-36S57.5 36 68 36zm-20 80h40v8H48v-8z" fill="#8BC34A"/>
+  <path d="M68 48c-2.2 0-4 1.8-4 4v24l-8-8c-1.6-1.6-4.1-1.6-5.7 0s-1.6 4.1 0 5.7l16 16c1.6 1.6 4.1 1.6 5.7 0l16-16c1.6-1.6 1.6-4.1 0-5.7s-4.1-1.6-5.7 0l-8 8V52c0-2.2-1.8-4-4-4z" fill="#fff"/>
+</svg>
+{%- endcapture -%}
+
+{%- capture svg_pumpkin -%}
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
+  <ellipse cx="68" cy="76" rx="44" ry="48" fill="#FF9800"/>
+  <path d="M68 28c-2.2 0-4 1.8-4 4v16c0 2.2 1.8 4 4 4s4-1.8 4-4V32c0-2.2-1.8-4-4-4z" fill="#4CAF50"/>
+  <path d="M40 64c-2.2 0-4 1.8-4 4v16c0 13.3 14.3 24 32 24s32-10.7 32-24V68c0-2.2-1.8-4-4-4s-4 1.8-4 4v16c0 8.8-10.7 16-24 16s-24-7.2-24-16V68c0-2.2-1.8-4-4-4z" fill="#F57C00"/>
+  <ellipse cx="56" cy="72" rx="6" ry="8" fill="#333"/>
+  <ellipse cx="80" cy="72" rx="6" ry="8" fill="#333"/>
+</svg>
+{%- endcapture -%}
+```
+
+**Note:** These SVG captures will be referenced in all view sizes using the base64_encode filter pattern:
+```liquid
+<img src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" width="24" height="24" />
+```
+
+### Step 3: Add the Full View Markup
+
+**Click on the "Full" tab** and paste this:
 
 ```liquid
 {% comment %}
@@ -194,12 +247,9 @@ Click on **"Form Fields"** section and paste this YAML:
 
 {% if next_events.size == 0 %}
   {%- comment -%} No upcoming events {%- endcomment -%}
-  <div class="layout flex items-center justify-center">
-    <div class="text-center">
-      <div class="title size-xl">📅</div>
-      <div class="title mt-4">No Upcoming Pickups</div>
-      <div class="description mt-2">Check back later for your schedule</div>
-    </div>
+  <div class="flex flex--col flex--center gap">
+    <div class="title">No Upcoming Pickups</div>
+    <div class="description">Check back later for your schedule</div>
   </div>
 {% else %}
   {% assign next_date = next_events.first.day %}
@@ -211,65 +261,58 @@ Click on **"Form Fields"** section and paste this YAML:
   {% assign seconds_diff = next_timestamp | minus: today_timestamp %}
   {% assign days_until = seconds_diff | divided_by: 86400 %}
   
-  <div class="layout layout--col layout--center-x layout--center-y" style="gap: 24px; min-height: 100%; justify-content: center;">
-    {%- comment -%} Centered Title and Date {%- endcomment -%}
-    <div class="text--center">
-      <div class="title size-lg">Next Pickup</div>
-      <div class="description">
+  <div class="flex flex--col flex--center-x flex--center-y gap-lg">
+    {%- comment -%} Typography hierarchy: title--small + value {%- endcomment -%}
+    <div class="flex flex--col flex--center-x gap-xxs">
+      <div class="title--small">Next Pickup</div>
+      <div class="value">
         {% if days_until == 0 %}
-          Today - {{ next_date | date: "%b %-d" }}
+          Today
         {% elsif days_until == 1 %}
-          Tomorrow - {{ next_date | date: "%b %-d" }}
+          Tomorrow
         {% else %}
-          {{ days_until }} days - {{ next_date | date: "%b %-d" }}
+          In {{ days_until }} days
         {% endif %}
       </div>
+      <div class="description">{{ next_date | date: "%A, %B %-d" }}</div>
     </div>
 
-    {%- comment -%} Large Icon Display - Horizontal Row {%- endcomment -%}
-    <div class="layout layout--row layout--center-x gap" style="flex-wrap: wrap; padding: 24px 32px; border-radius: 20px; background: rgba(255, 255, 255, 0.04);">
+    {%- comment -%} Icon Display - Using Framework flex classes {%- endcomment -%}
+    <div class="flex flex--row flex--center-x flex--wrap gap-lg px-lg py-lg bg-1">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <div class="layout layout--col layout--center-x text--center" style="width: 152px;">
-            <div class="layout layout--center-x" style="width: 136px; height: 136px; align-items: center; justify-content: center;">
-              <img class="image image-dither" 
+          <div class="flex flex--col flex--center-x gap-xs">
+            <div>
+              <img 
                 {% if flag.name == "recycling" %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
+                  src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="Blue Box"
                 {% elsif flag.name == "GreenBin" %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin"
+                  src="data:image/svg+xml;base64,{{ svg_green_recycle_bin | base64_encode }}" alt="Green Bin"
                 {% elsif flag.name == "garbage" %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage"
+                  src="data:image/svg+xml;base64,{{ svg_garbage_bag | base64_encode }}" alt="Garbage"
                 {% elsif flag.name == "yardwaste" %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste"
+                  src="data:image/svg+xml;base64,{{ svg_yard_waste | base64_encode }}" alt="Yard Waste"
                 {% elsif flag.name == "pumpkins" %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins"
+                  src="data:image/svg+xml;base64,{{ svg_pumpkin | base64_encode }}" alt="Pumpkins"
                 {% else %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
+                  src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="{{ flag.subject }}"
                 {% endif %}
-                width="136" height="136">
+                width="136" height="136" />
             </div>
-            <div class="description mt-2">{{ flag.subject }}</div>
+            <div class="description">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
     </div>
 
-    {%- comment -%} Supporting context sentence for readability {%- endcomment -%}
-    <div class="description text--center">
-      Collection types scheduled: 
-      {% assign flag_count = 0 %}
-      {% for event in next_pickup_events %}
-        {% for flag in event.flags %}
-          {% assign flag_count = flag_count | plus: 1 %}
-          <span class="font-weight-bold">{{ flag.subject }}</span>{% if forloop.last and forloop.parentloop.last %}.{% elsif flag_count == 1 %}, {% else %}, {% endif %}
-        {% endfor %}
-      {% endfor %}
+    {%- comment -%} Context sentence {%- endcomment -%}
+    <div class="description">
       Set everything curbside by 7 AM.
     </div>
   </div>
 
   <div class="title_bar">
-    <img class="image" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Waste Collection">
+    <img src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" width="24" height="24" alt="" />
     <span class="title">Durham Waste Collection</span>
     <span class="subtitle">{{ address | default: "Durham Region" }}</span>
     <span class="instance">Service {{ service_id }} · {{ next_date | date: "%a, %b %-d" }}</span>
@@ -360,11 +403,9 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
 {% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
 
 {% if next_events.size == 0 %}
-  <div class="layout layout--col layout--center">
-    <div class="text--center">
-      <div class="title">No Pickups</div>
-      <div class="description mt-2">Check schedule</div>
-    </div>
+  <div class="flex flex--col flex--center gap">
+    <div class="title">No Pickups</div>
+    <div class="description">Check schedule</div>
   </div>
 {% else %}
   {% assign next_date = next_events.first.day %}
@@ -375,40 +416,41 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
   <div class="flex flex--col flex--top gap">
-    {%- comment -%} Header Section (basic layout + spacing utilities) {%- endcomment -%}
-    <div class="flex flex--col flex--center-x text--center gap-xxs mt-xs">
-      <div class="title">Next Pickup</div>
-      <div class="description">
+    {%- comment -%} Typography hierarchy: title--small + value {%- endcomment -%}
+    <div class="flex flex--col flex--center-x gap-xxs mt-xs">
+      <div class="title--small">Next Pickup</div>
+      <div class="value">
         {% if days_until == 0 %}Today
         {% elsif days_until == 1 %}Tomorrow
         {% else %}{{ days_until }} days
-        {% endif %} - {{ next_date | date: "%b %-d" }}
+        {% endif %}
       </div>
+      <div class="description">{{ next_date | date: "%b %-d" }}</div>
     </div>
 
-    {%- comment -%} Icons Grid - use flex row + wrap to stay within Half Vertical bounds {%- endcomment -%}
+    {%- comment -%} Icons Grid - 2 columns using flex {%- endcomment -%}
     <div class="flex flex--row flex--wrap flex--center-x gap">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <div class="flex flex--col flex--center-x text--center gap-xxs" style="width: 136px;">
-            <div class="flex flex--center-x flex--center-y" style="width: 96px; height: 96px;">
-              <img class="image image-dither" 
+          <div class="flex flex--col flex--center-x gap-xxs">
+            <div>
+              <img 
                 {% if flag.name == "recycling" %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
+                  src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="Blue Box"
                 {% elsif flag.name == "GreenBin" %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin"
+                  src="data:image/svg+xml;base64,{{ svg_green_recycle_bin | base64_encode }}" alt="Green Bin"
                 {% elsif flag.name == "garbage" %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage"
+                  src="data:image/svg+xml;base64,{{ svg_garbage_bag | base64_encode }}" alt="Garbage"
                 {% elsif flag.name == "yardwaste" %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste"
+                  src="data:image/svg+xml;base64,{{ svg_yard_waste | base64_encode }}" alt="Yard Waste"
                 {% elsif flag.name == "pumpkins" %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins"
+                  src="data:image/svg+xml;base64,{{ svg_pumpkin | base64_encode }}" alt="Pumpkins"
                 {% else %}
-                  src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
+                  src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="{{ flag.subject }}"
                 {% endif %}
-                width="96" height="96">
+                width="96" height="96" />
             </div>
-            <div class="description text--sm" style="white-space: normal; line-height: 1.2;">{{ flag.subject }}</div>
+            <div class="description">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
@@ -476,11 +518,9 @@ Click on the **"Half Horizontal"** tab and add this for top/bottom split layouts
 {% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
 
 {% if next_events.size == 0 %}
-  <div class="layout layout--col layout--center">
-    <div class="text--center">
-      <div class="title">No Pickups</div>
-      <div class="description mt-2">Check schedule</div>
-    </div>
+  <div class="flex flex--col flex--center gap">
+    <div class="title">No Pickups</div>
+    <div class="description">Check schedule</div>
   </div>
 {% else %}
   {% assign next_date = next_events.first.day %}
@@ -490,38 +530,40 @@ Click on the **"Half Horizontal"** tab and add this for top/bottom split layouts
   {% assign today_timestamp = today | date: "%s" %}
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
-  <div class="layout">
-    <div class="title-bar">
-      <div class="title-bar__title">Next Pickup</div>
-      <div class="title-bar__subtitle">
+  <div class="flex flex--col flex--top gap">
+    {%- comment -%} Header with typography hierarchy {%- endcomment -%}
+    <div class="flex flex--col flex--center-x gap-xxs mt-xs">
+      <div class="title--small">Next Pickup</div>
+      <div class="value">
         {% if days_until == 0 %}Today
         {% elsif days_until == 1 %}Tomorrow
         {% else %}{{ days_until }} days
-        {% endif %} - {{ next_date | date: "%b %-d" }}
+        {% endif %}
       </div>
+      <div class="description">{{ next_date | date: "%b %-d" }}</div>
     </div>
 
-    {%- comment -%} Horizontal Row of Icons {%- endcomment -%}
-    <div class="layout layout--row layout--center-x gap mt-6">
+    {%- comment -%} Horizontal row of icons {%- endcomment -%}
+    <div class="flex flex--row flex--center-x gap">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <div class="layout layout--col layout--center-x" style="width: 80px;">
-            <img class="image image-dither" 
+          <div class="flex flex--col flex--center-x gap-xxs">
+            <img 
               {% if flag.name == "recycling" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box"
+                src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="Blue Box"
               {% elsif flag.name == "GreenBin" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin"
+                src="data:image/svg+xml;base64,{{ svg_green_recycle_bin | base64_encode }}" alt="Green Bin"
               {% elsif flag.name == "garbage" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage"
+                src="data:image/svg+xml;base64,{{ svg_garbage_bag | base64_encode }}" alt="Garbage"
               {% elsif flag.name == "yardwaste" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste"
+                src="data:image/svg+xml;base64,{{ svg_yard_waste | base64_encode }}" alt="Yard Waste"
               {% elsif flag.name == "pumpkins" %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins"
+                src="data:image/svg+xml;base64,{{ svg_pumpkin | base64_encode }}" alt="Pumpkins"
               {% else %}
-                src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}"
+                src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="{{ flag.subject }}"
               {% endif %}
-              width="80" height="80">
-            <div class="description text--sm mt-1">{{ flag.subject }}</div>
+              width="80" height="80" />
+            <div class="description">{{ flag.subject }}</div>
           </div>
         {% endfor %}
       {% endfor %}
@@ -544,10 +586,8 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 40
 {% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
 
 {% if next_events.size == 0 %}
-  <div class="layout flex items-center justify-center">
-    <div class="text-center">
-      <div class="description">No Pickups</div>
-    </div>
+  <div class="flex flex--col flex--center gap">
+    <div class="description">No Pickups</div>
   </div>
 {% else %}
   {% assign next_date = next_events.first.day %}
@@ -556,6 +596,44 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 40
   {% assign next_timestamp = next_date | date: "%s" %}
   {% assign today_timestamp = today | date: "%s" %}
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
+  
+  <div class="flex flex--col flex--center-x flex--center-y gap">
+    {%- comment -%} Compact header {%- endcomment -%}
+    <div class="flex flex--col flex--center-x gap-xxs">
+      <div class="title--small">Pickup</div>
+      <div class="value">
+        {% if days_until == 0 %}Today
+        {% elsif days_until == 1 %}Tmrw
+        {% else %}{{ days_until }}d
+        {% endif %}
+      </div>
+    </div>
+
+    {%- comment -%} Icon row with compact spacing {%- endcomment -%}
+    <div class="flex flex--row flex--wrap flex--center-x gap-xs">
+      {% for event in next_pickup_events %}
+        {% for flag in event.flags %}
+          <img 
+            {% if flag.name == "recycling" %}
+              src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="Blue Box"
+            {% elsif flag.name == "GreenBin" %}
+              src="data:image/svg+xml;base64,{{ svg_green_recycle_bin | base64_encode }}" alt="Green Bin"
+            {% elsif flag.name == "garbage" %}
+              src="data:image/svg+xml;base64,{{ svg_garbage_bag | base64_encode }}" alt="Garbage"
+            {% elsif flag.name == "yardwaste" %}
+              src="data:image/svg+xml;base64,{{ svg_yard_waste | base64_encode }}" alt="Yard Waste"
+            {% elsif flag.name == "pumpkins" %}
+              src="data:image/svg+xml;base64,{{ svg_pumpkin | base64_encode }}" alt="Pumpkins"
+            {% else %}
+              src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="{{ flag.subject }}"
+            {% endif %}
+            width="72" height="72" />
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+```
   
   <div class="layout layout--col layout--center-x">
     {%- comment -%} Centered Title at Top {%- endcomment -%}
@@ -612,10 +690,8 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
 {% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
 
 {% if next_events.size == 0 %}
-  <div class="layout flex items-center justify-center">
-    <div class="text-center">
-      <div class="description text-sm">No Pickups</div>
-    </div>
+  <div class="flex flex--col flex--center gap">
+    <div class="description">No Pickups</div>
   </div>
 {% else %}
   {% assign next_date = next_events.first.day %}
@@ -625,40 +701,38 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
   {% assign today_timestamp = today | date: "%s" %}
   {% assign days_until = next_timestamp | minus: today_timestamp | divided_by: 86400 %}
   
-  <div class="layout">
-    <div class="item">
-      <div class="label">Next Pickup</div>
-      <div class="title">
+  <div class="flex flex--col flex--center-x gap">
+    {%- comment -%} Compact header {%- endcomment -%}
+    <div class="flex flex--col flex--center-x gap-xxs mt-xs">
+      <div class="title--small">Pickup</div>
+      <div class="value">
         {% if days_until == 0 %}Today
-        {% elsif days_until == 1 %}Tomorrow
-        {% else %}{{ days_until }} days
+        {% elsif days_until == 1 %}Tmrw
+        {% else %}{{ days_until }}d
         {% endif %}
       </div>
-      <div class="description text-xs">{{ next_date | date: "%b %-d" }}</div>
+      <div class="description">{{ next_date | date: "%b %-d" }}</div>
     </div>
 
-    {%- comment -%} Medium Icons Centered {%- endcomment -%}
-    <div class="flex flex--row flex--center-x flex--center-y gap mt-3">
+    {%- comment -%} Icon column {%- endcomment -%}
+    <div class="flex flex--col flex--center-x gap-xs">
       {% for event in next_pickup_events %}
         {% for flag in event.flags %}
-          <div class="text-center" style="width: 56px;">
-            <div style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center;">
-              {% if flag.name == "recycling" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="56" height="56">
-              {% elsif flag.name == "GreenBin" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="56" height="56">
-              {% elsif flag.name == "garbage" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="56" height="56">
-              {% elsif flag.name == "yardwaste" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="56" height="56">
-              {% elsif flag.name == "pumpkins" %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="56" height="56">
-              {% else %}
-                <img class="image image-dither" src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="56" height="56">
-              {% endif %}
-            </div>
-            <div class="description text-xs mt-1" style="width: 56px; text-align: center;">{{ flag.subject }}</div>
-          </div>
+          <img 
+            {% if flag.name == "recycling" %}
+              src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="Blue Box"
+            {% elsif flag.name == "GreenBin" %}
+              src="data:image/svg+xml;base64,{{ svg_green_recycle_bin | base64_encode }}" alt="Green Bin"
+            {% elsif flag.name == "garbage" %}
+              src="data:image/svg+xml;base64,{{ svg_garbage_bag | base64_encode }}" alt="Garbage"
+            {% elsif flag.name == "yardwaste" %}
+              src="data:image/svg+xml;base64,{{ svg_yard_waste | base64_encode }}" alt="Yard Waste"
+            {% elsif flag.name == "pumpkins" %}
+              src="data:image/svg+xml;base64,{{ svg_pumpkin | base64_encode }}" alt="Pumpkins"
+            {% else %}
+              src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="{{ flag.subject }}"
+            {% endif %}
+            width="56" height="56" />
         {% endfor %}
       {% endfor %}
     </div>
@@ -668,7 +742,7 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
 
 ### Step 8: Save All Markup Variations
 
-1. Make sure you've added markup to **all tabs**: Full, Half Vertical, Half Horizontal, Quarter, Third
+1. Make sure you've added markup to **all tabs**: Shared, Full, Half Vertical, Half Horizontal, Quarter, Third
 2. Click **"Save"** button in the markup editor for each tab
 3. Wait for confirmation message
 

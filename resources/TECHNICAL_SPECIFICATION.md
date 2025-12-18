@@ -207,47 +207,104 @@ Create a custom form for users to input their configuration and provide plugin i
 
 ### HTML Structure
 
-```html
-<div class="layout">
-  <!-- Title Bar -->
-  <div class="title-bar">
-    <div class="title-bar__title">Waste Collection</div>
-    <div class="title-bar__subtitle">{{ address | default: "Durham Region" }}</div>
+**Key Changes from Mario's Review Feedback:**
+1. **Typography Hierarchy**: Use `title--small` for labels and `value` for countdown
+2. **Inline SVG Icons**: Embed SVGs using capture + base64_encode pattern (no external URLs)
+3. **Flex Classes**: Use `flex` classes instead of nested `layout` (Framework violation)
+4. **No Inline Styles**: Replace with Framework spacing/sizing classes
+5. **Title Bar Fix**: Remove `min-height: 100%` that prevents title_bar rendering
+
+**Shared View - SVG Icon Library:**
+```liquid
+{%- capture svg_recycle_bin -%}
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
+  <path d="M68 0C30.4 0 0 30.4 0 68s30.4 68 68 68 68-30.4 68-68S105.6 0 68 0zm0 8c33.1 0 60 26.9 60 60s-26.9 60-60 60S8 101.1 8 68 34.9 8 68 8z" fill="currentColor"/>
+  <path d="M45 32l-8 12h62l-8-12H45zm-12 16v8h70v-8H33zm4 12v44c0 2.2 1.8 4 4 4h54c2.2 0 4-1.8 4-4V60H37zm16 8h6v28h-6V68zm14 0h6v28h-6V68zm14 0h6v28h-6V68z" fill="currentColor"/>
+</svg>
+{%- endcapture -%}
+
+{%- capture svg_green_recycle_bin -%}
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
+  <circle cx="68" cy="68" r="60" fill="#4CAF50" stroke="currentColor" stroke-width="2"/>
+  <path d="M45 32l-8 12h62l-8-12H45zm-12 16v8h70v-8H33zm4 12v44c0 2.2 1.8 4 4 4h54c2.2 0 4-1.8 4-4V60H37zm16 8h6v28h-6V68zm14 0h6v28h-6V68zm14 0h6v28h-6V68z" fill="#fff"/>
+</svg>
+{%- endcapture -%}
+
+{%- capture svg_garbage_bag -%}
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
+  <path d="M68 8c-6.6 0-12 5.4-12 12v8H44c-4.4 0-8 3.6-8 8v80c0 8.8 7.2 16 16 16h56c8.8 0 16-7.2 16-16V36c0-4.4-3.6-8-8-8H104v-8c0-6.6-5.4-12-12-12H68zm0 8h24c2.2 0 4 1.8 4 4v8H64v-8c0-2.2 1.8-4 4-4zM44 36h88v80c0 4.4-3.6 8-8 8H52c-4.4 0-8-3.6-8-8V36z" fill="currentColor"/>
+</svg>
+{%- endcapture -%}
+
+{%- capture svg_yard_waste -%}
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
+  <path d="M68 12c-4.4 0-8 3.6-8 8v8c-12.1 2.2-22.4 9.9-28 20.5C26.4 60.1 24 72.8 24 88v28c0 4.4 3.6 8 8 8h72c4.4 0 8-3.6 8-8V88c0-15.2-2.4-27.9-8-39.5-5.6-10.6-15.9-18.3-28-20.5v-8c0-4.4-3.6-8-8-8zm0 24c10.5 0 19.5 6.7 24.5 16S100 72.3 100 88v20H36V88c0-15.7 2.5-26.3 7.5-36S57.5 36 68 36zm-20 80h40v8H48v-8z" fill="#8BC34A"/>
+  <path d="M68 48c-2.2 0-4 1.8-4 4v24l-8-8c-1.6-1.6-4.1-1.6-5.7 0s-1.6 4.1 0 5.7l16 16c1.6 1.6 4.1 1.6 5.7 0l16-16c1.6-1.6 1.6-4.1 0-5.7s-4.1-1.6-5.7 0l-8 8V52c0-2.2-1.8-4-4-4z" fill="#fff"/>
+</svg>
+{%- endcapture -%}
+
+{%- capture svg_pumpkin -%}
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 136 136">
+  <ellipse cx="68" cy="76" rx="44" ry="48" fill="#FF9800"/>
+  <path d="M68 28c-2.2 0-4 1.8-4 4v16c0 2.2 1.8 4 4 4s4-1.8 4-4V32c0-2.2-1.8-4-4-4z" fill="#4CAF50"/>
+  <path d="M40 64c-2.2 0-4 1.8-4 4v16c0 13.3 14.3 24 32 24s32-10.7 32-24V68c0-2.2-1.8-4-4-4s-4 1.8-4 4v16c0 8.8-10.7 16-24 16s-24-7.2-24-16V68c0-2.2-1.8-4-4-4z" fill="#F57C00"/>
+  <ellipse cx="56" cy="72" rx="6" ry="8" fill="#333"/>
+  <ellipse cx="80" cy="72" rx="6" ry="8" fill="#333"/>
+</svg>
+{%- endcapture -%}
+```
+
+**Full View Example (Corrected):**
+```liquid
+<div class="flex flex--col flex--center-x flex--center-y gap-lg">
+  {%- comment -%} Typography hierarchy: title--small + value {%- endcomment -%}
+  <div class="flex flex--col flex--center-x gap-xxs">
+    <div class="title--small">Next Pickup</div>
+    <div class="value">
+      {% if days_until == 0 %}Today
+      {% elsif days_until == 1 %}Tomorrow
+      {% else %}In {{ days_until }} days
+      {% endif %}
+    </div>
+    <div class="description">{{ next_date | date: "%A, %B %-d" }}</div>
   </div>
 
-  <!-- Next Pickup Section -->
-  <div class="columns gap-4">
-    <div class="column">
-      <!-- Date Display -->
-      <div class="item">
-        <div class="label">Next Pickup</div>
-        <div class="title size-xl">
-          {{ next_date | date: "%A, %B %d" }}
+  {%- comment -%} Icon Display - Framework flex classes {%- endcomment -%}
+  <div class="flex flex--row flex--center-x flex--wrap gap-lg px-lg py-lg bg-1">
+    {% for event in next_pickup_events %}
+      {% for flag in event.flags %}
+        <div class="flex flex--col flex--center-x gap-xs">
+          <div>
+            <img 
+              {% if flag.name == "recycling" %}
+                src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="Blue Box"
+              {% elsif flag.name == "GreenBin" %}
+                src="data:image/svg+xml;base64,{{ svg_green_recycle_bin | base64_encode }}" alt="Green Bin"
+              {% elsif flag.name == "garbage" %}
+                src="data:image/svg+xml;base64,{{ svg_garbage_bag | base64_encode }}" alt="Garbage"
+              {% elsif flag.name == "yardwaste" %}
+                src="data:image/svg+xml;base64,{{ svg_yard_waste | base64_encode }}" alt="Yard Waste"
+              {% elsif flag.name == "pumpkins" %}
+                src="data:image/svg+xml;base64,{{ svg_pumpkin | base64_encode }}" alt="Pumpkins"
+              {% endif %}
+              width="136" height="136" />
+          </div>
+          <div class="description">{{ flag.subject }}</div>
         </div>
-        <div class="description">
-          {% if days_until == 0 %}
-            Today
-          {% elsif days_until == 1 %}
-            Tomorrow
-          {% else %}
-            In {{ days_until }} days
-          {% endif %}
-        </div>
-      </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
 
-      <!-- Collection Types -->
-      <div class="mt-4">
-        <div class="label">What's Being Collected</div>
-        {% for event in next_pickup_events %}
-          {% for flag in event.flags %}
-            <div class="item flex items-center gap-2 py-2">
-              <!-- Icon representation using PNG images -->
-              <div style="min-width: 48px; max-width: 48px;">
-                {% if flag.name == "recycling" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/recycle-bin.png" alt="Blue Box" width="48" height="48">
-                {% elsif flag.name == "GreenBin" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/green-recycle-bin.png" alt="Green Bin" width="48" height="48">
-                {% elsif flag.name == "garbage" %}
+  <div class="description">Set everything curbside by 7 AM.</div>
+</div>
+
+<div class="title_bar">
+  <img src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" width="24" height="24" alt="" />
+  <span class="title">Durham Waste Collection</span>
+  <span class="subtitle">{{ address | default: "Durham Region" }}</span>
+  <span class="instance">Service {{ service_id }} · {{ next_date | date: "%a, %b %-d" }}</span>
+</div>
+```
                   <img src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="48" height="48">
                 {% elsif flag.name == "yardwaste" %}
                   <img src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="48" height="48">
@@ -293,16 +350,24 @@ Create a custom form for users to input their configuration and provide plugin i
 **E-ink Optimization:**
 - Use high contrast (black/white only)
 - Avoid gradients or complex patterns
-- Use TRMNL's built-in dithered backgrounds if needed
+- SVG icons render cleanly with e-ink dithering
 - Ensure text is minimum 12px for readability
 
-**Framework Classes:**
-- `layout`: Main container
-- `title-bar`: Standardized header
-- `columns`: Multi-column layout
-- `item`: Content blocks
-- `label`, `title`, `value`, `description`: Typography
-- `gap-*`, `mt-*`, `py-*`: Spacing utilities
+**Framework Classes (v2):**
+- `flex`, `flex--col`, `flex--row`: Flex layouts (preferred over nested `layout`)
+- `flex--center-x`, `flex--center-y`: Alignment
+- `flex--wrap`: Wrapping behavior
+- `title--small`, `value`, `description`: Typography hierarchy
+- `gap`, `gap-xs`, `gap-lg`, `gap-xxs`: Spacing between flex items
+- `mt-*`, `mb-*`, `px-*`, `py-*`: Margin and padding utilities
+- `bg-1`, `bg-2`, `bg-3`: Background shading
+
+**Important Framework Rules:**
+- ❌ Do NOT nest `layout` classes (use `flex` instead)
+- ❌ Avoid inline styles like `min-height: 100%` (breaks title_bar)
+- ✅ Use Framework spacing classes instead of inline `padding`, `margin`
+- ✅ Embed SVGs using capture + base64_encode pattern
+- ✅ Use `title--small` + `value` for countdown display hierarchy
 
 ---
 
@@ -312,12 +377,10 @@ Create a custom form for users to input their configuration and provide plugin i
 
 ```liquid
 {% if next_events.size == 0 %}
-  <div class="layout flex items-center justify-center">
-    <div class="text-center">
-      <div class="title">No Upcoming Pickups</div>
-      <div class="description mt-2">
-        Check your Place ID or try again later
-      </div>
+  <div class="flex flex--col flex--center gap">
+    <div class="title">No Upcoming Pickups</div>
+    <div class="description">
+      Check your Place ID or try again later
     </div>
   </div>
 {% endif %}
@@ -327,12 +390,10 @@ Create a custom form for users to input their configuration and provide plugin i
 
 ```liquid
 {% if events == nil or events.size == 0 %}
-  <div class="layout">
-    <div class="item bg-1">
-      <div class="title">⚠️ Configuration Error</div>
-      <div class="description mt-2">
-        Unable to fetch events. Please verify your Place ID.
-      </div>
+  <div class="flex flex--col flex--center gap bg-1 px py">
+    <div class="title">⚠️ Configuration Error</div>
+    <div class="description">
+      Unable to fetch events. Please verify your Place ID.
     </div>
   </div>
 {% endif %}
@@ -349,7 +410,7 @@ When multiple collections occur on the same day, use visual hierarchy:
 ```liquid
 {% assign collection_count = next_pickup_events.size %}
 {% if collection_count > 1 %}
-  <div class="description text-sm mb-2">
+  <div class="description mb">
     {{ collection_count }} collections today
   </div>
 {% endif %}
@@ -371,7 +432,7 @@ Add visual urgency for imminent pickups:
 
 ```liquid
 {% if days_until <= 1 %}
-  <div class="border border-2 p-2">
+  <div class="flex flex--col gap px py bg-2">
     <div class="title">⚠️ Pickup {{ days_until == 0 ? "Today" : "Tomorrow" }}!</div>
   </div>
 {% endif %}
@@ -382,7 +443,7 @@ Add visual urgency for imminent pickups:
 ## Testing Strategy
 
 ### 1. Preview Mode
-Use TRMNL's "Edit Markup" live preview with sample data from `events.json`
+Use TRMNL's "Edit Markup" live preview with sample data
 
 ### 2. Force Refresh
 Click "Force Refresh" to test with live API data
@@ -391,22 +452,26 @@ Click "Force Refresh" to test with live API data
 
 | Scenario | Expected Result |
 |----------|----------------|
-| Valid Place ID | Display next pickup date and types |
-| Multiple collections same day | Show all collection types |
-| No upcoming events | Show "No Upcoming Pickups" |
-| Invalid Place ID | Show configuration error |
+| Valid Place ID | Display next pickup date and types with SVG icons |
+| Multiple collections same day | Show all collection types in proper layout |
+| No upcoming events | Show "No Upcoming Pickups" message |
+| Invalid Place ID | Show configuration error message |
 | API timeout | Show error state |
+| Title bar rendering | Verify no min-height blocking display |
 
 ---
 
 ## Deployment Checklist
 
 - [ ] Configure Polling URL with form field interpolation
-- [ ] Add form fields for Place ID and address
-- [ ] Create markup for all view layouts (Full, Half, Quarter)
+- [ ] Add form fields (place_id, service_id, address, author_bio)
+- [ ] Create Shared view with SVG icon captures
+- [ ] Create markup for all view layouts (Full, Half Vertical, Half Horizontal, Quarter, Third)
 - [ ] Test with multiple Place IDs
 - [ ] Add error handling for edge cases
+- [ ] Verify Framework v2 compliance (no nested layout, proper flex usage)
 - [ ] Optimize for e-ink rendering
+- [ ] Test title_bar displays correctly (no min-height: 100%)
 - [ ] Test on actual TRMNL device
 - [ ] Document user setup instructions
 - [ ] (Optional) Publish as Recipe for community
