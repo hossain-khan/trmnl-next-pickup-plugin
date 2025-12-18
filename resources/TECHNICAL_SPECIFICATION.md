@@ -205,24 +205,33 @@ Create a custom form for users to input their configuration and provide plugin i
 {% assign days_until = next_date_timestamp | minus: today_timestamp | divided_by: 86400 %}
 ```
 
-### HTML Structure
+### View Implementations
 
-**Key Changes from Mario's Review Feedback:**
-1. **Typography Hierarchy**: Use `title--small` for labels and `value` for countdown
-2. **Inline SVG Icons**: Embed SVGs using capture + base64_encode pattern (no external URLs)
-3. **Flex Classes**: Use `flex` classes instead of nested `layout` (Framework violation)
-4. **No Inline Styles**: Replace with Framework spacing/sizing classes
-5. **Title Bar Fix**: Remove `min-height: 100%` that prevents title_bar rendering
+All view implementations (Full, Half Vertical, Half Horizontal, Quarter, Third) are documented with complete markup in:
+
+**📄 [PLUGIN_SETUP_GUIDE.md](PLUGIN_SETUP_GUIDE.md)**
+
+Each view includes:
+- Complete Liquid markup
+- Container structure using `layout layout--col` for title_bar support
+- Typography hierarchy (`title--small` + `value` for emphasis)
+- SVG icons via base64_encode pattern
+- Compact title_bar with service information
+- Framework v2 compliant classes
+
+**View Summary:**
+
+| View | Size | Container | Time Display | Icons | Optimization |
+|------|------|-----------|--------------|-------|--------------|
+| Full | 800×480 | `layout layout--col` | `title--small` + `value` | 136×136 | Centered layout with full details |
+| Half Vertical | 400×480 | `layout layout--col` | `title--small` + `value` | 96×96 | 2-column icon grid |
+| Half Horizontal | 800×240 | `layout layout--col` | Single-line `title` | 80×80 | Compact single-line header for limited height |
+| Quarter | 400×240 | `layout layout--col` | `title--small` + `value value--small` | 72×72 | Ultra-compact with abbreviated labels |
+| Third | ~267×480 | `flex flex--col` | `title--small` + `value` | 56×56 | Vertical column layout |
 
 **Shared View - SVG Icon Library:**
 
-> **Note:** The complete icon library implementation with base64 data (~40KB) is maintained in a separate file to keep this specification readable.
-
-**📄 See [SHARED_VIEW_ICONS.md](SHARED_VIEW_ICONS.md) for:**
-- Complete Liquid capture blocks for all 5 icons
-- Base64 data insertion instructions
-- Icon file reference table
-- Usage examples and technical notes
+> **Note:** The complete icon library implementation with base64 data (~40KB) is in [SHARED_VIEW_ICONS.md](SHARED_VIEW_ICONS.md)
 
 **Icon Files Available** (in `resources/icons/`):
 - `recycle-bin.png` → Blue Box Recycling (1024×1024)
@@ -231,98 +240,7 @@ Create a custom form for users to input their configuration and provide plugin i
 - `yard-waste.png` → Yard Waste (380×340)
 - `pumpkin.png` → Seasonal Pumpkins
 
-Each icon has a corresponding `-base64.txt` file with the complete data URI ready to paste.
-
-**Full View Example (Corrected):**
-```liquid
-<div class="flex flex--col flex--center-x flex--center-y gap-lg">
-  {%- comment -%} Typography hierarchy: title--small + value {%- endcomment -%}
-  <div class="flex flex--col flex--center-x gap-xxs">
-    <div class="title--small">Next Pickup</div>
-    <div class="value">
-      {% if days_until == 0 %}Today
-      {% elsif days_until == 1 %}Tomorrow
-      {% else %}In {{ days_until }} days
-      {% endif %}
-    </div>
-    <div class="description">{{ next_date | date: "%A, %B %-d" }}</div>
-  </div>
-
-  {%- comment -%} Icon Display - Framework flex classes {%- endcomment -%}
-  <div class="flex flex--row flex--center-x flex--wrap gap-lg px-lg py-lg bg-1">
-    {% for event in next_pickup_events %}
-      {% for flag in event.flags %}
-        <div class="flex flex--col flex--center-x gap-xs">
-          <div>
-            <img 
-              {% if flag.name == "recycling" %}
-                src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="Blue Box"
-              {% elsif flag.name == "GreenBin" %}
-                src="data:image/svg+xml;base64,{{ svg_green_recycle_bin | base64_encode }}" alt="Green Bin"
-              {% elsif flag.name == "garbage" %}
-                src="data:image/svg+xml;base64,{{ svg_garbage_bag | base64_encode }}" alt="Garbage"
-              {% elsif flag.name == "yardwaste" %}
-                src="data:image/svg+xml;base64,{{ svg_yard_waste | base64_encode }}" alt="Yard Waste"
-              {% elsif flag.name == "pumpkins" %}
-                src="data:image/svg+xml;base64,{{ svg_pumpkin | base64_encode }}" alt="Pumpkins"
-              {% endif %}
-              width="136" height="136" />
-          </div>
-          <div class="description">{{ flag.subject }}</div>
-        </div>
-      {% endfor %}
-    {% endfor %}
-  </div>
-
-  <div class="description">Set everything curbside by 7 AM.</div>
-</div>
-
-<div class="title_bar">
-  <img src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" width="24" height="24" alt="" />
-  <span class="title">Durham Waste Collection</span>
-  <span class="subtitle">{{ address | default: "Durham Region" }}</span>
-  <span class="instance">Service {{ service_id }} · {{ next_date | date: "%a, %b %-d" }}</span>
-</div>
-```
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bag.png" alt="Garbage" width="48" height="48">
-                {% elsif flag.name == "yardwaste" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/yard-waste.png" alt="Yard Waste" width="48" height="48">
-                {% elsif flag.name == "pumpkins" %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/pumpkin.png" alt="Pumpkins" width="48" height="48">
-                {% else %}
-                  <img src="https://hossainkhan.com/archive/www/trmnl-plugin/garbage-bin.png" alt="{{ flag.subject }}" width="48" height="48">
-                {% endif %}
-              </div>
-              <div class="description">{{ flag.subject }}</div>
-            </div>
-          {% endfor %}
-        {% endfor %}
-      </div>
-    </div>
-
-    <!-- Upcoming Schedule (Optional) -->
-    <div class="column">
-      <div class="label">Upcoming Schedule</div>
-      {% assign future_dates = next_events | map: "day" | uniq | slice: 1, 3 %}
-      {% for date in future_dates %}
-        <div class="item py-1">
-          <div class="description text-sm">{{ date | date: "%b %d" }}</div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-
-  <!-- Zone Information (Footer) -->
-  {% assign zone_id = next_pickup_events.first.zone_id %}
-  {% assign zone = zones[zone_id] %}
-  <div class="mt-auto pt-4">
-    <div class="divider"></div>
-    <div class="description text-center text-xs">
-      {{ zone.title }}
-    </div>
-  </div>
-</div>
-```
+Each icon has a corresponding `-base64.txt` file with the complete data URI.
 
 ### Styling Considerations
 
@@ -341,12 +259,14 @@ Each icon has a corresponding `-base64.txt` file with the complete data URI read
 - `mt-*`, `mb-*`, `px-*`, `py-*`: Margin and padding utilities
 - `bg-1`, `bg-2`, `bg-3`: Background shading
 
-**Important Framework Rules:**
-- ❌ Do NOT nest `layout` classes (use `flex` instead)
-- ❌ Avoid inline styles like `min-height: 100%` (breaks title_bar)
-- ✅ Use Framework spacing classes instead of inline `padding`, `margin`
-- ✅ Embed SVGs using capture + base64_encode pattern
-- ✅ Use `title--small` + `value` for countdown display hierarchy
+**Framework v2 Implementation Guidelines:**
+- ✅ Use `layout layout--col` as main container to enable title_bar positioning
+- ✅ Use `flex` classes for content layout within the container
+- ✅ Embed SVGs using capture + base64_encode pattern (no external URLs)
+- ✅ Use `title--small` + `value` for typography hierarchy
+- ✅ Use Framework spacing classes (`gap`, `px-*`, `py-*`, `mt-*`, etc.)
+- ❌ Do NOT nest `layout` classes
+- ❌ Avoid inline styles that can break responsive behavior
 
 ---
 
@@ -457,23 +377,17 @@ Click "Force Refresh" to test with live API data
 
 ---
 
-## User Setup Instructions
+Complete step-by-step setup instructions are available in:
 
-### Finding Your Place ID
+**📄 [PLUGIN_SETUP_GUIDE.md](PLUGIN_SETUP_GUIDE.md)**
 
-1. Visit https://recollect.net
-2. Enter your Durham Region address
-3. Inspect the browser's network requests (F12 > Network)
-4. Look for API call to `/api/places/` endpoint
-5. Copy the UUID from the URL (format: `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`)
-
-### Installing the Plugin
-
-1. Navigate to TRMNL Plugins tab
-2. Search for "Durham Waste Collection" (or your private plugin name)
-3. Click "Add Plugin"
-4. Enter your Place ID
-5. (Optional) Enter your address for display
+The guide covers:
+- Finding your Place ID (Configuration Helper Tool, Manual Method, Sample Data)
+- Creating the plugin on TRMNL (Settings, Form Fields, Polling Configuration)
+- Adding markup for all view sizes
+- Testing with Force Refresh
+- Troubleshooting common issues
+- Adding plugin to device and p Enter your address for display
 6. Save configuration
 7. Add to a Playlist
 
