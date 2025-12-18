@@ -243,6 +243,36 @@ Click on **"Form Fields"** section and paste this YAML:
 <img src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" width="24" height="24" />
 ```
 
+#### Converting PNG to Base64 (Optional)
+
+If you prefer to use PNG files directly or need to generate base64 data, macOS includes the `base64` command:
+
+**Generate base64 for a single icon:**
+```bash
+base64 < resources/icons/recycle-bin.png
+```
+
+**Create data URI format (ready to use in HTML/SVG):**
+```bash
+echo "data:image/png;base64,$(base64 < resources/icons/recycle-bin.png)"
+```
+
+**Process all PNG icons and save to files:**
+```bash
+cd resources/icons
+for file in *.png; do
+  echo "Processing $file..."
+  echo "data:image/png;base64,$(base64 < "$file")" > "${file%.png}-base64.txt"
+done
+```
+
+**Copy base64 directly to clipboard (macOS):**
+```bash
+base64 < resources/icons/recycle-bin.png | pbcopy
+```
+
+The optimized PNG files in `resources/icons/` are ready to use with these commands!
+
 ### Step 3: Add the Full View Markup
 
 **Click on the "Full" tab** and paste this:
