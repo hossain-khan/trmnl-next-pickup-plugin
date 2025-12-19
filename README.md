@@ -5,7 +5,7 @@ Plugin for next pickup day for Durham Region, Ontario, Canada 🇨🇦
 | 🖼️ | 🖼️ |
 | ----- | ---- | 
 | <img width="800" height="480" alt="vertical" src="https://github.com/user-attachments/assets/55352ed4-9fd0-4924-8b91-1c43410db210" /> | <img width="800" height="480" alt="horizontal" src="https://github.com/user-attachments/assets/fd14b6f3-5e0f-4e3b-920e-1717ff5b1fa0" /> | 
-| <img width="800" height="480" alt="quad" src="https://github.com/user-attachments/assets/078661aa-29e6-49ec-a349-658baca74b76" /> |  <img width="800" height="480" alt="full-view" src="https://github.com/user-attachments/assets/66373ab7-be2b-4133-8813-dc69613201f2" /> | 
+| <img width="800" height="480" alt="quad" src="https://github.com/user-attachments/assets/078661aa-29e6-49ec-a349-658baca74b76" /> |  <img width="800" height="480" alt="plugin-fd2160-with-holidays" src="https://github.com/user-attachments/assets/598f1baf-1dab-4042-9606-b5b134e14dd5" /> | 
 
 
 
