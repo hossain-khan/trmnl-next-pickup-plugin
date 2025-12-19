@@ -1,0 +1,768 @@
+{
+    "X-REQUEST-URL": "https://api.recollect.net/api/places/B8CB080C-DC84-11F0-87C9-6D4193D99092/services/257/events?nomerge=1&hide=reminder_only&after=2025-11-30&before=2026-01-12&locale=en&include_message=email&_=1766112305",
+    "parcel_opts": {},
+    "events": [
+        {
+            "flags": [
+                {
+                    "short_text_message": null,
+                    "voice_message": null,
+                    "name": "garbage",
+                    "id": 223,
+                    "html_message": "",
+                    "backgroundColor": "#000000",
+                    "plain_text_message": null,
+                    "subject": "Garbage",
+                    "opts": {},
+                    "event_type": "pickup",
+                    "icon": "garbage.durham",
+                    "borderColor": "#000000",
+                    "icon_uri_fragment": "garbage.durham",
+                    "sort_order": 4,
+                    "is_week_long": 0,
+                    "color": "#000000",
+                    "service_name": "waste",
+                    "area_name": "Durham"
+                }
+            ],
+            "opts": {
+                "repeat_id": "81F142F0-0EDC-11EF-8961-82E9CEA6A007",
+                "repeat_data": {
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks",
+                    "start_day": "2024-07-04"
+                }
+            },
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "is_approved": 1,
+            "id": 26841722,
+            "zone_id": 5882,
+            "day": "2025-12-04",
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "**Blue Box update - January 1, 2026**"
+        },
+        {
+            "day": "2025-12-04",
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "options": {
+                "ending_at": ""
+            },
+            "zone_id": 5882,
+            "id": 26841761,
+            "is_approved": 1,
+            "opts": {
+                "repeat_data": {
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31",
+                    "start_day": "2024-07-04"
+                },
+                "repeat_id": "82366F10-0EDC-11EF-8BC9-82E9CEA6A007"
+            },
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "flags": [
+                {
+                    "icon": "blue-box.durham",
+                    "borderColor": "#044dc8",
+                    "icon_uri_fragment": "blue-box.durham",
+                    "color": "#044dc8",
+                    "area_name": "Durham",
+                    "service_name": "waste",
+                    "sort_order": 5,
+                    "is_week_long": 0,
+                    "html_message": "",
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "name": "recycling",
+                    "id": 224,
+                    "plain_text_message": null,
+                    "subject": "Blue Box",
+                    "opts": {},
+                    "event_type": "pickup",
+                    "textColor": "#ffffff",
+                    "backgroundColor": "#044dc8"
+                }
+            ]
+        },
+        {
+            "zone_id": 5882,
+            "id": 26841683,
+            "is_approved": 1,
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "options": {
+                "ending_at": ""
+            },
+            "day": "2025-12-04",
+            "flags": [
+                {
+                    "icon": "green-bin.durham",
+                    "icon_uri_fragment": "green-bin.durham",
+                    "borderColor": "#2c8511",
+                    "color": "#2c8511",
+                    "area_name": "Durham",
+                    "service_name": "waste",
+                    "sort_order": 7,
+                    "is_week_long": 0,
+                    "html_message": "",
+                    "short_text_message": null,
+                    "voice_message": null,
+                    "id": 438,
+                    "name": "GreenBin",
+                    "subject": "Green Bin",
+                    "plain_text_message": null,
+                    "opts": {},
+                    "event_type": "pickup",
+                    "textColor": "#ffffff",
+                    "backgroundColor": "#2c8511"
+                }
+            ],
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "opts": {
+                "repeat_data": {
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks",
+                    "start_day": "2024-07-04"
+                },
+                "repeat_id": "81AA3694-0EDC-11EF-886C-82E9CEA6A007"
+            }
+        },
+        {
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "opts": {
+                "repeat_id": "D4BAD684-0EDE-11EF-9D8C-CE1BEDA6EA97",
+                "repeat_data": {
+                    "start_day": "2025-05-08",
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31"
+                }
+            },
+            "flags": [
+                {
+                    "event_type": "pickup",
+                    "opts": {},
+                    "plain_text_message": null,
+                    "subject": "Yard Waste",
+                    "textColor": "#ffffff",
+                    "backgroundColor": "#5d3f35",
+                    "html_message": "",
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "id": 225,
+                    "name": "yardwaste",
+                    "color": "#5d3f35",
+                    "area_name": "Durham",
+                    "service_name": "waste",
+                    "is_week_long": 0,
+                    "sort_order": 8,
+                    "borderColor": "#5d3f35",
+                    "icon_uri_fragment": "yard-waste.durham",
+                    "icon": "yard-waste.durham"
+                }
+            ],
+            "day": "2025-12-04",
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "options": {
+                "ending_at": ""
+            },
+            "zone_id": 5882,
+            "id": 26842162,
+            "is_approved": 1
+        },
+        {
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "day": "2025-12-11",
+            "id": 26841851,
+            "is_approved": 1,
+            "zone_id": 5882,
+            "opts": {
+                "repeat_id": "D06C1E50-0EDC-11EF-BB9E-8EE9CEA6A007",
+                "repeat_data": {
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks",
+                    "start_day": "2024-07-11"
+                }
+            },
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "flags": [
+                {
+                    "icon": "blue-box.durham",
+                    "borderColor": "#044dc8",
+                    "icon_uri_fragment": "blue-box.durham",
+                    "sort_order": 5,
+                    "is_week_long": 0,
+                    "color": "#044dc8",
+                    "service_name": "waste",
+                    "area_name": "Durham",
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "id": 224,
+                    "name": "recycling",
+                    "html_message": "",
+                    "textColor": "#ffffff",
+                    "backgroundColor": "#044dc8",
+                    "plain_text_message": null,
+                    "subject": "Blue Box",
+                    "opts": {},
+                    "event_type": "pickup"
+                }
+            ]
+        },
+        {
+            "flags": [
+                {
+                    "color": "#2c8511",
+                    "area_name": "Durham",
+                    "service_name": "waste",
+                    "is_week_long": 0,
+                    "sort_order": 7,
+                    "icon_uri_fragment": "green-bin.durham",
+                    "borderColor": "#2c8511",
+                    "icon": "green-bin.durham",
+                    "opts": {},
+                    "event_type": "pickup",
+                    "subject": "Green Bin",
+                    "plain_text_message": null,
+                    "textColor": "#ffffff",
+                    "backgroundColor": "#2c8511",
+                    "html_message": "",
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "name": "GreenBin",
+                    "id": 438
+                }
+            ],
+            "opts": {
+                "repeat_data": {
+                    "start_day": "2024-07-11",
+                    "end_day": "2025-12-31",
+                    "frequency": "every two weeks"
+                },
+                "repeat_id": "D02248C0-0EDC-11EF-BB9E-8EE9CEA6A007"
+            },
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "id": 26841812,
+            "is_approved": 1,
+            "zone_id": 5882,
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "day": "2025-12-11"
+        },
+        {
+            "flags": [
+                {
+                    "service_name": "waste",
+                    "area_name": "Durham",
+                    "color": "#000000",
+                    "sort_order": 4,
+                    "is_week_long": 0,
+                    "icon": "garbage.durham",
+                    "borderColor": "#000000",
+                    "icon_uri_fragment": "garbage.durham",
+                    "plain_text_message": null,
+                    "subject": "Garbage",
+                    "event_type": "pickup",
+                    "opts": {},
+                    "backgroundColor": "#000000",
+                    "html_message": "",
+                    "id": 223,
+                    "name": "garbage",
+                    "voice_message": null,
+                    "short_text_message": null
+                }
+            ],
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "opts": {
+                "repeat_data": {
+                    "start_day": "2024-07-04",
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31"
+                },
+                "repeat_id": "81F142F0-0EDC-11EF-8961-82E9CEA6A007"
+            },
+            "zone_id": 5882,
+            "is_approved": 1,
+            "id": 26841723,
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "day": "2025-12-18"
+        },
+        {
+            "flags": [
+                {
+                    "area_name": "Durham",
+                    "service_name": "waste",
+                    "color": "#044dc8",
+                    "sort_order": 5,
+                    "is_week_long": 0,
+                    "icon": "blue-box.durham",
+                    "borderColor": "#044dc8",
+                    "icon_uri_fragment": "blue-box.durham",
+                    "plain_text_message": null,
+                    "subject": "Blue Box",
+                    "opts": {},
+                    "event_type": "pickup",
+                    "backgroundColor": "#044dc8",
+                    "textColor": "#ffffff",
+                    "html_message": "",
+                    "id": 224,
+                    "name": "recycling",
+                    "voice_message": null,
+                    "short_text_message": null
+                }
+            ],
+            "opts": {
+                "repeat_id": "82366F10-0EDC-11EF-8BC9-82E9CEA6A007",
+                "repeat_data": {
+                    "start_day": "2024-07-04",
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31"
+                }
+            },
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "zone_id": 5882,
+            "is_approved": 1,
+            "id": 26841762,
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "day": "2025-12-18"
+        },
+        {
+            "flags": [
+                {
+                    "sort_order": 7,
+                    "is_week_long": 0,
+                    "color": "#2c8511",
+                    "area_name": "Durham",
+                    "service_name": "waste",
+                    "icon": "green-bin.durham",
+                    "borderColor": "#2c8511",
+                    "icon_uri_fragment": "green-bin.durham",
+                    "textColor": "#ffffff",
+                    "backgroundColor": "#2c8511",
+                    "plain_text_message": null,
+                    "subject": "Green Bin",
+                    "opts": {},
+                    "event_type": "pickup",
+                    "short_text_message": null,
+                    "voice_message": null,
+                    "name": "GreenBin",
+                    "id": 438,
+                    "html_message": ""
+                }
+            ],
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "opts": {
+                "repeat_id": "81AA3694-0EDC-11EF-886C-82E9CEA6A007",
+                "repeat_data": {
+                    "frequency": "every two weeks",
+                    "end_day": "2025-12-31",
+                    "start_day": "2024-07-04"
+                }
+            },
+            "id": 26841684,
+            "is_approved": 1,
+            "zone_id": 5882,
+            "day": "2025-12-18",
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "options": {
+                "ending_at": ""
+            }
+        },
+        {
+            "day": "2025-12-25",
+            "is_holiday": 1,
+            "title": "Holiday",
+            "end_day": "2025-12-25",
+            "type": "holiday",
+            "flags": [
+                {
+                    "pattern": "",
+                    "borderColor": "#000000",
+                    "icon": "",
+                    "plain_text_message_hash": {
+                        "en-GB": null,
+                        "en-US": null
+                    },
+                    "voice_message_hash": {
+                        "en-US": null,
+                        "en-GB": null
+                    },
+                    "short_text_message_hash": {
+                        "en-US": null,
+                        "en-GB": null
+                    },
+                    "html_message": null,
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "name": "holiday",
+                    "html_message_hash": {
+                        "en-GB": null,
+                        "en-US": null
+                    },
+                    "plain_text_message": null,
+                    "subject": "Christmas Day",
+                    "textColor": "#FFFFFF",
+                    "backgroundColor": "#571B7E",
+                    "subject_hash": {
+                        "fr": "le jour de Noël",
+                        "es": "día de Navidad",
+                        "ko": "크리스마스 날",
+                        "en": "Christmas Day",
+                        "zh-Hans": "圣诞节",
+                        "pa": "ਕ੍ਰਿਸਮਸ ਦਾ ਦਿਨ",
+                        "en-GB": "Christmas Day",
+                        "en-US": "Christmas Day"
+                    }
+                }
+            ],
+            "id": 1114529
+        },
+        {
+            "day": "2025-12-26",
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "options": {
+                "ending_at": ""
+            },
+            "id": 26842019,
+            "is_approved": 1,
+            "zone_id": 5882,
+            "end_day": "2025-12-26",
+            "opts": {},
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "flags": [
+                {
+                    "html_message": "",
+                    "name": "recycling",
+                    "id": 224,
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "subject": "Blue Box",
+                    "plain_text_message": null,
+                    "event_type": "pickup",
+                    "opts": {},
+                    "backgroundColor": "#044dc8",
+                    "textColor": "#ffffff",
+                    "icon": "blue-box.durham",
+                    "borderColor": "#044dc8",
+                    "icon_uri_fragment": "blue-box.durham",
+                    "area_name": "Durham",
+                    "service_name": "waste",
+                    "color": "#044dc8",
+                    "sort_order": 5,
+                    "is_week_long": 0
+                }
+            ]
+        },
+        {
+            "flags": [
+                {
+                    "color": "#2c8511",
+                    "service_name": "waste",
+                    "area_name": "Durham",
+                    "sort_order": 7,
+                    "is_week_long": 0,
+                    "icon": "green-bin.durham",
+                    "icon_uri_fragment": "green-bin.durham",
+                    "borderColor": "#2c8511",
+                    "plain_text_message": null,
+                    "subject": "Green Bin",
+                    "event_type": "pickup",
+                    "opts": {},
+                    "textColor": "#ffffff",
+                    "backgroundColor": "#2c8511",
+                    "html_message": "",
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "id": 438,
+                    "name": "GreenBin"
+                }
+            ],
+            "end_day": "2025-12-26",
+            "opts": {},
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "is_approved": 1,
+            "id": 26842018,
+            "zone_id": 5882,
+            "day": "2025-12-26",
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "options": {
+                "ending_at": ""
+            }
+        },
+        {
+            "flags": [
+                {
+                    "html_message_hash": {
+                        "en-GB": null,
+                        "en-US": null
+                    },
+                    "subject": "New Years Day",
+                    "plain_text_message": null,
+                    "backgroundColor": "#571B7E",
+                    "textColor": "#FFFFFF",
+                    "subject_hash": {
+                        "ko": "설날",
+                        "es": "Día de Año Nuevo",
+                        "fr": "Le jour de l'An",
+                        "en-GB": "New Years Day",
+                        "en-US": "New Years Day",
+                        "en": "New Years Day",
+                        "zh-Hans": "元旦",
+                        "pa": "ਨਵੇਂ ਸਾਲ ਦਾ ਦਿਨ"
+                    },
+                    "html_message": null,
+                    "name": "holiday",
+                    "short_text_message": null,
+                    "voice_message": null,
+                    "voice_message_hash": {
+                        "en-GB": null,
+                        "en-US": null
+                    },
+                    "short_text_message_hash": {
+                        "en-GB": null,
+                        "en-US": null
+                    },
+                    "pattern": "",
+                    "borderColor": "#000000",
+                    "icon": "",
+                    "plain_text_message_hash": {
+                        "en-GB": null,
+                        "en-US": null
+                    }
+                }
+            ],
+            "id": 1114530,
+            "day": "2026-01-01",
+            "is_holiday": 1,
+            "title": "Holiday",
+            "end_day": "2026-01-01",
+            "type": "holiday"
+        },
+        {
+            "zone_id": 5882,
+            "id": 26842193,
+            "is_approved": 1,
+            "day": "2026-01-02",
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "options": {
+                "ending_at": ""
+            },
+            "flags": [
+                {
+                    "short_text_message": null,
+                    "voice_message": null,
+                    "name": "garbage",
+                    "id": 223,
+                    "html_message": "",
+                    "backgroundColor": "#000000",
+                    "subject": "Garbage",
+                    "plain_text_message": null,
+                    "event_type": "pickup",
+                    "opts": {},
+                    "icon": "garbage.durham",
+                    "icon_uri_fragment": "garbage.durham",
+                    "borderColor": "#000000",
+                    "sort_order": 4,
+                    "is_week_long": 0,
+                    "color": "#000000",
+                    "service_name": "waste",
+                    "area_name": "Durham"
+                }
+            ],
+            "opts": {},
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "end_day": "2026-01-02"
+        },
+        {
+            "day": "2026-01-02",
+            "options": {
+                "ending_at": ""
+            },
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "zone_id": 5882,
+            "id": 26842194,
+            "is_approved": 1,
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "opts": {},
+            "end_day": "2026-01-02",
+            "flags": [
+                {
+                    "icon": "blue-box.durham",
+                    "borderColor": "#044dc8",
+                    "icon_uri_fragment": "blue-box.durham",
+                    "sort_order": 5,
+                    "is_week_long": 0,
+                    "service_name": "waste",
+                    "area_name": "Durham",
+                    "color": "#044dc8",
+                    "name": "recycling",
+                    "id": 224,
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "html_message": "",
+                    "backgroundColor": "#044dc8",
+                    "textColor": "#ffffff",
+                    "subject": "Blue Box",
+                    "plain_text_message": null,
+                    "opts": {},
+                    "event_type": "pickup"
+                }
+            ]
+        },
+        {
+            "zone_id": 5882,
+            "is_approved": 1,
+            "id": 26842192,
+            "day": "2026-01-02",
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "options": {
+                "ending_at": ""
+            },
+            "flags": [
+                {
+                    "color": "#2c8511",
+                    "area_name": "Durham",
+                    "service_name": "waste",
+                    "sort_order": 7,
+                    "is_week_long": 0,
+                    "icon": "green-bin.durham",
+                    "icon_uri_fragment": "green-bin.durham",
+                    "borderColor": "#2c8511",
+                    "subject": "Green Bin",
+                    "plain_text_message": null,
+                    "event_type": "pickup",
+                    "opts": {},
+                    "textColor": "#ffffff",
+                    "backgroundColor": "#2c8511",
+                    "html_message": "",
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "id": 438,
+                    "name": "GreenBin"
+                }
+            ],
+            "opts": {},
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "end_day": "2026-01-02"
+        },
+        {
+            "day": "2026-01-08",
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "options": {
+                "ending_at": ""
+            },
+            "is_approved": 1,
+            "id": 29046022,
+            "zone_id": 5882,
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "opts": {
+                "repeat_id": "AA486E1A-3B11-11F0-ADE6-6E2DA75D3121",
+                "repeat_data": {
+                    "start_day": "2026-01-08",
+                    "frequency": "weekly",
+                    "end_day": "2026-12-31"
+                }
+            },
+            "flags": [
+                {
+                    "service_name": "waste",
+                    "area_name": "Durham",
+                    "color": "#044dc8",
+                    "is_week_long": 0,
+                    "sort_order": 5,
+                    "icon_uri_fragment": "blue-box.durham",
+                    "borderColor": "#044dc8",
+                    "icon": "blue-box.durham",
+                    "opts": {},
+                    "event_type": "pickup",
+                    "plain_text_message": null,
+                    "subject": "Blue Box",
+                    "backgroundColor": "#044dc8",
+                    "textColor": "#ffffff",
+                    "html_message": "",
+                    "name": "recycling",
+                    "id": 224,
+                    "voice_message": null,
+                    "short_text_message": null
+                }
+            ]
+        },
+        {
+            "day": "2026-01-08",
+            "custom_subject": "**Blue Box update - January 1, 2026**",
+            "options": {
+                "ending_at": ""
+            },
+            "is_approved": 1,
+            "id": 29045970,
+            "zone_id": 5882,
+            "opts": {
+                "repeat_id": "A9E83428-3B11-11F0-ADE6-6E2DA75D3121",
+                "repeat_data": {
+                    "end_day": "2026-12-31",
+                    "frequency": "weekly",
+                    "start_day": "2026-01-08"
+                }
+            },
+            "custom_message": "Starting January 1, 2026, Blue Box collection will be provided by Miller Waste. Please ensure all materials are placed at the curb by 7 a.m. on your scheduled collection day. Keep recycling and thank you for doing your part! More Blue Box info at circularmaterials.ca/Durham.",
+            "flags": [
+                {
+                    "html_message": "",
+                    "voice_message": null,
+                    "short_text_message": null,
+                    "id": 438,
+                    "name": "GreenBin",
+                    "subject": "Green Bin",
+                    "plain_text_message": null,
+                    "opts": {},
+                    "event_type": "pickup",
+                    "textColor": "#ffffff",
+                    "backgroundColor": "#2c8511",
+                    "icon": "green-bin.durham",
+                    "borderColor": "#2c8511",
+                    "icon_uri_fragment": "green-bin.durham",
+                    "color": "#2c8511",
+                    "service_name": "waste",
+                    "area_name": "Durham",
+                    "sort_order": 7,
+                    "is_week_long": 0
+                }
+            ]
+        }
+    ],
+    "zones": {
+        "5882": {
+            "line_colour": "rgba(204,204,204,255)",
+            "loc_title": {
+                "en": "Oshawa Thursday Area 2"
+            },
+            "poly_colour": "rgba(204,204,204,153)",
+            "show_when_empty": 0,
+            "colour_name": "durham-zone-oshawa-thursday-area-2",
+            "name": "durham-zone-oshawa-thursday-area-2",
+            "id": 5882,
+            "has_unapproved_future_events": 0,
+            "opts": {},
+            "pdf_uri": {},
+            "priority": 0,
+            "description": {},
+            "title": "Oshawa Thursday Area 2",
+            "is_empty": 0,
+            "has_geom": 0,
+            "has_parcels": 1,
+            "link_uri": {},
+            "link_text": {},
+            "service_id": 257
+        }
+    }
+}
