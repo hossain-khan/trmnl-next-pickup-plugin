@@ -211,6 +211,8 @@ Click on **"Form Fields"** section and paste this YAML:
 {% assign today = "now" | date: "%Y-%m-%d" %}
 {%- comment -%} Filter out holiday events, only show actual pickup days {%- endcomment -%}
 {% assign next_events = events | where_exp: "event", "event.day >= today and event.is_holiday != 1" | sort: "day" %}
+{%- comment -%} Get upcoming holidays for informational display {%- endcomment -%}
+{% assign upcoming_holidays = events | where_exp: "event", "event.is_holiday == 1 and event.day >= today" | sort: "day" | slice: 0, 3 %}
 
 {% if next_events.size == 0 %}
   {%- comment -%} No upcoming events {%- endcomment -%}
@@ -278,6 +280,23 @@ Click on **"Form Fields"** section and paste this YAML:
     <div class="description">
       Set everything curbside by 7 AM.
     </div>
+
+    {%- comment -%} Upcoming Holidays Display {%- endcomment -%}
+    {% if upcoming_holidays.size > 0 %}
+      <div class="flex flex--col flex--center-x gap-xs mt-xs">
+        <div class="flex flex--row flex--center-x flex--wrap gap-xs">
+          {% for holiday in upcoming_holidays %}
+            {% assign holiday_timestamp = holiday.day | date: "%s" %}
+            {% assign holiday_days = holiday_timestamp | minus: today_timestamp | divided_by: 86400 %}
+            {% assign holiday_flag = holiday.flags | first %}
+            <span class="label label--inverted">
+              {{ holiday_flag.subject }}: {{ holiday.day | date: "%b %-d" }}
+              {% if holiday_days <= 7 %} ({{ holiday_days }}d){% endif %}
+            </span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
   </div>
 
   <div class="title_bar">
