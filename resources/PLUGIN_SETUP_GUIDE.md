@@ -209,7 +209,8 @@ Click on **"Form Fields"** section and paste this YAML:
 {% endcomment %}
 
 {% assign today = "now" | date: "%Y-%m-%d" %}
-{% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
+{%- comment -%} Filter out holiday events, only show actual pickup days {%- endcomment -%}
+{% assign next_events = events | where_exp: "event", "event.day >= today and event.is_holiday != 1" | sort: "day" %}
 
 {% if next_events.size == 0 %}
   {%- comment -%} No upcoming events {%- endcomment -%}
@@ -246,7 +247,9 @@ Click on **"Form Fields"** section and paste this YAML:
     {%- comment -%} Icon Display - Using Framework flex classes {%- endcomment -%}
     <div class="flex flex--row flex--center-x flex--wrap gap-lg px-lg py-lg bg-1">
       {% for event in next_pickup_events %}
-        {% for flag in event.flags %}
+        {%- comment -%} Only show pickup flags, skip holiday flags {%- endcomment -%}
+        {% assign pickup_flags = event.flags | where: "event_type", "pickup" %}
+        {% for flag in pickup_flags %}
           <div class="flex flex--col flex--center-x gap-xs">
             <div>
               <img 
@@ -366,7 +369,8 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
 {% endcomment %}
 
 {% assign today = "now" | date: "%Y-%m-%d" %}
-{% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
+{%- comment -%} Filter out holiday events, only show actual pickup days {%- endcomment -%}
+{% assign next_events = events | where_exp: "event", "event.day >= today and event.is_holiday != 1" | sort: "day" %}
 
 {% if next_events.size == 0 %}
   <div class="flex flex--col flex--center gap">
@@ -397,7 +401,9 @@ Click on the **"Half Vertical"** tab and add this for left/right split layouts (
     {%- comment -%} Icons Grid - 2 columns using flex {%- endcomment -%}
     <div class="flex flex--row flex--wrap flex--center-x gap">
       {% for event in next_pickup_events %}
-        {% for flag in event.flags %}
+        {%- comment -%} Only show pickup flags, skip holiday flags {%- endcomment -%}
+        {% assign pickup_flags = event.flags | where: "event_type", "pickup" %}
+        {% for flag in pickup_flags %}
           <div class="flex flex--col flex--center-x gap-xxs">
             <div>
               <img 
@@ -487,7 +493,8 @@ Click on the **"Half Horizontal"** tab and add this for top/bottom split layouts
 {% endcomment %}
 
 {% assign today = "now" | date: "%Y-%m-%d" %}
-{% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
+{%- comment -%} Filter out holiday events, only show actual pickup days {%- endcomment -%}
+{% assign next_events = events | where_exp: "event", "event.day >= today and event.is_holiday != 1" | sort: "day" %}
 
 {% if next_events.size == 0 %}
   <div class="flex flex--col flex--center gap">
@@ -518,7 +525,9 @@ Click on the **"Half Horizontal"** tab and add this for top/bottom split layouts
     {%- comment -%} Horizontal row of icons {%- endcomment -%}
     <div class="flex flex--row flex--center-x gap">
       {% for event in next_pickup_events %}
-        {% for flag in event.flags %}
+        {%- comment -%} Only show pickup flags, skip holiday flags {%- endcomment -%}
+        {% assign pickup_flags = event.flags | where: "event_type", "pickup" %}
+        {% for flag in pickup_flags %}
           <div class="flex flex--col flex--center-x gap-xxs">
             <img 
               {% if flag.name == "recycling" %}
@@ -561,7 +570,8 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 40
 {% endcomment %}
 
 {% assign today = "now" | date: "%Y-%m-%d" %}
-{% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
+{%- comment -%} Filter out holiday events, only show actual pickup days {%- endcomment -%}
+{% assign next_events = events | where_exp: "event", "event.day >= today and event.is_holiday != 1" | sort: "day" %}
 
 {% if next_events.size == 0 %}
   <div class="flex flex--col flex--center gap">
@@ -590,7 +600,9 @@ Click on the **"Quarter"** tab for compact quadrant layouts (1/4 screen size, 40
     {%- comment -%} Icon row with compact spacing and labels {%- endcomment -%}
     <div class="flex flex--row flex--wrap flex--center-x gap-xs">
       {% for event in next_pickup_events %}
-        {% for flag in event.flags %}
+        {%- comment -%} Only show pickup flags, skip holiday flags {%- endcomment -%}
+        {% assign pickup_flags = event.flags | where: "event_type", "pickup" %}
+        {% for flag in pickup_flags %}
           <div class="flex flex--col flex--center-x gap-xxs">
             <img 
               {% if flag.name == "recycling" %}
@@ -674,7 +686,8 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
 {% endcomment %}
 
 {% assign today = "now" | date: "%Y-%m-%d" %}
-{% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
+{%- comment -%} Filter out holiday events, only show actual pickup days {%- endcomment -%}
+{% assign next_events = events | where_exp: "event", "event.day >= today and event.is_holiday != 1" | sort: "day" %}
 
 {% if next_events.size == 0 %}
   <div class="flex flex--col flex--center gap">
@@ -704,7 +717,9 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
     {%- comment -%} Icon column {%- endcomment -%}
     <div class="flex flex--col flex--center-x gap-xs">
       {% for event in next_pickup_events %}
-        {% for flag in event.flags %}
+        {%- comment -%} Only show pickup flags, skip holiday flags {%- endcomment -%}
+        {% assign pickup_flags = event.flags | where: "event_type", "pickup" %}
+        {% for flag in pickup_flags %}
           <img 
             {% if flag.name == "recycling" %}
               src="data:image/svg+xml;base64,{{ svg_recycle_bin | base64_encode }}" alt="Blue Box"
