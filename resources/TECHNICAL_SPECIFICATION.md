@@ -174,20 +174,23 @@ Create a custom form for users to input their configuration and provide plugin i
 
 ### Data Processing Logic
 
-1. **Filter Next Event**: Find the earliest event date >= current date
-2. **Group by Date**: Combine all flags/collections for the same date
-3. **Extract Collection Types**: Parse all `flags[]` for that date
-4. **Format Display**: Show date + collection types with icons
+1. **Filter Next Event**: Find the earliest event date >= current date, excluding holidays
+2. **Filter Pickup Flags**: Only display flags with `event_type == "pickup"`
+3. **Group by Date**: Combine all flags/collections for the same date
+4. **Extract Collection Types**: Parse all `flags[]` for that date
+5. **Format Display**: Show date + collection types with icons
 
 ### Liquid Template Structure
 
 ```liquid
 {% comment %}
   Process events to find next pickup date and combine collection types
+  Excludes holiday events (Christmas, New Years, etc.)
 {% endcomment %}
 
 {% assign today = "now" | date: "%Y-%m-%d" %}
-{% assign next_events = events | where_exp: "event", "event.day >= today" | sort: "day" %}
+{%- comment -%} Filter out holiday events, only show actual pickup days {%- endcomment -%}
+{% assign next_events = events | where_exp: "event", "event.day >= today and event.is_holiday != 1" | sort: "day" %}
 {% assign next_date = next_events.first.day %}
 
 {% comment %}
@@ -195,6 +198,12 @@ Create a custom form for users to input their configuration and provide plugin i
 {% endcomment %}
 
 {% assign next_pickup_events = next_events | where: "day", next_date %}
+
+{% comment %}
+  Filter to only pickup flags (skip holiday markers)
+{% endcomment %}
+
+{% assign pickup_flags = event.flags | where: "event_type", "pickup" %}
 
 {% comment %}
   Calculate days until pickup
@@ -353,6 +362,7 @@ Click "Force Refresh" to test with live API data
 |----------|----------------|
 | Valid Place ID | Display next pickup date and types with SVG icons |
 | Multiple collections same day | Show all collection types in proper layout |
+| Holiday before pickup | Skip holiday event (e.g., Christmas), show next actual pickup day |
 | No upcoming events | Show "No Upcoming Pickups" message |
 | Invalid Place ID | Show configuration error message |
 | API timeout | Show error state |
