@@ -431,11 +431,11 @@ Update icon mapping when new waste types are added:
 
 ## Resources
 
-- **TRMNL Private Plugins**: https://help.usetrmnl.com/en/articles/9510536-private-plugins
-- **TRMNL Framework**: https://usetrmnl.com/framework
+- **TRMNL Private Plugins**: https://help.trmnl.com/en/articles/9510536-private-plugins
+- **TRMNL Framework**: https://trmnl.com/framework
 - **Liquid Documentation**: https://shopify.github.io/liquid/
-- **Liquid 101 Guide**: https://help.usetrmnl.com/en/articles/10671186-liquid-101
-- **TRMNL Custom Filters**: https://help.usetrmnl.com/en/articles/10347358-custom-plugin-filters
+- **Liquid 101 Guide**: https://help.trmnl.com/en/articles/10671186-liquid-101
+- **TRMNL Custom Filters**: https://help.trmnl.com/en/articles/10347358-custom-plugin-filters
 - **Recollect API**: Refer to sample JSON files in `/sample-json/`
 
 ---
