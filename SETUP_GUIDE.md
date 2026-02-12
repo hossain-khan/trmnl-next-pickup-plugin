@@ -10,11 +10,11 @@ Never miss your garbage, recycling, or green bin pickup day! This plugin display
 
 Visit the TRMNL platform and install the Durham Waste Collection recipe:
 
-👉 **[Durham Waste Collection Recipe](https://usetrmnl.com/recipes)** (search for "Durham Waste")
+👉 **[Durham Waste Collection Recipe](https://trmnl.com/recipes/178528)**
 
 **Choose your approach:**
 - 🔹 **Install** - 1-click setup, receives automatic updates (recommended for most users)
-- 🔹 **Fork** - Fully customizable markup and settings, no automatic updates (requires [Developer edition](https://usetrmnl.com/blog/developer-edition))
+- 🔹 **Fork** - Fully customizable markup and settings, no automatic updates (requires [Developer edition](https://trmnl.com/blog/developer-edition))
 
 > 💡 **Tip:** Start with Install. You can always Fork later if you want to customize the look and feel!
 
@@ -63,7 +63,7 @@ Visit the [Configuration Helper](https://hossain-khan.github.io/trmnl-next-picku
 - TRMNL device
 - Durham Region, Ontario address
 - Place ID from Recollect (use our [Configuration Helper](https://hossain-khan.github.io/trmnl-next-pickup-plugin/))
-- [Developer edition add-on](https://usetrmnl.com/blog/developer-edition) (only if you want to Fork and customize)
+- [Developer edition add-on](https://trmnl.com/blog/developer-edition) (only if you want to Fork and customize)
 
 ---
 
@@ -92,8 +92,8 @@ Your recipe is ready! It will automatically refresh based on your playlist sched
 
 For less technical users, we suggest Installing. For developers who want full control, Fork the recipe and modify as needed!
 
-Learn more: [TRMNL Plugin Recipes Guide](https://help.usetrmnl.com/en/articles/10122094-plugin-recipes)
+Learn more: [TRMNL Plugin Recipes Guide](https://help.trmnl.com/en/articles/10122094-plugin-recipes)
 
 ---
 
-Made with ❤️ for [TRMNL](https://usetrmnl.com) | [View on GitHub](https://github.com/hossain-khan/trmnl-next-pickup-plugin)
+Made with ❤️ for [TRMNL](https://trmnl.com) | [View on GitHub](https://github.com/hossain-khan/trmnl-next-pickup-plugin)

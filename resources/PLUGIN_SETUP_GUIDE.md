@@ -73,7 +73,7 @@ If the configuration tool doesn't work or you prefer manual lookup:
 
 ### Step 1: Navigate to Private Plugins
 
-1. Log in to https://usetrmnl.com
+1. Log in to https://trmnl.com
 2. Click on **Plugins** in the top navigation
 3. Search for "**Private Plugin**" or scroll to find it
 4. Click **"Add Plugin"** or **"Configure"**
@@ -851,7 +851,7 @@ Click on the **"Third"** tab for 3-way layouts (1/3 screen size):
 
 **Solution:**
 1. Make sure you're using TRMNL Framework v2 classes
-2. Check the Framework docs: https://usetrmnl.com/framework
+2. Check the Framework docs: https://trmnl.com/framework
 3. Verify `<div class="layout">` wraps your content
 4. Use live preview to iterate on design
 
@@ -920,9 +920,9 @@ To test how the plugin looks with different timing:
 
 ## Support Resources
 
-- **TRMNL Help**: https://help.usetrmnl.com
+- **TRMNL Help**: https://help.trmnl.com
 - **Developer Discord**: Link in your Account page
-- **Framework Docs**: https://usetrmnl.com/framework
+- **Framework Docs**: https://trmnl.com/framework
 - **This Project**: Check TECHNICAL_SPECIFICATION.md for details
 
 ---
