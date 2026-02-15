@@ -1,3 +1,5 @@
+[![Connections](https://trmnl-badges.gohk.xyz/badge/connections?recipe=178528)](https://trmnl.com/recipes/178528)
+
 # trmnl-next-pickup-plugin
 Plugin for next pickup day for Durham Region, Ontario, Canada 🇨🇦
 
